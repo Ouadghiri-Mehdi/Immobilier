@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.vercel/
+.vite/
+.cache/
+coverage/
+.env
+.env.*
+!.env.example
+.openai/
+.codex/
+.agents/
+*.log
+.qa-ssr/
