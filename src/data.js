@@ -7,12 +7,56 @@ export const images = {
  office:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85',
 };
 export const categories=[
- {slug:'achat-vente',title:'Achat & vente',short:'Acheter & vendre',number:'01',image:'villa',intro:'Une résidence à habiter, un investissement à construire ou un bien à transmettre.',description:'Explorez une sélection de villas, appartements et riads. Pour vendre votre bien, présentez-nous votre projet afin de préparer un accompagnement adapté.'},
- {slug:'location',title:'Location',short:'Louer',number:'02',image:'living',intro:'Trouver un lieu où commencer un nouveau quotidien.',description:'Des espaces pour vous installer, avec une lecture claire du loyer, des surfaces et des équipements. Précisez vos critères pour préparer votre recherche.'},
- {slug:'locaux-professionnels',title:'Locaux professionnels',short:'Entreprendre',number:'03',image:'office',intro:'Des espaces pensés pour vos ambitions professionnelles.',description:'Bureaux et locaux d’activité : découvrez les surfaces, les usages et les emplacements de notre sélection, puis échangeons sur vos besoins.'},
- {slug:'decoration',title:'Décoration & aménagement',short:'Créer un intérieur',number:'04',image:'interior',intro:'Des lieux qui prennent votre personnalité.',description:'Une approche sensible des volumes, des usages et des matières. Découvrez nos inspirations et construisons le périmètre de votre projet intérieur.'},
- {slug:'hotels-appartements',title:'Hôtels & appartements',short:'Séjourner',number:'05',image:'pool',intro:'Le plaisir d’être ailleurs et de se sentir chez soi.',description:'Une sélection illustrative d’hébergements pour vos séjours. Présentez vos dates et vos envies pour demander des informations ; aucune réservation en ligne n’est effectuée.'},
+ {
+  slug:'achat-vente',title:'Achat & vente',short:'Acheter & vendre',number:'01',image:'villa',
+  intro:'Choisir une résidence, explorer un investissement ou préparer une vente.',
+  description:'Villas, appartements et riads : comparez les adresses selon leur emplacement, leurs volumes et votre projet.',
+  audience:'Pour les acquéreurs à la recherche d’un lieu de vie ou d’un investissement, et les propriétaires qui souhaitent vendre.',
+  includes:['Définition des critères et du budget','Lecture des caractéristiques des biens','Préparation des questions et des prochaines étapes'],
+  approach:'Un premier échange précise vos priorités. La recherche ou la présentation de votre bien est ensuite cadrée selon la mission convenue. Aucune performance financière n’est promise.',
+  subject:'Achat immobilier',action:'Décrire mon projet immobilier',
+ },
+ {
+  slug:'location',title:'Location',short:'Louer',number:'02',image:'living',
+  intro:'Trouver un logement adapté à votre quotidien et à votre calendrier.',
+  description:'Explorez les logements par ville, budget et configuration pour préparer une recherche précise.',
+  audience:'Pour les personnes qui préparent une installation ou recherchent une nouvelle résidence en location.',
+  includes:['Précision de la durée et des critères de recherche','Comparaison des loyers et des équipements annoncés','Préparation d’une demande sur les logements retenus'],
+  approach:'Vous indiquez votre destination, vos dates et vos besoins. Un échange permet de préciser les conditions à vérifier avant toute visite ou engagement.',
+  subject:'Location',action:'Préciser ma recherche locative',
+ },
+ {
+  slug:'locaux-professionnels',title:'Locaux professionnels',short:'Entreprendre',number:'03',image:'office',
+  intro:'Relier votre activité à un emplacement et à un espace adaptés.',
+  description:'Bureaux et locaux d’activité : examinez les surfaces, les accès et les usages envisagés.',
+  audience:'Pour les entrepreneurs, indépendants et équipes qui préparent une implantation ou un changement de locaux.',
+  includes:['Cadrage de l’activité et des besoins de surface','Repérage des emplacements et des accès','Identification des points techniques et d’usage à vérifier'],
+  approach:'Votre activité et vos contraintes orientent la recherche. Les conditions d’occupation et l’adéquation du local sont à confirmer avant tout engagement.',
+  subject:'Locaux professionnels',action:'Présenter mon besoin professionnel',
+ },
+ {
+  slug:'decoration',title:'Décoration & aménagement',short:'Créer un intérieur',number:'04',image:'interior',
+  intro:'Donner une direction à votre intérieur, des usages aux matières.',
+  description:'Explorez des ambiances et des pistes d’aménagement pour clarifier votre projet intérieur.',
+  audience:'Pour les propriétaires et occupants qui souhaitent repenser une pièce, une résidence ou un espace professionnel.',
+  includes:['Échange sur les usages et les contraintes du lieu','Définition d’une ambiance et d’une palette','Pistes d’organisation des espaces selon la mission'],
+  approach:'Vos envies et les possibilités du lieu servent de point de départ. Le livrable, le budget et le périmètre d’intervention sont définis ensemble ; les inspirations présentées ne sont pas des réalisations client.',
+  subject:'Décoration et aménagement',action:'Parler de mon intérieur',
+ },
+ {
+  slug:'hotels-appartements',title:'Hôtels & appartements',short:'Séjourner',number:'05',image:'pool',
+  intro:'Découvrir un hébergement et préparer les bonnes questions pour votre séjour.',
+  description:'Comparez les ambiances et les capacités, puis transmettez vos dates et vos préférences.',
+  audience:'Pour les voyageurs qui préparent un séjour personnel ou professionnel au Maroc ou à Dubaï.',
+  includes:['Recueil des dates et du nombre de voyageurs','Lecture des équipements et du tarif indicatif','Demande d’informations sur l’hébergement choisi'],
+  approach:'Sélectionnez une fiche et indiquez vos dates dans le formulaire. Les disponibilités, le tarif et les conditions restent à confirmer lors de l’échange. Aucune réservation n’est effectuée sur le site.',
+  subject:'Séjour',action:'Préparer ma demande de séjour',
+ },
 ];
+// Ajouter uniquement des partenaires autorisés et confirmés.
+// Format : {id, name, description, logo: '/assets/...', validated: true}.
+// Une entrée sans validation explicite n’est jamais affichée.
+export const partners=[];
 export const destinations={
  maroc:{name:'Maroc',label:'au Maroc',currency:'MAD',eyebrow:'LA BEAUTÉ D’UN ART DE VIVRE',headline:'Le temps de vivre.',description:'Des patios de Marrakech aux lignes contemporaines de Casablanca et Rabat, découvrez des lieux qui ont quelque chose à raconter.',cities:['Marrakech','Casablanca','Rabat'],image:'maroc',tone:'warm',editorial:'Lumière, matière, caractère.',text:'Une architecture ouverte sur les jardins, des matières vivantes, des villes aux rythmes singuliers. Au Maroc, chaque projet commence par un choix de vie.'},
  dubai:{name:'Dubaï',label:'à Dubaï',currency:'AED',eyebrow:'UNE AUTRE PERSPECTIVE',headline:'L’horizon vous appartient.',description:'De la vie urbaine de Downtown aux horizons de Palm Jumeirah, explorez une autre façon d’habiter, d’investir et de séjourner.',cities:['Dubai Marina','Downtown','Palm Jumeirah','Business Bay'],image:'dubai',tone:'cool',editorial:'L’espace des possibles.',text:'Perspectives urbaines, adresses en bord de mer et intérieurs ouverts sur l’horizon. Découvrez des lieux à choisir selon votre quotidien et vos projets.'}

@@ -22,11 +22,14 @@ Le dossier `dist/` contient la version statique prête à publier. Les pages uti
 - `src/components/layout.jsx` : navigation, menu des destinations, pied de page et aperçu WhatsApp.
 - `src/components/property.jsx` : cartes, favoris et galerie plein écran avec clavier et gestes tactiles.
 - `src/components/marketing.jsx` : destinations, recherche, activités, accompagnement et FAQ.
+- `src/components/home.jsx` : composition de l’accueil, de l’entrée visuelle au contact.
+- `src/content.js` : textes de l’accueil, séparés de la présentation.
 - `src/pages.jsx` : pages et parcours de l’application.
 - `src/data.js` : destinations, cinq rubriques, 16 annonces (8 par destination), inspirations et textes.
 - `src/config.js` : nom et coordonnées publiques de l’agence.
 - `src/domain.js` : recherche, prix, URL de contact et validation des dates.
 - `src/style.css` : identité visuelle, composants, transitions et mise en page responsive.
+- `src/styles/refinements.css` : harmonisation visuelle, cartes de services, menus et adaptations accessibles.
 - `public/assets/` : photographies illustratives locales et favicon.
 - `api/contact.js` : fonction serveur e-mail destinée au déploiement Vercel, non exécutée sur l’aperçu statique Sites.
 - `tests/` : logique du catalogue et du contact, ainsi qu’une entrée de rendu React pour vérifier toutes les pages.
@@ -40,6 +43,10 @@ Le contact est intégré en bas de l’accueil : les boutons y conduisent avec u
 ## Personnaliser les données
 
 Modifier `src/data.js` pour changer les biens, prix, surfaces, descriptions, photographies et prestations sans retoucher les composants. Vérifier les informations avant publication. Les devises ne sont pas converties. Les filtres sont propres au pays et à l’activité, et restent dans l’URL pour le retour navigateur. Les favoris sont propres au navigateur, sans synchronisation entre appareils.
+
+Chaque service possède un public (`audience`), un contenu (`includes`), un déroulement (`approach`), un sujet de contact (`subject`) et une action (`action`). Les prestations sont à confirmer avec l’agence avant lancement. Le tableau `partners` est vide : la section n’apparaît que pour des entrées avec `id`, `name` et `validated: true`. Les logos et descriptions doivent être fournis et leur publication autorisée. Aucun partenaire de démonstration n’est affiché.
+
+L’accueil suit l’ordre : entrée visuelle, destinations, agence, services, sélection de biens, méthode, partenaires validés éventuels, contact. Les contenus de l’accueil se modifient dans `src/content.js`.
 
 Dans `src/config.js`, renseigner `whatsappNumber` au format international. Le bouton ouvre `https://wa.me/` avec un message prérempli ; l’utilisateur envoie le message depuis WhatsApp. Sans numéro, un aperçu permet simplement de copier le texte. Aucune adresse ou identité officielle n’est inventée.
 
@@ -58,9 +65,17 @@ Aucun secret ne doit être placé dans les fichiers publics ou commité. Le serv
 
 ## Visuels et animations
 
+L’ouverture présente explicitement l’agence immobilière et les deux destinations.
+Le composant `src/components/HeroMedia.jsx` accepte une vidéo facultative, configurée
+dans `src/config.js`. Sans vidéo autorisée, le poster local reste affiché sans requête
+vers un fichier absent. Les exports attendus, le montage et la procédure d’activation
+sont détaillés dans [docs/hero-video.md](docs/hero-video.md).
+
 Les trois images locales sont des illustrations générées via l’outil intégré de génération d’images : une villa contemporaine de Marrakech avec piscine, une terrasse de Dubaï ouverte sur la skyline et un intérieur de riad aux matières naturelles. Elles ne décrivent pas des biens disponibles. Les autres images sont des ambiances Unsplash, avec repli sur le visuel local si leur chargement échoue. Les polices proviennent de Google Fonts. Pour le lancement, remplacer les ambiances par les photos autorisées de chaque bien et vérifier les droits.
 
-Les animations utilisent CSS et les états React : entrée des pages, révélation au défilement, menus, photos, cartes, galerie et micro-interactions. Elles respectent `prefers-reduced-motion`. La mise en page comporte des adaptations téléphone, tablette et grand écran. Le rendu dans un navigateur reste à vérifier dans l’environnement d’aperçu disponible.
+Les animations utilisent CSS et les états React : entrée des pages, apparitions au défilement, menus, photos, cartes, galerie et micro-interactions. Le contenu des sections reste visible même si l’observateur ne se déclenche pas. Les animations et tous les défilements déclenchés en JavaScript respectent `prefers-reduced-motion`. Les menus masqués sont exclus de la navigation clavier. Les galeries acceptent les flèches, Début/Fin et les gestes horizontaux ; la fermeture restitue le focus au bouton d’ouverture.
+
+`npm test` exécute les tests de logique et le rendu en mémoire des 42 routes et fiches, avec des contrôles de structure de l’accueil, de contact contextualisé et de visibilité des partenaires. Ces tests côté serveur ne remplacent pas un contrôle dans le navigateur sur ordinateur, tablette et téléphone.
 
 ## SEO et lancement
 

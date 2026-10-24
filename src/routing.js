@@ -3,11 +3,14 @@ export const href=p=>'#'+normalizeContactPath(p);
 export const destPath=d=>'/destination/'+d;
 export const categoryPath=(d,c)=>destPath(d)+'/'+c;
 export const defaultMessage='Bonjour, je souhaite échanger sur un projet immobilier au Maroc ou à Dubaï.';
-export function scrollToContact(){
- const section=document.getElementById('contact');
+export function scrollToSection(id,block='start'){
+ const section=document.getElementById(id);
  if(!section)return;
- const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
- section.scrollIntoView({behavior:reduce?'instant':'smooth',block:'start'});
+ const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+ section.scrollIntoView({behavior:reduce?'instant':'smooth',block});
+}
+export function scrollToContact(){
+ scrollToSection('contact');
  document.getElementById('contact-title')?.focus({preventScroll:true});
 }
 export function navigate(path){

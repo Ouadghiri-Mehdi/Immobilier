@@ -1,10 +1,7 @@
-import React,{useState,useEffect,useRef,useContext} from 'react';
-import {ArrowUpRight,ArrowRight,ArrowLeft,ChevronDown,ChevronRight,ChevronLeft,Heart,Menu,X,Search,SlidersHorizontal,MapPin,Maximize2,BedDouble,Bath,Check,Mail,Phone,MessageCircle,Plus,Minus,Grid2X2,MoveUpRight,Leaf,Sun,Compass,Briefcase,Home,Paintbrush,Hotel,Copy,Send} from 'lucide-react';
-import {categories,destinations,properties,projects,steps,faqs,images} from '../data';
-import {filterProperties,priceText,whatsappURL,contactPath,validStayDates} from '../domain';
-import {siteConfig} from '../config';
-import {useApp} from '../context';
-import {href,destPath,categoryPath,defaultMessage,navigate,scrollToContact} from '../routing';
+import React,{useState,useEffect,useRef} from 'react';
+import {ArrowUpRight,ArrowRight,ChevronRight,Compass} from 'lucide-react';
+import {images} from '../data';
+import {href,scrollToContact} from '../routing';
 function Photo({src,alt='',className='',eager=false,...rest}){return <img src={src} alt={alt} className={className} loading={eager?'eager':'lazy'} decoding="async" onError={e=>{if(!e.currentTarget.src.endsWith('/assets/maroc-villa.jpg'))e.currentTarget.src=images.maroc;}} {...rest}/>;}
 
 function Link({to,children,className='',onClick,...props}){
@@ -23,7 +20,23 @@ function ButtonLink({to,children,light=false,outline=false,className=''}){return
 
 function Eyebrow({children,light=false}){return <p className={'eyebrow '+(light?'eyebrow-light':'')}><span/>{children}</p>;}
 
-function Reveal({children,className='',delay=0,as:Tag='div'}){const ref=useRef(null);const [seen,setSeen]=useState(false);useEffect(()=>{if(!('IntersectionObserver'in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){setSeen(true);return;}const io=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){setSeen(true);io.disconnect();}},{threshold:.08});if(ref.current)io.observe(ref.current);return()=>io.disconnect();},[]);return <Tag ref={ref} className={`reveal ${seen?'seen':''} ${className}`} style={{'--reveal-delay':delay+'ms'}}>{children}</Tag>;}
+function Reveal({children,className='',delay=0,as:Tag='div'}){
+ const ref=useRef(null);
+ const [seen,setSeen]=useState(false);
+ useEffect(()=>{
+  // Le contenu reste visible même sans observer ou si l’animation est désactivée.
+  if(!window.IntersectionObserver||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches)return;
+  let observer;
+  try{
+   observer=new IntersectionObserver(entries=>{
+    if(entries.some(entry=>entry.isIntersecting)){setSeen(true);observer.disconnect();}
+   },{threshold:.08});
+   if(ref.current)observer.observe(ref.current);
+  }catch{observer?.disconnect();}
+  return()=>observer?.disconnect();
+ },[]);
+ return <Tag ref={ref} className={`reveal ${seen?'seen':''} ${className}`} style={{'--reveal-delay':Math.min(delay,150)+'ms'}}>{children}</Tag>;
+}
 
 function SectionTitle({eyebrow,title,italic,description,action,center=false,page=false}){const Heading=page?'h1':'h2';return <Reveal className={'section-heading '+(center?'center':'')}><div><Eyebrow>{eyebrow}</Eyebrow><Heading>{title}{italic&&<><br/><em>{italic}</em></>}</Heading></div>{description&&<p className="section-description">{description}</p>}{action}</Reveal>;}
 

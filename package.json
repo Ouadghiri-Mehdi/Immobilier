@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "test": "node --test tests/domain.test.mjs tests/contact.test.mjs tests/contact-navigation.test.mjs"
+    "test": "node --test tests/domain.test.mjs tests/contact.test.mjs tests/contact-navigation.test.mjs tests/render.test.mjs"
   },
   "dependencies": {
     "react": "19.2.6",
