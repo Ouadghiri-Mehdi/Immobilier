@@ -20,7 +20,7 @@ const positions=sections.map(section=>home.indexOf(section));
 assert.ok(positions.every((position,index)=>position>=0&&(!index||position>positions[index-1])),'Ordre des sections de l’accueil');
 assert.equal((home.match(/class="service-card"/g)||[]).length,5);
 assert.ok(home.includes('Votre projet immobilier')&&home.includes('au Maroc et à Dubaï'));
-assert.ok(home.includes('class="hero-poster"')&&home.includes('fetchPriority="high"'));
+assert.ok(home.includes('/assets/hero/hero-dubai.jpeg')&&home.includes('/assets/hero/hero-marrakech.jpg')&&home.includes('fetchPriority="high"'));
 assert.ok(!home.includes('<video'),'Aucune vidéo chargée sans sources configurées');
 const opening=home.slice(0,home.indexOf('id="destinations-home"'));
 assert.ok(opening.includes('href="#/destination/dubai"')&&opening.includes('href="#/destination/maroc"'),'Destinations accessibles dès l’ouverture');
@@ -29,6 +29,10 @@ assert.ok(!home.includes('id="partenaires-home"'),'Aucun partenaire publié sans
 assert.equal(renderToStaticMarkup(<Partners items={[{id:'draft',name:'Brouillon',validated:false}]}/>),'');
 const partnerMarkup=renderToStaticMarkup(<Partners items={[{id:'draft',name:'Brouillon'},{id:'confirmed',name:'Exemple de test',validated:true}]}/>);
 assert.ok(partnerMarkup.includes('Exemple de test')&&!partnerMarkup.includes('Brouillon'));
+const previewMarkup=renderToStaticMarkup(<Partners items={[]} preview/>);
+assert.ok(previewMarkup.includes('PRÉSENTATION PROVISOIRE')&&previewMarkup.includes('Emplacement 3'));
+assert.equal(renderToStaticMarkup(<Partners items={[]} preview={false}/>),'');
+assert.ok(!renderToStaticMarkup(<Partners items={[{id:'real',name:'Partenaire validé',validated:true}]} preview/>).includes('PRÉSENTATION PROVISOIRE'));
 
 globalThis.location={hash:'#/services',href:'https://example.test/#/services'};
 const services=renderToStaticMarkup(<App/>);

@@ -4,7 +4,7 @@ import {categories,destinations,images} from '../data';
 import {useApp} from '../context';
 import {destPath,categoryPath} from '../routing';
 import {Photo,Link,Eyebrow} from './ui';
-function Logo({footer=false}){return <Link to="/" className={'logo '+(footer?'logo-footer':'')} aria-label="Rivage, accueil">RIVAGE<span>IMMOBILIER & ART DE VIVRE</span></Link>;}
+function Logo({footer=false}){return <Link to="/" className={'logo '+(footer?'logo-footer':'')} aria-label="Sarouty, accueil"><img src="/assets/sarouty-logo.png" alt="Sarouty" width="1050" height="300" loading={footer?'lazy':'eager'}/></Link>;}
 
 function Header({route}) {
  const {favorites}=useApp();

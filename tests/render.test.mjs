@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import {heroMediaConfig} from '../src/config.js';
 
 test('Ouverture : les médias locaux configurés existent réellement', () => {
-  const paths = [heroMediaConfig.poster, ...Object.values(heroMediaConfig.video).flat().map(source=>source.src)];
+  const paths = [heroMediaConfig.poster, ...heroMediaConfig.slides.map(slide=>slide.src)];
   for(const path of paths){
     if(path.startsWith('/'))assert.ok(existsSync(new URL('../public'+path, import.meta.url)), 'Média absent : '+path);
   }

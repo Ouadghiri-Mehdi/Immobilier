@@ -44,7 +44,7 @@ Le contact est intégré en bas de l’accueil : les boutons y conduisent avec u
 
 Modifier `src/data.js` pour changer les biens, prix, surfaces, descriptions, photographies et prestations sans retoucher les composants. Vérifier les informations avant publication. Les devises ne sont pas converties. Les filtres sont propres au pays et à l’activité, et restent dans l’URL pour le retour navigateur. Les favoris sont propres au navigateur, sans synchronisation entre appareils.
 
-Chaque service possède un public (`audience`), un contenu (`includes`), un déroulement (`approach`), un sujet de contact (`subject`) et une action (`action`). Les prestations sont à confirmer avec l’agence avant lancement. Le tableau `partners` est vide : la section n’apparaît que pour des entrées avec `id`, `name` et `validated: true`. Les logos et descriptions doivent être fournis et leur publication autorisée. Aucun partenaire de démonstration n’est affiché.
+Chaque service possède un public (`audience`), un contenu (`includes`), un déroulement (`approach`), un sujet de contact (`subject`) et une action (`action`). Les prestations sont à confirmer avec l’agence avant lancement. Renseigner les vrais partenaires dans le tableau `partners` de `src/data.js` : `id` unique, `name`, `validated: true`, puis éventuellement `logo` (chemin public autorisé) et `description`. Sans entrée validée, trois emplacements neutres « Présentation provisoire » apparaissent uniquement avec `npm run dev`. `partnersConfig.preview` dans `src/config.js` contrôle cet aperçu, désactivé dans la compilation de production. Les partenaires validés remplacent toujours l’aperçu. Les logos et descriptions doivent être fournis et leur publication autorisée.
 
 L’accueil suit l’ordre : entrée visuelle, destinations, agence, services, sélection de biens, méthode, partenaires validés éventuels, contact. Les contenus de l’accueil se modifient dans `src/content.js`.
 
@@ -66,10 +66,15 @@ Aucun secret ne doit être placé dans les fichiers publics ou commité. Le serv
 ## Visuels et animations
 
 L’ouverture présente explicitement l’agence immobilière et les deux destinations.
-Le composant `src/components/HeroMedia.jsx` accepte une vidéo facultative, configurée
-dans `src/config.js`. Sans vidéo autorisée, le poster local reste affiché sans requête
-vers un fichier absent. Les exports attendus, le montage et la procédure d’activation
-sont détaillés dans [docs/hero-video.md](docs/hero-video.md).
+Le composant `src/components/HeroMedia.jsx` affiche un diaporama sans vidéo :
+`public/assets/hero/hero-dubai.jpg`, puis `hero-marrakech.jpg`. Les chemins publics,
+textes alternatifs, cadrages ordinateur/mobile, intervalle de 7 secondes et fondu
+de 1 seconde sont centralisés dans `heroMediaConfig` (`src/config.js`). La seconde
+image doit être chargée avant toute transition. En cas d’erreur, l’image disponible
+reste affichée, avec le poster local en dernier recours. Les indicateurs permettent
+la sélection manuelle (qui met en pause), et une commande permet la reprise.
+Avec la réduction des mouvements, seuls les changements manuels sans fondu restent
+actifs. Les fichiers vidéo conservés ne sont ni activés ni chargés.
 
 Les trois images locales sont des illustrations générées via l’outil intégré de génération d’images : une villa contemporaine de Marrakech avec piscine, une terrasse de Dubaï ouverte sur la skyline et un intérieur de riad aux matières naturelles. Elles ne décrivent pas des biens disponibles. Les autres images sont des ambiances Unsplash, avec repli sur le visuel local si leur chargement échoue. Les polices proviennent de Google Fonts. Pour le lancement, remplacer les ambiances par les photos autorisées de chaque bien et vérifier les droits.
 

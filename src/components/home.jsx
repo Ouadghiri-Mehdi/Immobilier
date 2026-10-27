@@ -22,11 +22,6 @@ export function HomeLayout({children}) {
           <Link to="/contact" className="hero-secondary">{hero.contactAction} <ArrowUpRight size={17}/></Link>
         </div>
       </div>
-      <nav className="hero-destinations" aria-label="Accéder à une destination">
-        <span>Choisissez votre destination</span>
-        <Link to="/destination/dubai">Dubaï <ArrowUpRight size={17}/></Link>
-        <Link to="/destination/maroc">Maroc <ArrowUpRight size={17}/></Link>
-      </nav>
     </section>
 
     <section className="section intro-section" id="destinations-home">

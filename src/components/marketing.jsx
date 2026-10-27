@@ -4,6 +4,7 @@ import {categories,destinations,steps,faqs,images,partners} from '../data';
 import {contactPath} from '../domain';
 import {destPath,categoryPath,navigate} from '../routing';
 import {Photo,Link,ButtonLink,Eyebrow,Reveal,SectionTitle} from './ui';
+import {partnersConfig} from '../config';
 function SearchBar({defaultDestination=''}){const [destination,setDestination]=useState(defaultDestination);const [category,setCategory]=useState('achat-vente');const [type,setType]=useState('');return <form className="search-bar" onSubmit={e=>{e.preventDefault();navigate(categoryPath(destination||'maroc',category)+(type?'?type='+encodeURIComponent(type):''));}}><label><span>OÙ SOUHAITEZ-VOUS ALLER ?</span><select value={destination} required onChange={e=>setDestination(e.target.value)}><option value="" disabled>Choisir une destination</option>{Object.entries(destinations).map(([k,d])=><option key={k} value={k}>{d.name}</option>)}</select></label><label><span>VOTRE PROJET</span><select value={category} onChange={e=>setCategory(e.target.value)}>{categories.map(c=><option key={c.slug} value={c.slug}>{c.title}</option>)}</select></label><label><span>TYPE DE BIEN</span><select value={type} onChange={e=>setType(e.target.value)} disabled={category==='decoration'}><option value="">Tous les biens</option>{['Villa','Appartement','Riad','Bureau'].map(t=><option key={t}>{t}</option>)}</select></label><button className="button search-submit" type="submit"><Search size={17}/><span>Explorer</span><ArrowUpRight size={18}/></button></form>;}
 
 function DestinationCards(){return <div className="destination-grid">{Object.entries(destinations).map(([key,d],i)=><Reveal key={key} delay={i*100}><Link to={destPath(key)} className={'destination-card '+d.tone}><Photo src={images[d.image]} alt={'Ambiance architecturale '+d.label}/><div className="image-shade"/><span className="destination-top">0{i+1} / {d.eyebrow}</span><div className="destination-bottom"><div><h3>{d.name}</h3><p>{d.cities.slice(0,3).join(' · ')}</p></div><span className="round-arrow"><ArrowUpRight size={24}/></span></div><span className="destination-hover">Découvrir la destination</span></Link></Reveal>)}</div>;}
@@ -29,9 +30,18 @@ function ServiceDetails({service}){
  </div>;
 }
 
-function Partners({items=partners}){
+function Partners({items=partners,preview=partnersConfig.preview}){
  const confirmed=items.filter(partner=>partner.validated===true&&partner.id&&partner.name?.trim());
- if(!confirmed.length)return null;
+ if(!confirmed.length){
+  if(!preview)return null;
+  return <section className="section partners-section" id="partenaires-home">
+   <SectionTitle eyebrow="PRÉSENTATION PROVISOIRE" title="Nos partenaires" italic="pour votre projet."
+    description="Emplacements à compléter après validation des partenaires par l’agence."/>
+   <ul className="partner-grid partner-preview">{[1,2,3].map(index=><li key={index}>
+    <h3>Emplacement {index}</h3><p>Nom, logo et présentation à renseigner.</p>
+   </li>)}</ul>
+  </section>;
+ }
  return <section className="section partners-section" id="partenaires-home">
   <SectionTitle eyebrow="DES INTERLOCUTEURS IDENTIFIÉS" title="Nos partenaires" italic="pour votre projet."/>
   <ul className="partner-grid">{confirmed.map(partner=><li key={partner.id}>

@@ -1,90 +1,51 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Pause, Play} from 'lucide-react';
+import React, {useEffect, useState} from 'react';
 import {heroMediaConfig} from '../config';
 
-// Le poster est indépendant de la vidéo : il reste affiché pendant son chargement
-// et en cas d’échec. Les sources ne sont ajoutées qu’après le premier rendu.
 export function HeroMedia({config=heroMediaConfig}) {
-  const [preferences, setPreferences] = useState({ready:false, reduced:true, mobile:false, saveData:false});
-  useEffect(() => {
+  const [active, setActive] = useState(0);
+  const [loaded, setLoaded] = useState({});
+  const [failed, setFailed] = useState({});
+  const [reduced, setReduced] = useState(true);
+  const [visible, setVisible] = useState(true);
+  const slides = config.slides;
+  const ready = slides.every((_, index)=>loaded[index] && !failed[index]);
+  const displayed = failed[active]?slides.findIndex((_, index)=>loaded[index] && !failed[index]):active;
+  useEffect(()=>{
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const mobile = window.matchMedia('(max-width: 760px)');
-    const connection = navigator.connection;
-    const update = () => setPreferences({ready:true, reduced:motion.matches, mobile:mobile.matches, saveData:Boolean(connection?.saveData)});
-    update();
+    const update = ()=>setReduced(motion.matches);
+    const visibility = ()=>setVisible(!document.hidden);
+    update(); visibility();
     motion.addEventListener('change', update);
-    mobile.addEventListener('change', update);
-    connection?.addEventListener('change', update);
-    return () => {
+    document.addEventListener('visibilitychange', visibility);
+    return ()=>{
       motion.removeEventListener('change', update);
-      mobile.removeEventListener('change', update);
-      connection?.removeEventListener('change', update);
+      document.removeEventListener('visibilitychange', visibility);
     };
   }, []);
-  const sources = config.video[preferences.mobile?'mobile':'desktop'];
-  const enabled = preferences.ready && !preferences.reduced && !preferences.saveData && sources.length>0;
-  return <div className="hero-media">
-    <img className="hero-poster" src={config.poster} alt={config.posterAlt} loading="eager" fetchPriority="high" decoding="async"/>
-    {enabled && <HeroVideo key={sources.map(source=>source.src).join('|')} sources={sources} poster={config.poster}/>}
-  </div>;
-}
-
-function HeroVideo({sources, poster}) {
-  const videoRef = useRef(null);
-  const failedSources = useRef(new Set());
-  const [mounted, setMounted] = useState(false);
-  const [hasFrame, setHasFrame] = useState(false);
-  const [status, setStatus] = useState('loading');
-  useEffect(() => {
-    // Ne pas concurrencer le premier affichage du texte et du poster.
-    if(window.requestIdleCallback){
-      const idle = window.requestIdleCallback(()=>setMounted(true), {timeout:1800});
-      return ()=>window.cancelIdleCallback(idle);
-    }
-    const frame = requestAnimationFrame(()=>setMounted(true));
-    return ()=>cancelAnimationFrame(frame);
-  }, []);
-  useEffect(() => {
-    if(!mounted)return;
-    let active = true;
-    const video = videoRef.current;
-    video.defaultMuted = true;
-    video.muted = true;
-    try {
-      Promise.resolve(video.play()).catch(()=>{
-        if(active){setHasFrame(false);setStatus('blocked');}
-      });
-    } catch {
-      setHasFrame(false);setStatus('blocked');
-    }
-    return ()=>{active=false;video.pause();};
-  }, [mounted]);
-  const fail = () => {setHasFrame(false);setStatus('error');};
-  async function toggle() {
-    const video = videoRef.current;
-    if(status==='playing'){
-      video.pause();
-      setStatus('paused');
-    } else {
-      try {await video.play();}
-      catch {setHasFrame(false);setStatus('blocked');}
-    }
+  useEffect(()=>{
+    if(!ready || reduced || !visible)return;
+    const timer = window.setInterval(()=>setActive(index=>(index+1)%slides.length), config.intervalMs);
+    return ()=>window.clearInterval(timer);
+  }, [ready, reduced, visible, active, slides.length, config.intervalMs]);
+  function fail(index) {
+    setFailed(previous=>({...previous, [index]:true}));
   }
-  if(!mounted)return null;
-  return <>
-    <video ref={videoRef} className={'hero-video '+(hasFrame?'has-frame':'')} poster={poster}
-      autoPlay muted loop playsInline preload="none" aria-hidden="true" tabIndex={-1}
-      onPlaying={()=>{setHasFrame(true);setStatus('playing');}}
-      onPause={()=>setStatus(previous=>previous==='playing'?'paused':previous)} onError={fail}>
-      {sources.map(source=><source key={source.src} src={source.src} type={source.type} onError={()=>{
-        failedSources.current.add(source.src);
-        if(failedSources.current.size===sources.length)fail();
-      }}/>) }
-    </video>
-    {hasFrame && <button type="button" className="hero-video-control" onClick={toggle}
-      aria-label={status==='playing'?'Mettre en pause la vidéo d’arrière-plan':'Reprendre la vidéo d’arrière-plan'}>
-      {status==='playing'?<Pause size={16} aria-hidden="true"/>:<Play size={16} aria-hidden="true"/>}
-      <span>{status==='playing'?'Pause vidéo':'Reprendre la vidéo'}</span>
-    </button>}
-  </>;
+  return <div className="hero-media" style={{'--hero-fade':(ready?config.fadeMs:0)+'ms'}}>
+    {failed[0] && (!loaded[1] || failed[1]) && <img className="hero-poster hero-fallback" src={config.poster} alt={config.posterAlt}/>}
+    {slides.map((slide, index)=><img key={slide.src}
+      className={'hero-poster hero-slide '+(index===0?'hero-slide-base':'')+(displayed===index?' is-active':'')}
+      style={{'--hero-position':slide.position.desktop, '--hero-position-mobile':slide.position.mobile,
+        visibility:failed[index]?'hidden':undefined}}
+      src={slide.src} alt={slide.alt} aria-hidden={displayed!==index}
+      loading="eager" fetchPriority={index===0?'high':'low'} decoding="async"
+      onLoad={()=>{
+        setLoaded(previous=>({...previous, [index]:true}));
+      }} onError={()=>fail(index)}/>)}
+    <div className="hero-slideshow-controls" role="group" aria-label="Images de l’accueil">
+      {slides.map((slide, index)=><button key={slide.src} type="button" className="hero-slide-indicator"
+        aria-label={'Afficher '+slide.label+(failed[index]?' — image indisponible':'')}
+        aria-pressed={displayed===index} disabled={Boolean(failed[index]) || (index!==displayed && !loaded[index])}
+        onClick={()=>setActive(index)}><span aria-hidden="true"/></button>)}
+    </div>
+  </div>;
 }
