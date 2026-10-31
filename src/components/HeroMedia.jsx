@@ -1,3 +1,4 @@
+import {tr} from '../i18n/index.js';
 import React, {useEffect, useState} from 'react';
 import {heroMediaConfig} from '../config';
 
@@ -31,21 +32,21 @@ export function HeroMedia({config=heroMediaConfig}) {
     setFailed(previous=>({...previous, [index]:true}));
   }
   return <div className="hero-media" style={{'--hero-fade':(ready?config.fadeMs:0)+'ms'}}>
-    {failed[0] && (!loaded[1] || failed[1]) && <img className="hero-poster hero-fallback" src={config.poster} alt={config.posterAlt}/>}
-    {slides.map((slide, index)=><img key={slide.src}
+    {tr(failed[0] && (!loaded[1] || failed[1]) && <img className="hero-poster hero-fallback" src={config.poster} alt={tr(config.posterAlt)}/>)}
+    {tr(slides.map((slide, index)=><img key={slide.src}
       className={'hero-poster hero-slide '+(index===0?'hero-slide-base':'')+(displayed===index?' is-active':'')}
       style={{'--hero-position':slide.position.desktop, '--hero-position-mobile':slide.position.mobile,
         visibility:failed[index]?'hidden':undefined}}
-      src={slide.src} alt={slide.alt} aria-hidden={displayed!==index}
+      src={slide.src} alt={tr(slide.alt)} aria-hidden={displayed!==index}
       loading="eager" fetchPriority={index===0?'high':'low'} decoding="async"
       onLoad={()=>{
         setLoaded(previous=>({...previous, [index]:true}));
-      }} onError={()=>fail(index)}/>)}
-    <div className="hero-slideshow-controls" role="group" aria-label="Images de l’accueil">
-      {slides.map((slide, index)=><button key={slide.src} type="button" className="hero-slide-indicator"
-        aria-label={'Afficher '+slide.label+(failed[index]?' — image indisponible':'')}
+      }} onError={()=>fail(index)}/>))}
+    <div className="hero-slideshow-controls" role="group" aria-label={tr("Images de l’accueil")}>
+      {tr(slides.map((slide, index)=><button key={slide.src} type="button" className="hero-slide-indicator"
+        aria-label={tr("Afficher {value0}{value1}", {value0:tr(slide.label), value1:tr(failed[index]?' — image indisponible':'')})}
         aria-pressed={displayed===index} disabled={Boolean(failed[index]) || (index!==displayed && !loaded[index])}
-        onClick={()=>setActive(index)}><span aria-hidden="true"/></button>)}
+        onClick={()=>setActive(index)}><span aria-hidden="true"/></button>))}
     </div>
   </div>;
 }

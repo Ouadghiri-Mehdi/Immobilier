@@ -1,6 +1,6 @@
 // Coordonnées publiques de l’agence. Ne jamais mettre de clé API ici.
 export const siteConfig = {
- name:'RIVAGE', tagline:'Deux destinations. Un art de vivre.',
+ name:'Sarouty Properties', tagline:'Deux destinations. Un art de vivre.',
  whatsappNumber:'', email:'', phone:'', address:'',
  contactEndpoint:'', // '/api/contact' après configuration serveur sur Vercel.
  demo:true,
@@ -17,11 +17,8 @@ export const heroMediaConfig = {
   {src:'/assets/hero/hero-dubai.jpeg', label:'Dubaï',
    alt:'Vue de Dubaï et de sa skyline depuis une terrasse résidentielle.',
    position:{desktop:'center 50%',mobile:'56% center'}},
-  {src:'/assets/hero/hero-marrakech.jpg', label:'Marrakech',
+  {src:'/assets/hero/hero-marrakech.png', label:'Marrakech',
    alt:'Vue de Marrakech, de la Koutoubia et des montagnes de l’Atlas.',
    position:{desktop:'center 50%',mobile:'76% center'}},
  ],
 };
-
-// L’aperçu neutre est réservé au serveur de développement, jamais à la production.
-export const partnersConfig = {preview:import.meta.env?.DEV === true};

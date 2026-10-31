@@ -1,6 +1,6 @@
-# RIVAGE — Immobilier & art de vivre
+# Sarouty Properties | Immobilier au Maroc et à Dubaï
 
-Application React de démonstration pour une agence immobilière au Maroc et à Dubaï. Identité provisoire, annonces et prix fictifs. Navigation, filtres, favoris, fiches détaillées et demandes de renseignements sont implémentés. Aucun compte, réservation, paiement ou envoi de message réel n’est activé dans l’aperçu.
+Application React de présentation pour Sarouty Properties, agence de services immobiliers au Maroc et à Dubaï. Les annonces et prix sont fictifs. Navigation, filtres, favoris, fiches détaillées et demandes de renseignements sont implémentés. Aucun compte, réservation, paiement ou envoi de message réel n’est activé dans l’aperçu.
 
 ## Démarrer
 
@@ -42,9 +42,14 @@ Le contact est intégré en bas de l’accueil : les boutons y conduisent avec u
 
 ## Personnaliser les données
 
+Le site est disponible en français et en anglais avec le sélecteur FR | EN. Le choix
+est mémorisé localement. Les traductions et leurs paramètres se modifient dans
+`src/i18n/fr.json` et `src/i18n/en.json` ; voir [docs/i18n.md](docs/i18n.md).
+Les traductions des textes légaux restent à faire valider par l’agence.
+
 Modifier `src/data.js` pour changer les biens, prix, surfaces, descriptions, photographies et prestations sans retoucher les composants. Vérifier les informations avant publication. Les devises ne sont pas converties. Les filtres sont propres au pays et à l’activité, et restent dans l’URL pour le retour navigateur. Les favoris sont propres au navigateur, sans synchronisation entre appareils.
 
-Chaque service possède un public (`audience`), un contenu (`includes`), un déroulement (`approach`), un sujet de contact (`subject`) et une action (`action`). Les prestations sont à confirmer avec l’agence avant lancement. Renseigner les vrais partenaires dans le tableau `partners` de `src/data.js` : `id` unique, `name`, `validated: true`, puis éventuellement `logo` (chemin public autorisé) et `description`. Sans entrée validée, trois emplacements neutres « Présentation provisoire » apparaissent uniquement avec `npm run dev`. `partnersConfig.preview` dans `src/config.js` contrôle cet aperçu, désactivé dans la compilation de production. Les partenaires validés remplacent toujours l’aperçu. Les logos et descriptions doivent être fournis et leur publication autorisée.
+Chaque service possède un public (`audience`), un contenu (`includes`), un déroulement (`approach`), un sujet de contact (`subject`) et une action (`action`). Les prestations sont à confirmer avec l’agence avant lancement. Les huit partenaires communiqués par le client sont renseignés dans `partners` (`src/data.js`), sans mode aperçu. Sept logos locaux sont intégrés dans `public/assets/partners/` ; DECA Properties reste affiché par son nom car le fichier fourni est introuvable. Le bandeau défile avec pause au survol, au focus et par commande, et devient statique avec la réduction des mouvements. Les noms ne sont pas traduits ; les titres et commandes suivent la langue active. Les URL sources, fichiers et limites sont consignés dans [docs/partners.md](docs/partners.md).
 
 L’accueil suit l’ordre : entrée visuelle, destinations, agence, services, sélection de biens, méthode, partenaires validés éventuels, contact. Les contenus de l’accueil se modifient dans `src/content.js`.
 

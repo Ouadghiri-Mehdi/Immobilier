@@ -56,7 +56,17 @@ export const categories=[
 // Ajouter uniquement des partenaires autorisés et confirmés.
 // Format : {id, name, description, logo: '/assets/...', validated: true}.
 // Une entrée sans validation explicite n’est jamais affichée.
-export const partners=[];
+// Partenaires et fichiers communiqués par le client. Un logo absent affiche le nom.
+export const partners=[
+ {id:'damac',name:'DAMAC',logo:'/assets/partners/damac.svg',logoMonochrome:true,logoWidth:180,logoHeight:40,validated:true},
+ {id:'deca',name:'DECA Properties',validated:true},
+ {id:'meraki',name:'Meraki Developers',logo:'/assets/partners/meraki.webp',logoMonochrome:true,logoWidth:180,logoHeight:52,validated:true},
+ {id:'reportage',name:'Reportage',logo:'/assets/partners/reportage.svg',logoWidth:185,logoHeight:50,validated:true},
+ {id:'ellington',name:'Ellington Properties',logo:'/assets/partners/ellington.png',logoWidth:180,logoHeight:70,validated:true},
+ {id:'imtiaz',name:'Imtiaz Developments',logo:'/assets/partners/imtiaz.svg',logoWidth:160,logoHeight:56,validated:true},
+ {id:'residence-affinities',name:'Résidence Affinities',logo:'/assets/partners/residence-affinities.png',logoWidth:120,logoHeight:88,validated:true},
+ {id:'cgi',name:'CGI',logo:'/assets/partners/cgi.png',logoWidth:145,logoHeight:72,validated:true},
+];
 export const destinations={
  maroc:{name:'Maroc',label:'au Maroc',currency:'MAD',eyebrow:'LA BEAUTÉ D’UN ART DE VIVRE',headline:'Le temps de vivre.',description:'Des patios de Marrakech aux lignes contemporaines de Casablanca et Rabat, découvrez des lieux qui ont quelque chose à raconter.',cities:['Marrakech','Casablanca','Rabat'],image:'maroc',tone:'warm',editorial:'Lumière, matière, caractère.',text:'Une architecture ouverte sur les jardins, des matières vivantes, des villes aux rythmes singuliers. Au Maroc, chaque projet commence par un choix de vie.'},
  dubai:{name:'Dubaï',label:'à Dubaï',currency:'AED',eyebrow:'UNE AUTRE PERSPECTIVE',headline:'L’horizon vous appartient.',description:'De la vie urbaine de Downtown aux horizons de Palm Jumeirah, explorez une autre façon d’habiter, d’investir et de séjourner.',cities:['Dubai Marina','Downtown','Palm Jumeirah','Business Bay'],image:'dubai',tone:'cool',editorial:'L’espace des possibles.',text:'Perspectives urbaines, adresses en bord de mer et intérieurs ouverts sur l’horizon. Découvrez des lieux à choisir selon votre quotidien et vos projets.'}
@@ -95,4 +105,4 @@ export const projects=[
  {id:'INT-DXB-02',destination:'dubai',title:'Une terrasse sur la ville',type:'Résidence · Dubaï',image:'dubai',text:'Un dialogue entre intérieur et extérieur, avec des matières minérales et des assises accueillantes pour prolonger le lieu de vie.',palette:['#d9d1bc','#a99b82','#38473e']}
 ];
 export const steps=[['Vous écouter','Destination, budget, calendrier et priorités : le projet commence par vos attentes.'],['Sélectionner','Une sélection adaptée, des informations structurées et des critères faciles à comparer.'],['Explorer','Échanger sur les biens, préparer les visites et préciser les points à vérifier.'],['Vous accompagner','Coordonner les prochaines étapes selon la mission et les interlocuteurs concernés.']];
-export const faqs=[['Puis-je rechercher un bien au Maroc et à Dubaï ?','Oui. Les deux destinations disposent des mêmes cinq rubriques, avec une sélection propre à chacune. Vous pouvez changer de destination à tout moment depuis le menu.'],['Comment obtenir des informations sur un bien ?','Depuis la fiche du bien, utilisez « Ce bien m’intéresse ». Sa référence est automatiquement reprise dans votre demande de contact.'],['Puis-je réserver un séjour sur le site ?','Le site permet de demander des informations et de préciser vos dates. Aucune réservation, confirmation de disponibilité ou transaction n’est effectuée en ligne.'],['Proposez-vous un accompagnement en décoration ?','Une rubrique dédiée présente les prestations envisagées et des inspirations. Le périmètre exact de l’accompagnement sera défini avec l’agence.']];
+export const faqs=[['Puis-je rechercher un bien au Maroc et à Dubaï ?','Oui. Les deux destinations disposent des mêmes cinq rubriques, avec une sélection propre à chacune. Vous pouvez changer de destination à tout moment depuis le menu.'],['Comment obtenir des informations sur un bien ?','Depuis la fiche du bien, utilisez « Ce bien m’intéresse ». Sa référence est automatiquement reprise dans votre demande de contact.'],['Puis-je réserver un séjour sur le site ?','Le site permet de demander des informations et de préciser vos dates. Aucune réservation, confirmation de disponibilité ou transaction n’est effectuée en ligne.'],['Proposez-vous un accompagnement en décoration ?','Oui. La rubrique Décoration & aménagement présente notre accompagnement et des inspirations. Le périmètre de votre projet se précise avec l’agence.']];

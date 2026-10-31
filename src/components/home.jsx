@@ -1,3 +1,4 @@
+import {tr} from '../i18n/index.js';
 import React from 'react';
 import {ArrowUpRight} from 'lucide-react';
 import {homeContent} from '../content';
@@ -14,43 +15,43 @@ export function HomeLayout({children}) {
       <HeroMedia/>
       <div className="hero-shade"/>
       <div className="hero-editorial">
-        <p className="hero-kicker"><span/>{hero.eyebrow}</p>
-        <h1 id="home-title">{hero.title}<br/><em>{hero.emphasis}</em></h1>
-        <p className="hero-description">{hero.description}</p>
+        <p className="hero-kicker"><span/>{tr(hero.eyebrow)}</p>
+        <h1 id="home-title">{tr(hero.title)}<br/><em>{tr(hero.emphasis)}</em></h1>
+        <p className="hero-description">{tr(hero.description)}</p>
         <div className="hero-actions">
-          <ButtonLink to="/destinations" light>{hero.action}</ButtonLink>
-          <Link to="/contact" className="hero-secondary">{hero.contactAction} <ArrowUpRight size={17}/></Link>
+          <ButtonLink to="/destinations" light>{tr(hero.action)}</ButtonLink>
+          <Link to="/contact" className="hero-secondary">{tr(hero.contactAction)} <ArrowUpRight size={17}/></Link>
         </div>
       </div>
     </section>
 
     <section className="section intro-section" id="destinations-home">
-      <SectionTitle {...destinations} italic={destinations.emphasis}/>
+      <SectionTitle {...destinations} italic={tr(destinations.emphasis)}/>
       <DestinationCards/>
     </section>
 
     <section className="about-split home-agency" id="agence-home" aria-labelledby="agency-home-title">
-      <div className="about-image"><Photo src={images.interior} alt="Inspiration de riad aux matières naturelles et à la lumière douce"/></div>
+      <div className="about-image"><Photo src={images.interior} alt={tr("Inspiration de riad aux matières naturelles et à la lumière douce")}/></div>
       <Reveal className="about-copy">
-        <Eyebrow>{agency.eyebrow}</Eyebrow>
-        <h2 id="agency-home-title">{agency.title}<br/><em>{agency.emphasis}</em></h2>
-        {agency.paragraphs.map(text => <p key={text}>{text}</p>)}
-        <Link to="/agence" className="text-link">{agency.action}<ArrowUpRight size={18}/></Link>
+        <Eyebrow>{tr(agency.eyebrow)}</Eyebrow>
+        <h2 id="agency-home-title">{tr(agency.title)}<br/><em>{tr(agency.emphasis)}</em></h2>
+        {tr(agency.paragraphs.map(text => <p key={text}>{tr(text)}</p>))}
+        <Link to="/agence" className="text-link">{tr(agency.action)}<ArrowUpRight size={18}/></Link>
       </Reveal>
     </section>
 
     <section className="section home-services" id="services-home">
-      <SectionTitle {...services} italic={services.emphasis}/>
+      <SectionTitle {...services} italic={tr(services.emphasis)}/>
       <ServiceCards/>
     </section>
 
     <section className="section selection-section" id="selection-home">
-      <SectionTitle {...selection} italic={selection.emphasis} action={<Link to="/destinations" className="text-link">Voir les catalogues <ArrowUpRight size={17}/></Link>}/>
+      <SectionTitle {...selection} italic={tr(selection.emphasis)} action={<Link to="/destinations" className="text-link">{tr("Voir les catalogues ")}<ArrowUpRight size={17}/></Link>}/>
       <PropertyGrid items={properties.filter(property => property.featured).slice(0, 6)}/>
       <DemoNote/>
     </section>
     <Method/>
     <Partners/>
-    {children}
+    {tr(children)}
   </>;
 }

@@ -9,12 +9,12 @@ export const homeContent = {
     contactAction: 'Parler de mon projet',
   },
   agency: {
-    eyebrow: 'L’APPROCHE RIVAGE',
+    eyebrow: 'L’APPROCHE Sarouty Properties',
     title: 'Des lieux choisis.',
     emphasis: 'Un projet compris.',
     paragraphs: [
-      'RIVAGE réunit cinq services immobiliers au Maroc et à Dubaï dans un même parcours : comprendre votre recherche, découvrir les possibilités et engager un échange utile.',
-      'Votre usage, votre budget et votre calendrier donnent le cap. Le périmètre de l’accompagnement se précise avec vous, avant toute démarche.',
+      'Sarouty Properties accompagne votre projet immobilier au Maroc et à Dubaï, selon vos besoins et votre budget.',
+      'À distance, par téléphone ou en personne, nous précisons avec vous les prochaines étapes.',
     ],
     action: 'Découvrir l’agence et son approche',
   },

@@ -1,4 +1,6 @@
 'use strict';
+import fr from '../src/i18n/fr.json' with {type:'json'};
+import en from '../src/i18n/en.json' with {type:'json'};
 // Fonction serveur pour Vercel. Aucun secret ne doit être placé dans dist/.
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -15,13 +17,15 @@ export default async function handler(req, res) {
   if (data.website) return res.status(400).json({ok:false});
   const subjects = ['Achat immobilier','Location','Vente de mon bien','Locaux professionnels','Séjour','Décoration et aménagement'];
   const {name,email,subject,message,privacy} = data;
+  const copy=data.language==='en'?en:fr;
+  const label=key=>copy[key]||key;
   if (typeof name !== 'string' || !name.trim() || name.length>120 || typeof email !== 'string' || email.length>254 || !/^[^\s@\r\n]+@[^\s@\r\n]+\.[^\s@\r\n]+$/.test(email) || typeof message !== 'string' || !message.trim() || message.length>3000 || privacy !== true || !subjects.includes(subject)) return res.status(400).json({ok:false});
   if (!process.env.RESEND_API_KEY || !process.env.CONTACT_FROM || !process.env.CONTACT_TO) return res.status(503).json({ok:false});
   try {
     const response = await fetch('https://api.resend.com/emails', {
       method:'POST', headers:{'Authorization':'Bearer '+process.env.RESEND_API_KEY,'Content-Type':'application/json'},
       signal:AbortSignal.timeout(12000),
-      body:JSON.stringify({from:process.env.CONTACT_FROM,to:[process.env.CONTACT_TO],reply_to:email.trim(),subject:'Demande immobilière — '+subject,text:'Nom : '+name.trim()+'\nE-mail : '+email.trim()+'\nProjet : '+subject+'\nAccord pour être recontacté : oui\n\n'+message.trim()})
+      body:JSON.stringify({from:process.env.CONTACT_FROM,to:[process.env.CONTACT_TO],reply_to:email.trim(),subject:label('Demande immobilière')+' — '+label(subject),text:label('Nom')+' : '+name.trim()+'\n'+label('E-mail')+' : '+email.trim()+'\n'+label('Projet')+' : '+label(subject)+'\n'+label('Accord pour être recontacté : oui')+'\n\n'+message.trim()})
     });
     if (!response.ok) return res.status(502).json({ok:false});
     const result = await response.json();
