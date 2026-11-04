@@ -2,7 +2,11 @@ import {normalizeContactPath} from './domain.js';
 export const href=p=>'#'+normalizeContactPath(p);
 export const destPath=d=>'/destination/'+d;
 export const categoryPath=(d,c)=>destPath(d)+'/'+c;
-export const defaultMessage='Bonjour, je souhaite échanger sur un projet immobilier au Maroc ou à Dubaï.';
+export const defaultMessage='Bonjour Sarouty Properties, je souhaite échanger avec vous au sujet de mon projet immobilier.';
+export function propertyURL(property){
+ const hash=href('/bien/'+property.id);
+ return typeof location!=='undefined'&&location.href?new URL(hash,location.href).href:hash;
+}
 export function scrollToSection(id,block='start'){
  const section=document.getElementById(id);
  if(!section)return;

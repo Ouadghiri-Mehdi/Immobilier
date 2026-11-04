@@ -1,6 +1,6 @@
 # Sarouty Properties | Immobilier au Maroc et à Dubaï
 
-Application React de présentation pour Sarouty Properties, agence de services immobiliers au Maroc et à Dubaï. Les annonces et prix sont fictifs. Navigation, filtres, favoris, fiches détaillées et demandes de renseignements sont implémentés. Aucun compte, réservation, paiement ou envoi de message réel n’est activé dans l’aperçu.
+Application React de présentation pour Sarouty Properties, agence de services immobiliers au Maroc et à Dubaï. Le site comprend une offre Oak Yard Residences communiquée par l’agence et des annonces de démonstration aux prix fictifs. Navigation, filtres, favoris, fiches détaillées et demandes de renseignements sont implémentés. Aucun compte, réservation, paiement ou envoi de message réel n’est activé dans l’aperçu.
 
 ## Démarrer
 
@@ -25,7 +25,7 @@ Le dossier `dist/` contient la version statique prête à publier. Les pages uti
 - `src/components/home.jsx` : composition de l’accueil, de l’entrée visuelle au contact.
 - `src/content.js` : textes de l’accueil, séparés de la présentation.
 - `src/pages.jsx` : pages et parcours de l’application.
-- `src/data.js` : destinations, cinq rubriques, 16 annonces (8 par destination), inspirations et textes.
+- `src/data.js` : destinations, cinq rubriques, 17 annonces (8 au Maroc et 9 à Dubaï, dont Oak Yard Residences), inspirations et textes.
 - `src/config.js` : nom et coordonnées publiques de l’agence.
 - `src/domain.js` : recherche, prix, URL de contact et validation des dates.
 - `src/style.css` : identité visuelle, composants, transitions et mise en page responsive.
@@ -94,3 +94,7 @@ Titres des pages mis à jour, HTML sémantique, métadonnées de partage et favi
 ## Livraison du code
 
 Le ZIP contient les sources React, les données, les photos locales, les fichiers de configuration, les tests et `dist/` déjà compilé. Les dépendances `node_modules/`, les fichiers Git, les caches et les identifiants de l’aperçu ne sont pas inclus. Après extraction : ouvrir un terminal dans `rivage-immobilier-react`, exécuter `npm ci`, puis `npm run dev`. Pour publier, utiliser le dépôt complet avec `vercel.json`.
+
+## Oak Yard Residences
+
+Offre intégrée dans Dubaï → Achat & vente, avec deux conditions de prix distinctes, vidéo locale et couverture extraite. Les données fournies et l’écart de surface visible dans le plan vidéo sont documentés dans [docs/oak-yard-residences.md](docs/oak-yard-residences.md).
