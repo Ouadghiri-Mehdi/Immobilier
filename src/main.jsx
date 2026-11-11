@@ -1,11 +1,12 @@
 import {tr,useLanguage,applyDocumentLanguage} from './i18n/index.js';
 import React,{useState,useEffect,useRef,useContext} from 'react';
-import {ArrowUpRight,ArrowRight,ArrowLeft,ChevronDown,ChevronRight,ChevronLeft,Heart,Menu,X,Search,SlidersHorizontal,MapPin,Maximize2,BedDouble,Bath,Check,Mail,Phone,MessageCircle,Plus,Minus,Grid2X2,MoveUpRight,Leaf,Sun,Compass,Briefcase,Home,Paintbrush,Hotel,Copy,Send} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,ArrowLeft,ChevronDown,ChevronRight,ChevronLeft,Heart,Menu,X,Search,SlidersHorizontal,MapPin,Maximize2,BedDouble,Bath,Check,Mail,Phone,Plus,Minus,Grid2X2,MoveUpRight,Leaf,Sun,Compass,Briefcase,Home,Paintbrush,Hotel,Copy,Send} from 'lucide-react';
 import {createRoot} from 'react-dom/client';
 import {Header,Footer,WhatsAppModal} from './components/layout';
 import {Page} from './pages';
+import {WhatsAppIcon} from './components/WhatsAppIcon';
 import {AppContext} from './context';
-import {properties,categories,destinations,projects} from './data';
+import {properties,categories,dubaiPurchaseTypes,destinations,projects} from './data';
 import {parseLocation,whatsappURL} from './domain';
 import {siteConfig} from './config';
 import {defaultMessage,scrollToContact} from './routing';
@@ -16,14 +17,14 @@ function App(){const language=useLanguage();const [route,setRoute]=useState(()=>
  const parts=route.path.split('/').filter(Boolean);
  const pageTitles={'/destinations':'Nos destinations','/services':'Nos services','/agence':'L’agence','/favoris':'Mes favoris','/mentions-legales':'Mentions légales','/confidentialite':'Confidentialité'};
  let title=tr(pageTitles[route.path]||'Immobilier au Maroc et à Dubaï');
- if(parts[0]==='destination'&&destinations[parts[1]])title=tr(categories.find(c=>c.slug===parts[2])?.title||'Immobilier')+' '+tr(destinations[parts[1]].label);
+ if(parts[0]==='destination'&&destinations[parts[1]])title=tr((parts[1]==='dubai'&&parts[2]==='achat-vente'?dubaiPurchaseTypes.find(type=>type.slug===parts[3])?.title:null)||categories.find(c=>c.slug===parts[2])?.title||'Immobilier')+' '+tr(destinations[parts[1]].label);
  if(parts[0]==='bien')title=tr(properties.find(p=>p.id===parts[1])?.title||'Bien immobilier');
  if(parts[0]==='inspiration')title=tr(projects.find(p=>p.id===parts[1])?.title||'Décoration');
  if(route.params.get('section')==='contact')title=tr('Parlons de votre projet');
  document.title=siteConfig.name+' | '+title;
  document.querySelector('meta[property="og:title"]')?.setAttribute('content',document.title);
 },[route.path,route.params.get('section'),language]);function toast(text){setNotice(text);clearTimeout(toastTimer.current);toastTimer.current=setTimeout(()=>setNotice(''),2800);}function toggleFavorite(id){const present=favorites.includes(id);setFavorites(v=>v.includes(id)?v.filter(x=>x!==id):[...v,id]);toast(present?'Bien retiré de vos favoris.':'Bien ajouté à vos favoris.');}function openWhatsApp(message=()=>tr(defaultMessage)){const resolved=typeof message==='function'?message():message;const url=whatsappURL(siteConfig.whatsappNumber,resolved);if(url)window.open(url,'_blank','noopener,noreferrer');else setWA(()=>message);}
- return <AppContext.Provider value={{favorites,toggleFavorite,openWhatsApp,toast}}><a className="skip-link" href="#main-content" onClick={e=>{e.preventDefault();mainRef.current?.focus();}}>{tr("Aller au contenu")}</a><Header route={route}/><main ref={mainRef} id="main-content" tabIndex={-1}><div className="page-transition" key={route.path}><Page route={route}/></div></main><Footer/><a className="whatsapp-floating" href={whatsappURL(siteConfig.whatsappNumber,tr(defaultMessage))} target="_blank" rel="noopener noreferrer" aria-label={tr("Contacter l’agence sur WhatsApp (nouvel onglet)")}><MessageCircle size={23} aria-hidden="true"/><span>{tr("Échangeons")}</span></a>{tr(wa!==null&&<WhatsAppModal message={typeof wa==='function'?wa():wa} onClose={()=>setWA(null)}/>)}<div className={'toast '+(notice?'visible':'')} role="status">{tr(notice)}</div></AppContext.Provider>;
+ return <AppContext.Provider value={{favorites,toggleFavorite,openWhatsApp,toast}}><a className="skip-link" href="#main-content" onClick={e=>{e.preventDefault();mainRef.current?.focus();}}>{tr("Aller au contenu")}</a><Header route={route}/><main ref={mainRef} id="main-content" tabIndex={-1}><div className="page-transition" key={route.path}><Page route={route}/></div></main><Footer/><a className="whatsapp-floating" href={whatsappURL(siteConfig.whatsappNumber,tr(defaultMessage))} target="_blank" rel="noopener noreferrer" aria-label={tr("Contacter l’agence sur WhatsApp (nouvel onglet)")}><WhatsAppIcon size={23}/><span>{tr("Échangeons")}</span></a>{tr(wa!==null&&<WhatsAppModal message={typeof wa==='function'?wa():wa} onClose={()=>setWA(null)}/>)}<div className={'toast '+(notice?'visible':'')} role="status">{tr(notice)}</div></AppContext.Provider>;
 }
 export {App,Page,AppContext};
 if(typeof document!=='undefined'&&document.getElementById('root')){

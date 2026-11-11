@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   try { data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body; } catch { return res.status(400).json({ok:false}); }
   if (!data || typeof data !== 'object' || Array.isArray(data)) return res.status(400).json({ok:false});
   if (data.website) return res.status(400).json({ok:false});
-  const subjects = ['Achat immobilier','Location','Vente de mon bien','Locaux professionnels','Séjour','Décoration et aménagement'];
+  const subjects = ['Achat immobilier','Location','Vente de mon bien','Locaux professionnels','Projet hôtelier','Décoration et aménagement'];
   const {name,email,subject,message,privacy} = data;
   const copy=data.language==='en'?en:fr;
   const label=key=>copy[key]||key;

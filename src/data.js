@@ -44,15 +44,23 @@ export const categories=[
   subject:'Décoration et aménagement',action:'Parler de mon intérieur',
  },
  {
-  slug:'hotels-appartements',title:'Hôtels & appartements',short:'Séjourner',number:'05',image:'pool',
-  intro:'Découvrir un hébergement et préparer les bonnes questions pour votre séjour.',
-  description:'Comparez les ambiances et les capacités, puis transmettez vos dates et vos préférences.',
-  audience:'Pour les voyageurs qui préparent un séjour personnel ou professionnel au Maroc ou à Dubaï.',
-  includes:['Recueil des dates et du nombre de voyageurs','Lecture des équipements et du tarif indicatif','Demande d’informations sur l’hébergement choisi'],
-  approach:'Sélectionnez une fiche et indiquez vos dates dans le formulaire. Les disponibilités, le tarif et les conditions restent à confirmer lors de l’échange. Aucune réservation n’est effectuée sur le site.',
-  subject:'Séjour',action:'Préparer ma demande de séjour',
+  slug:'hotels-appartements',title:'Hôtel & Appart’Hôtel',short:'Acquérir un établissement',number:'05',image:'pool',destinations:['maroc'],
+  intro:'Acquérir un hôtel, un appart’hôtel ou une maison d’hôtes au Maroc.',
+  description:'Un accompagnement pour votre projet d’acquisition d’un hôtel, d’un appart’hôtel ou d’une maison d’hôtes au Maroc.',
+  audience:'Pour les particuliers et investisseurs souhaitant acquérir un établissement hôtelier au Maroc.',
+  includes:['Définition du type d’établissement, de la localisation et du budget.','Recherche et présentation d’opportunités adaptées.','Mise en relation et accompagnement dans les démarches d’acquisition.'],
+  approach:'Les opportunités et les démarches d’acquisition se précisent avec l’agence, selon votre projet.',
+  subject:'Projet hôtelier',action:'Parlons de votre projet hôtelier',
  },
 ];
+export const categoriesForDestination=destination=>categories.filter(service=>!service.destinations||service.destinations.includes(destination));
+export const dubaiPurchaseTypes=[
+ {id:'off-plan',slug:'sur-plan',title:'Achat sur plan',description:'Découvrez les programmes et biens proposés à l’achat avant leur livraison.',image:'/assets/hero/hero-dubai.jpeg',alt:'Illustration architecturale de Dubaï pour l’achat sur plan'},
+ {id:'resale',slug:'marche-secondaire',title:'Marché secondaire',description:'Explorez les biens proposés à la revente sur le marché immobilier de Dubaï.',image:'/assets/dubai-terrace.jpg',alt:'Illustration d’ambiance résidentielle à Dubaï pour le marché secondaire'},
+];
+// Les anciens exemples de séjour restent dans les données et les favoris enregistrés.
+// Une offre hôtelière publiée doit explicitement porter sur une acquisition au Maroc.
+export const isPublicProperty=property=>property.category!=='hotels-appartements'||(property.isDemo===false&&property.destination==='maroc'&&(property.transaction==='sale'||property.status==='À vendre')&&!property.unit);
 // Ajouter uniquement des partenaires autorisés et confirmés.
 // Format : {id, name, description, logo: '/assets/...', validated: true}.
 // Une entrée sans validation explicite n’est jamais affichée.
@@ -69,7 +77,7 @@ export const partners=[
 ];
 export const destinations={
  maroc:{name:'Maroc',label:'au Maroc',currency:'MAD',eyebrow:'LA BEAUTÉ D’UN ART DE VIVRE',headline:'Le temps de vivre.',description:'Des patios de Marrakech aux lignes contemporaines de Casablanca et Rabat, découvrez des lieux qui ont quelque chose à raconter.',cities:['Marrakech','Casablanca','Rabat'],image:'maroc',tone:'warm',editorial:'Lumière, matière, caractère.',text:'Une architecture ouverte sur les jardins, des matières vivantes, des villes aux rythmes singuliers. Au Maroc, chaque projet commence par un choix de vie.'},
- dubai:{name:'Dubaï',label:'à Dubaï',currency:'AED',eyebrow:'UNE AUTRE PERSPECTIVE',headline:'L’horizon vous appartient.',description:'De la vie urbaine de Downtown aux horizons de Palm Jumeirah, explorez une autre façon d’habiter, d’investir et de séjourner.',cities:['Dubai Marina','Downtown','Palm Jumeirah','Business Bay'],image:'dubai',tone:'cool',editorial:'L’espace des possibles.',text:'Perspectives urbaines, adresses en bord de mer et intérieurs ouverts sur l’horizon. Découvrez des lieux à choisir selon votre quotidien et vos projets.'}
+ dubai:{name:'Dubaï',label:'à Dubaï',currency:'AED',eyebrow:'UNE AUTRE PERSPECTIVE',headline:'L’horizon vous appartient.',description:'De la vie urbaine de Downtown aux horizons de Palm Jumeirah, explorez une autre façon d’habiter et d’investir.',cities:['Dubai Marina','Downtown','Palm Jumeirah','Business Bay'],image:'dubai',tone:'cool',editorial:'L’espace des possibles.',text:'Perspectives urbaines, adresses en bord de mer et intérieurs ouverts sur l’horizon. Découvrez des lieux à choisir selon votre quotidien et vos projets.'}
 };
 const rows=[
  ['MAR-001','maroc','achat-vente','Villa aux lignes pures','Marrakech','Route de l’Ourika','Villa',6800000,320,4,'maroc',true],
@@ -101,6 +109,7 @@ export const properties=rows.map(([id,destination,category,title,city,district,t
 // Offre réelle communiquée par l’agence. L’id est un slug technique, pas une référence d’unité.
 properties.unshift({
  id:'oak-yard-residences',project:'Oak Yard Residences',isDemo:false,
+ saleMarket:'unconfirmed',
  destination:'dubai',category:'achat-vente',
  title:'Oak Yard Residences',
  city:'JVC',district:'District 10',type:'Penthouse duplex',currency:'AED',
@@ -128,6 +137,7 @@ properties.unshift({
 });
 properties.unshift({
  id:'lily-tower',project:'LILY TOWER',title:'LILY TOWER',isDemo:false,
+ saleMarket:'unconfirmed',
  destination:'dubai',category:'achat-vente',price:null,featured:false,
  photos:['/assets/properties/lily-tower/lily-tower-poster.jpg'],
  mediaAlt:'Image extraite de la vidéo promotionnelle transmise pour LILY TOWER.',
@@ -173,6 +183,7 @@ properties.unshift({
 });
 properties.unshift({
  id:'dubai-islands-2-bedroom',title:'Appartement meublé de 2 chambres à Dubai Islands',isDemo:false,
+ saleMarket:'unconfirmed',
  destination:'dubai',category:'achat-vente',status:'À vendre',type:'Appartement',
  city:'Dubai Islands',locationLabel:'Dubai Islands · Dubaï',beds:2,
  currency:'AED',price:2000000,priceNote:'Paiement comptant',featured:false,
@@ -282,6 +293,1138 @@ properties.unshift({
  detail:'Un espace dédié au personnel, une cuisine et des rangements complètent la distribution. La fiche annonce la proximité des commerces, restaurants, écoles, services et transports.',
  features:['Grand espace de vie','Espace dédié au personnel','Cuisine et espaces de rangement','1er étage','2 places de parking'],
 });
+properties.unshift({
+ "id": "sidi-maarouf-1028",
+ "reference": "1028",
+ "title": "Appartement meublé à Sidi Maârouf",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Appartement",
+ "district": "Sidi Maârouf",
+ "locationLabel": "Sidi Maârouf · Casablanca",
+ "price": 870000,
+ "area": 87,
+ "beds": 2,
+ "bathrooms": 2,
+ "description": "À Sidi Maârouf, cet appartement vendu entièrement meublé offre 87 m² de superficie totale, dont 84 m² habitables. Situé au troisième étage, il comprend un grand salon marocain, une salle à manger, deux chambres et deux salles de bains.",
+ "detail": "La cuisine entièrement équipée donne accès au balcon. La climatisation et la résidence sécurisée complètent les prestations.",
+ "features": [
+  "Superficie totale : 87 m², dont 84 m² habitables",
+  "3e étage",
+  "Grand salon marocain et salle à manger",
+  "Cuisine entièrement équipée avec accès au balcon",
+  "Appartement vendu entièrement meublé",
+  "Climatisation",
+  "Résidence sécurisée"
+ ],
+ "destination": "maroc",
+ "city": "Casablanca",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/sidi-maarouf-1028/sidi-maarouf-1028-salon.jpg",
+  "/assets/properties/sidi-maarouf-1028/sidi-maarouf-1028-chambre.jpg",
+  "/assets/properties/sidi-maarouf-1028/sidi-maarouf-1028-cuisine.jpg",
+  "/assets/properties/sidi-maarouf-1028/sidi-maarouf-1028-salle-de-bains.jpg"
+ ],
+ "photoAlts": [
+  "Salon marocain de l’appartement à Sidi Maârouf",
+  "Chambre de l’appartement à Sidi Maârouf",
+  "Cuisine de l’appartement à Sidi Maârouf",
+  "Salle de bains de l’appartement à Sidi Maârouf"
+ ],
+ "mediaAlt": "Salon marocain de l’appartement à Sidi Maârouf",
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1028.",
+ "pdf": {
+  "src": "/assets/properties/sidi-maarouf-1028/sidi-maarouf-1028-fiche-technique.pdf",
+  "filename": "sidi-maarouf-1028-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "boulevard-anfa-1032",
+ "reference": "1032",
+ "title": "Bureau sur le Boulevard d’Anfa",
+ "category": "locaux-professionnels",
+ "status": "À vendre",
+ "type": "Bureau",
+ "transaction": "sale",
+ "district": "Boulevard d’Anfa",
+ "locationLabel": "Boulevard d’Anfa · Casablanca",
+ "price": 2100000,
+ "area": 145,
+ "description": "Sur le Boulevard d’Anfa, ce bureau de 145 m² se situe au quatrième étage d’un immeuble professionnel avec ascenseur. Son espace ouvert et modulable permet d’adapter l’aménagement aux besoins de l’activité.",
+ "detail": "Lumineux et doté de sanitaires, il bénéficie d’une adresse centrale à Casablanca. Le bien ne dispose pas de place de parking.",
+ "features": [
+  "4e étage",
+  "Immeuble professionnel avec ascenseur",
+  "Open space et espaces de travail modulables",
+  "Sanitaires",
+  "Bonne luminosité",
+  "Aucune place de parking"
+ ],
+ "destination": "maroc",
+ "city": "Casablanca",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/boulevard-anfa-1032/boulevard-anfa-1032-espace-principal.jpg",
+  "/assets/properties/boulevard-anfa-1032/boulevard-anfa-1032-espace-modulable.jpg",
+  "/assets/properties/boulevard-anfa-1032/boulevard-anfa-1032-espace-travail.jpg",
+  "/assets/properties/boulevard-anfa-1032/boulevard-anfa-1032-circulation.jpg"
+ ],
+ "photoAlts": [
+  "Espace principal du bureau sur le Boulevard d’Anfa",
+  "Espace de travail modulable du bureau sur le Boulevard d’Anfa",
+  "Autre espace de travail du bureau sur le Boulevard d’Anfa",
+  "Circulation entre les espaces du bureau sur le Boulevard d’Anfa"
+ ],
+ "mediaAlt": "Espace principal du bureau sur le Boulevard d’Anfa",
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1032.",
+ "pdf": {
+  "src": "/assets/properties/boulevard-anfa-1032/boulevard-anfa-1032-fiche-technique.pdf",
+  "filename": "boulevard-anfa-1032-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "dar-bouazza-1029",
+ "reference": "1029",
+ "title": "Appartement meublé avec piscine en résidence à Dar Bouazza",
+ "category": "location",
+ "status": "À louer",
+ "type": "Appartement",
+ "district": "134 Square Dar Bouazza",
+ "locationLabel": "134 Square Dar Bouazza",
+ "price": 8000,
+ "unit": "mois",
+ "area": 72,
+ "beds": 1,
+ "bathrooms": 2,
+ "description": "Situé au 134 Square Dar Bouazza, cet appartement meublé de 72 m² comprend un grand salon, une chambre avec salle de bains privative, une salle de bains invités et une cuisine équipée.",
+ "detail": "Au deuxième étage d’une résidence fermée et sécurisée, il bénéficie de la climatisation, d’un ascenseur, d’une place de parking et de l’accès à la piscine de la résidence.",
+ "features": [
+  "2e étage",
+  "Grand salon",
+  "Chambre avec salle de bains privative",
+  "Salle de bains invités distincte, selon la fiche technique",
+  "Cuisine équipée",
+  "Entièrement meublé",
+  "Climatisation",
+  "Résidence fermée et sécurisée",
+  "Piscine de la résidence",
+  "Ascenseur",
+  "1 place de parking"
+ ],
+ "destination": "maroc",
+ "city": "Casablanca",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/dar-bouazza-1029/dar-bouazza-1029-espace-de-vie.jpg",
+  "/assets/properties/dar-bouazza-1029/dar-bouazza-1029-chambre.jpg",
+  "/assets/properties/dar-bouazza-1029/dar-bouazza-1029-cuisine.jpg",
+  "/assets/properties/dar-bouazza-1029/dar-bouazza-1029-salle-de-bains.jpg"
+ ],
+ "photoAlts": [
+  "Espace de vie de l’appartement à Dar Bouazza",
+  "Chambre de l’appartement à Dar Bouazza",
+  "Cuisine de l’appartement à Dar Bouazza",
+  "Salle de bains de l’appartement à Dar Bouazza"
+ ],
+ "mediaAlt": "Espace de vie de l’appartement à Dar Bouazza",
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1029.",
+ "pdf": {
+  "src": "/assets/properties/dar-bouazza-1029/dar-bouazza-1029-fiche-technique.pdf",
+  "filename": "dar-bouazza-1029-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "mers-sultan-1042",
+ "reference": "1042",
+ "title": "Appartement avec terrasse à Mers Sultan",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Appartement",
+ "district": "Mers Sultan",
+ "locationLabel": "Mers Sultan · Casablanca",
+ "price": 1550000,
+ "area": 121,
+ "description": "À Mers Sultan, cet appartement de 121 m² se situe au quatrième étage d’un immeuble avec ascenseur. Il propose un grand salon, une suite parentale, un séjour aménagé dans l’ancienne troisième chambre et une cuisine indépendante avec buanderie.",
+ "detail": "Une terrasse privative d’environ 20 m² et une place de parking complètent le bien. Le nombre actuel de chambres reste à confirmer. La fiche ne précise pas si la terrasse privative est comprise dans les 121 m² annoncés.",
+ "features": [
+  "4e étage",
+  "Grand salon",
+  "Suite parentale avec salle de bains privative",
+  "Séjour aménagé dans l’ancienne troisième chambre",
+  "Cuisine indépendante et buanderie",
+  "Salle d’eau invités",
+  "Terrasse privative d’environ 20 m²",
+  "Ascenseur",
+  "1 place de parking",
+  "Immeuble R+5, trois appartements par palier",
+  "Terrasse commune au 6e étage, distincte de la terrasse privative"
+ ],
+ "pdfNote": "Le nombre actuel de chambres et l’inclusion de la terrasse dans la surface annoncée restent à confirmer auprès de l’agence.",
+ "destination": "maroc",
+ "city": "Casablanca",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/mers-sultan-1042/mers-sultan-1042-salon.jpg",
+  "/assets/properties/mers-sultan-1042/mers-sultan-1042-chambre.jpg",
+  "/assets/properties/mers-sultan-1042/mers-sultan-1042-terrasse.jpg",
+  "/assets/properties/mers-sultan-1042/mers-sultan-1042-salle-eau.jpg"
+ ],
+ "photoAlts": [
+  "Salon de l’appartement à Mers Sultan",
+  "Chambre de l’appartement à Mers Sultan",
+  "Terrasse de l’appartement à Mers Sultan",
+  "Salle d’eau de l’appartement à Mers Sultan"
+ ],
+ "mediaAlt": "Salon de l’appartement à Mers Sultan",
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1042.",
+ "pdf": {
+  "src": "/assets/properties/mers-sultan-1042/mers-sultan-1042-fiche-technique.pdf",
+  "filename": "mers-sultan-1042-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "ain-taoujtate-1025",
+ "reference": "1025",
+ "title": "Local commercial avec mezzanine — Boulevard Aïn Taoujtate",
+ "category": "locaux-professionnels",
+ "status": "À vendre",
+ "transaction": "sale",
+ "type": "Local commercial",
+ "city": "Casablanca",
+ "district": "Boulevard Aïn Taoujtate",
+ "locationLabel": "Boulevard Aïn Taoujtate · Casablanca",
+ "price": 4400000,
+ "area": 164,
+ "description": "Sur le Boulevard Aïn Taoujtate, ce local commercial rénové offre 164 m² exploitables, répartis entre un rez-de-chaussée de 108 m² et une mezzanine de 56 m². Sa façade d’environ 5,20 m donne sur un axe fréquenté.",
+ "detail": "Aménagé pour la restauration, le local comprend un espace ouvert, un comptoir, une cuisine ou espace technique et des sanitaires. Le stationnement est annoncé à proximité ; toute autorisation d’activité reste à vérifier.",
+ "features": [
+  "Surface exploitable : 164 m², dont 108 m² au sol et 56 m² en mezzanine",
+  "Façade d’environ 5,20 m",
+  "Local rénové, aménagé pour la restauration",
+  "Espace commercial ouvert",
+  "Comptoir d’accueil ou de service",
+  "Cuisine ou espace technique",
+  "Sanitaires",
+  "Escalier métallique vers la mezzanine",
+  "Éclairage LED et sol en grès cérame",
+  "Stationnement à proximité, sans place privative annoncée"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1025.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/ain-taoujtate-1025/ain-taoujtate-1025-espace-mezzanine.jpg",
+  "/assets/properties/ain-taoujtate-1025/ain-taoujtate-1025-comptoir.jpg",
+  "/assets/properties/ain-taoujtate-1025/ain-taoujtate-1025-mezzanine.jpg",
+  "/assets/properties/ain-taoujtate-1025/ain-taoujtate-1025-sanitaires.jpg"
+ ],
+ "photoAlts": [
+  "Espace commercial et escalier de la mezzanine sur le Boulevard Aïn Taoujtate",
+  "Comptoir du local sur le Boulevard Aïn Taoujtate",
+  "Espace de la mezzanine du local sur le Boulevard Aïn Taoujtate",
+  "Sanitaires du local sur le Boulevard Aïn Taoujtate"
+ ],
+ "mediaAlt": "Espace commercial et escalier de la mezzanine sur le Boulevard Aïn Taoujtate",
+ "pdf": {
+  "src": "/assets/properties/ain-taoujtate-1025/ain-taoujtate-1025-fiche-technique.pdf",
+  "filename": "ain-taoujtate-1025-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "oasis-route-el-jadida-1031",
+ "reference": "1031",
+ "title": "Bureau neuf — Oasis, Route El Jadida",
+ "category": "locaux-professionnels",
+ "status": "À louer",
+ "transaction": "rent",
+ "type": "Bureau",
+ "city": "Casablanca",
+ "district": "Oasis, Route El Jadida",
+ "locationLabel": "Oasis, Route El Jadida · Casablanca",
+ "price": 10000,
+ "unit": "mois",
+ "priceTaxExcluded": true,
+ "area": 60,
+ "description": "Dans le secteur Oasis, sur la Route El Jadida, ce bureau neuf de 60 m² se situe au deuxième étage d’un immeuble professionnel avec ascenseur. Son espace ouvert et modulable permet d’adapter l’aménagement aux besoins de l’activité.",
+ "detail": "Le bien dispose de sanitaires et bénéficie d’une bonne luminosité. La fibre optique n’est pas installée. Le loyer est annoncé hors taxes.",
+ "features": [
+  "Bureau neuf",
+  "2e étage",
+  "Immeuble professionnel avec ascenseur",
+  "Open space et aménagement modulable",
+  "Sanitaires",
+  "Bonne luminosité",
+  "Fibre optique non installée"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1031.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/oasis-route-el-jadida-1031/oasis-route-el-jadida-1031-espace-travail.jpg",
+  "/assets/properties/oasis-route-el-jadida-1031/oasis-route-el-jadida-1031-circulation.jpg",
+  "/assets/properties/oasis-route-el-jadida-1031/oasis-route-el-jadida-1031-sanitaires.jpg",
+  "/assets/properties/oasis-route-el-jadida-1031/oasis-route-el-jadida-1031-exterieur.jpg"
+ ],
+ "photoAlts": [
+  "Espace de travail du bureau Oasis, Route El Jadida",
+  "Circulation du bureau Oasis, Route El Jadida",
+  "Sanitaires du bureau Oasis, Route El Jadida",
+  "Espace extérieur du bureau Oasis, Route El Jadida"
+ ],
+ "mediaAlt": "Espace de travail du bureau Oasis, Route El Jadida",
+ "pdf": {
+  "src": "/assets/properties/oasis-route-el-jadida-1031/oasis-route-el-jadida-1031-fiche-technique.pdf",
+  "filename": "oasis-route-el-jadida-1031-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "duplex-ain-diab",
+ "title": "Duplex rénové avec terrasses à Aïn Diab",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Duplex",
+ "city": "Casablanca",
+ "district": "Aïn Diab",
+ "locationLabel": "Aïn Diab · Casablanca",
+ "price": 5400000,
+ "area": 350,
+ "beds": 4,
+ "bathrooms": 3,
+ "description": "Dans une impasse calme à Aïn Diab, ce duplex rénové de 350 m² se développe sur un rez-de-jardin et un étage. Ses espaces de réception comprennent un salon marocain, un double salon européen avec cheminée et une salle à manger.",
+ "detail": "Quatre chambres, dont une suite parentale avec dressing, composent la partie familiale. Une chambre pour le personnel avec salle de bains, des terrasses, deux places de garage et un box privatif d’environ 15 m² complètent le bien. La qualification des 350 m² reste à confirmer : le document les décrit comme « titrés » puis « habitables ».",
+ "features": [
+  "Rez-de-jardin et étage",
+  "Suite parentale avec dressing et salle de bains privative",
+  "Salle de bains commune",
+  "Chambre du personnel avec salle de bains, hors des quatre chambres",
+  "WC invités séparés",
+  "Salon marocain",
+  "Double salon européen avec cheminée",
+  "Salle à manger",
+  "Cuisine indépendante, buanderie et cellier",
+  "Terrasses",
+  "Climatisation",
+  "Chauffage central au gaz",
+  "Double vitrage",
+  "Marbre de Carrare et menuiseries bois",
+  "2 places de garage",
+  "Box privatif d’environ 15 m²",
+  "Petite copropriété sécurisée dans une impasse calme",
+  "Bien annoncé sans vis-à-vis"
+ ],
+ "pdfNote": "La qualification des 350 m² annoncés (surface titrée ou habitable) reste à confirmer auprès de l’agence.",
+ "mediaNote": "Photographies extraites de la fiche technique du bien à Aïn Diab.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/duplex-ain-diab/duplex-ain-diab-reception.jpg",
+  "/assets/properties/duplex-ain-diab/duplex-ain-diab-salon-marocain.jpg",
+  "/assets/properties/duplex-ain-diab/duplex-ain-diab-chambre.jpg",
+  "/assets/properties/duplex-ain-diab/duplex-ain-diab-terrasse.jpg"
+ ],
+ "photoAlts": [
+  "Réception du duplex à Aïn Diab",
+  "Salon marocain du duplex à Aïn Diab",
+  "Chambre du duplex à Aïn Diab",
+  "Terrasse du duplex à Aïn Diab"
+ ],
+ "mediaAlt": "Réception du duplex à Aïn Diab",
+ "pdf": {
+  "src": "/assets/properties/duplex-ain-diab/duplex-ain-diab-fiche-technique.pdf",
+  "filename": "duplex-ain-diab-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "velodrome-1030",
+ "reference": "1030",
+ "title": "Bureau au dernier étage à Vélodrome",
+ "category": "locaux-professionnels",
+ "status": "À louer",
+ "transaction": "rent",
+ "type": "Bureau",
+ "city": "Casablanca",
+ "district": "Vélodrome",
+ "locationLabel": "Vélodrome · Casablanca",
+ "price": 23000,
+ "unit": "mois",
+ "priceTaxExcluded": true,
+ "area": 180,
+ "description": "À Vélodrome, ce bureau de 180 m² occupe le cinquième et dernier étage d’un immeuble professionnel avec ascenseur. Lumineux et bénéficiant d’une vue dégagée, il offre des espaces modulables pour l’aménagement de l’activité.",
+ "detail": "Des sanitaires, une place de parking et une pré-installation pour la fibre optique complètent ses prestations. Cette pré-installation ne constitue pas une connexion active. Le loyer est annoncé hors taxes.",
+ "features": [
+  "5e et dernier étage",
+  "Immeuble professionnel avec ascenseur",
+  "Open space et espaces modulables",
+  "Sanitaires",
+  "1 place de parking",
+  "Vue dégagée",
+  "Bonne luminosité",
+  "Pré-installation fibre optique, sans connexion active annoncée"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1030.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/velodrome-1030/velodrome-1030-espace-principal.jpg",
+  "/assets/properties/velodrome-1030/velodrome-1030-espace-cloisonne.jpg",
+  "/assets/properties/velodrome-1030/velodrome-1030-espace-modulable.jpg",
+  "/assets/properties/velodrome-1030/velodrome-1030-vue.jpg"
+ ],
+ "photoAlts": [
+  "Espace principal du bureau à Vélodrome",
+  "Espace cloisonné du bureau à Vélodrome",
+  "Espace modulable du bureau à Vélodrome",
+  "Vue depuis le bureau à Vélodrome"
+ ],
+ "mediaAlt": "Espace principal du bureau à Vélodrome",
+ "pdf": {
+  "src": "/assets/properties/velodrome-1030/velodrome-1030-fiche-technique.pdf",
+  "filename": "velodrome-1030-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "hay-riad-imr-1055",
+ "reference": "IMR-1055",
+ "title": "Immeuble professionnel à usage mixte — Hay Riad",
+ "category": "locaux-professionnels",
+ "status": "À vendre",
+ "transaction": "sale",
+ "type": "Immeuble professionnel",
+ "city": "Rabat",
+ "district": "Hay Riad",
+ "locationLabel": "Hay Riad · Rabat",
+ "price": 22000000,
+ "area": 1400,
+ "areaNote": "annoncés — à confirmer",
+ "description": "À Hay Riad, cet immeuble professionnel à usage mixte comprend un sous-sol, un rez-de-chaussée et deux étages. La fiche présente deux plateaux de bureaux de 231 m² chacun, un espace de crèche avec jardin privatif, des locaux médicaux avec cuisine et un parking en sous-sol.",
+ "detail": "La surface totale annoncée est de 1 400 m², tandis que les surfaces détaillées totalisent 1 292 m² : cet écart reste à confirmer auprès de l’agence. Les usages médicaux et éducatifs sont ceux présentés dans la fiche, sans confirmation des autorisations, de l’exploitation ou de revenus locatifs.",
+ "features": [
+  "Sous-sol, rez-de-chaussée et deux étages",
+  "Parking en sous-sol annoncé : 200 m²",
+  "Locaux médicaux et cuisine au sous-sol annoncés : 200 m²",
+  "Rez-de-chaussée présenté comme crèche avec jardin privatif : 430 m²",
+  "Premier étage : plateau de bureaux de 231 m²",
+  "Deuxième étage : plateau de bureaux de 231 m²",
+  "Espaces modulables et zones d’exploitation distinctes"
+ ],
+ "pdfNote": "Surface totale annoncée : 1 400 m² ; surfaces détaillées : 1 292 m². Écart à confirmer auprès de l’agence.",
+ "mediaNote": "Visuels de présentation extraits de la fiche technique IMR-1055 ; leur correspondance avec les locaux réels reste à confirmer.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/hay-riad-imr-1055/hay-riad-imr-1055-facade.jpg",
+  "/assets/properties/hay-riad-imr-1055/hay-riad-imr-1055-bureaux.jpg",
+  "/assets/properties/hay-riad-imr-1055/hay-riad-imr-1055-espace-creche.jpg",
+  "/assets/properties/hay-riad-imr-1055/hay-riad-imr-1055-locaux-medicaux.jpg"
+ ],
+ "photoAlts": [
+  "Visuel de présentation de la façade de l’immeuble à Hay Riad",
+  "Visuel de présentation d’un plateau de bureaux à Hay Riad",
+  "Visuel de présentation de l’espace crèche à Hay Riad",
+  "Visuel de présentation des locaux médicaux et de la cuisine à Hay Riad"
+ ],
+ "mediaAlt": "Visuel de présentation de la façade de l’immeuble à Hay Riad",
+ "pdf": {
+  "src": "/assets/properties/hay-riad-imr-1055/hay-riad-imr-1055-fiche-technique.pdf",
+  "filename": "hay-riad-imr-1055-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "oulfa-bureaux-1037",
+ "reference": "1037",
+ "title": "Plateaux de bureaux neufs à Oulfa",
+ "category": "locaux-professionnels",
+ "status": "À louer",
+ "transaction": "rent",
+ "type": "Plateaux de bureaux",
+ "city": "Casablanca",
+ "district": "Oulfa",
+ "locationLabel": "Oulfa · Casablanca",
+ "price": 8000,
+ "priceFrom": true,
+ "unit": "mois",
+ "area": 107,
+ "areaRange": [
+  107,
+  287
+ ],
+ "description": "À Oulfa, cet immeuble professionnel neuf propose des plateaux de bureaux de 107 à 287 m². Les espaces ouverts et modulables bénéficient de grandes baies vitrées, d’une climatisation centralisée et d’une installation fibre optique.",
+ "detail": "Certains lots disposent d’une terrasse selon leur surface et leur étage. Le programme annoncé comprend dix plateaux, deux par étage, dans un immeuble R+5 dont l’année de construction indiquée est 2026. Ce nombre ne constitue pas un stock disponible confirmé.",
+ "features": [
+  "Open spaces modulables et grandes baies vitrées",
+  "Climatisation centralisée",
+  "Installation fibre optique",
+  "Interphone et caméras de surveillance",
+  "Orientations annoncées : nord-est et sud-ouest",
+  "Grandes surfaces : terrasses à partir du 2e étage ; petites surfaces : au 5e étage"
+ ],
+ "variants": {
+  "columns": [
+   {
+    "key": "area",
+    "label": "Surface",
+    "kind": "area"
+   }
+  ],
+  "rows": [
+   {
+    "id": "plateau-107",
+    "label": "Plateau de 107 m²",
+    "type": "Bureau",
+    "area": 107,
+    "price": 8000,
+    "unit": "mois"
+   },
+   {
+    "id": "plateau-287",
+    "label": "Plateau de 287 m²",
+    "type": "Bureau",
+    "area": 287,
+    "price": 17000,
+    "unit": "mois"
+   }
+  ],
+  "note": "Seuls les loyers de ces deux surfaces sont communiqués. Conditions des autres lots et disponibilité à confirmer."
+ },
+ "availability": "Disponibilité sur demande.",
+ "mediaNote": "Photographies extraites de la fiche technique 1037, sans attribution à un lot précis.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/oulfa-bureaux-1037/oulfa-bureaux-1037-plateau.jpg",
+  "/assets/properties/oulfa-bureaux-1037/oulfa-bureaux-1037-espace-modulable.jpg",
+  "/assets/properties/oulfa-bureaux-1037/oulfa-bureaux-1037-terrasse.jpg",
+  "/assets/properties/oulfa-bureaux-1037/oulfa-bureaux-1037-sanitaires.jpg"
+ ],
+ "photoAlts": [
+  "Plateau de bureaux à Oulfa, sans attribution à un lot précis",
+  "Espace modulable du programme de bureaux à Oulfa",
+  "Terrasse présentée dans la fiche des bureaux à Oulfa, selon les lots",
+  "Sanitaires présentés dans la fiche des bureaux à Oulfa"
+ ],
+ "mediaAlt": "Plateau de bureaux à Oulfa, sans attribution à un lot précis",
+ "pdf": {
+  "src": "/assets/properties/oulfa-bureaux-1037/oulfa-bureaux-1037-fiche-technique.pdf",
+  "filename": "oulfa-bureaux-1037-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "affinities-1022",
+ "reference": "1022",
+ "title": "Résidence Affinities",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Studios et appartements",
+ "city": "Casablanca",
+ "district": "CFC Extension",
+ "locationLabel": "CFC Extension · Casablanca",
+ "price": 1058000,
+ "priceFrom": true,
+ "area": 46,
+ "areaRange": [
+  46,
+  123
+ ],
+ "description": "À CFC Extension, Résidence Affinities propose des studios et des appartements de deux chambres avec salon. Le programme associe cuisines équipées, climatisation réversible, ascenseurs OTIS et espaces communs comprenant un rooftop aménagé et un parking en sous-sol.",
+ "detail": "La proximité de CFC, de la Route d’El Jadida et d’Anfa Park est annoncée. La dénomination « studios » est conservée, bien que le document mentionne aussi « 1 chambre + salon » pour ces logements ; leur configuration reste à préciser.",
+ "delivery": "Échéance initialement annoncée : T2 2026. Cette date est passée ; le statut de livraison reste à confirmer auprès de l’agence.",
+ "features": [
+  "Cuisines équipées",
+  "Marbre dans les espaces de vie et parquet stratifié dans les chambres",
+  "Plans de travail en quartz ou granit",
+  "Climatisation réversible",
+  "Fibre optique",
+  "Ascenseurs OTIS",
+  "Rooftop aménagé",
+  "Résidence sécurisée",
+  "Parking en sous-sol annoncé inclus"
+ ],
+ "variants": {
+  "columns": [
+   {
+    "key": "areaRange",
+    "label": "Surfaces",
+    "kind": "area"
+   },
+   {
+    "key": "composition",
+    "label": "Composition annoncée",
+    "kind": "text"
+   }
+  ],
+  "rows": [
+   {
+    "id": "studios",
+    "label": "Studios",
+    "type": "Studio",
+    "areaRange": [
+     46,
+     56
+    ],
+    "price": 1058000,
+    "priceFrom": true,
+    "composition": "Dénomination « studio » ; « 1 chambre + salon » également indiqué, à préciser"
+   },
+   {
+    "id": "appartements-2-chambres",
+    "label": "Appartements de 2 chambres avec salon",
+    "type": "Appartement",
+    "beds": 2,
+    "areaRange": [
+     56,
+     123
+    ],
+    "price": 1500000,
+    "priceFrom": true,
+    "composition": "2 chambres et salon ; nombre de salles de bains selon le lot"
+   }
+  ],
+  "note": "Prix de départ par type de logement, sans attribution à un lot précis. Configuration et disponibilité à confirmer."
+ },
+ "mediaNote": "Visuels de présentation du programme extraits de la fiche 1022, sans attribution à un lot précis. Le rendu extérieur ne constitue pas une photographie vérifiée du bâtiment livré.",
+ "availability": "Disponibilité sur demande.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/affinities-1022/affinities-1022-residence.jpg",
+  "/assets/properties/affinities-1022/affinities-1022-espace-vie.jpg",
+  "/assets/properties/affinities-1022/affinities-1022-chambre.jpg",
+  "/assets/properties/affinities-1022/affinities-1022-cuisine.jpg"
+ ],
+ "photoAlts": [
+  "Rendu de présentation de Résidence Affinities",
+  "Visuel de présentation d’un espace de vie à Résidence Affinities",
+  "Visuel de présentation d’une chambre à Résidence Affinities",
+  "Visuel de présentation d’une cuisine à Résidence Affinities"
+ ],
+ "mediaAlt": "Rendu de présentation de Résidence Affinities",
+ "pdf": {
+  "src": "/assets/properties/affinities-1022/affinities-1022-fiche-technique.pdf",
+  "filename": "affinities-1022-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "bourgogne-local-1053",
+ "reference": "1053",
+ "title": "Local commercial avec mezzanine à Bourgogne",
+ "category": "locaux-professionnels",
+ "status": "À vendre",
+ "transaction": "sale",
+ "type": "Local commercial",
+ "city": "Casablanca",
+ "district": "Bourgogne",
+ "locationLabel": "Bourgogne · Casablanca",
+ "price": 1900000,
+ "area": 72,
+ "areaApproximate": true,
+ "description": "À Bourgogne, ce local se situe dans un passage commercial à proximité de Marjane. Il propose environ 72 m² exploitables, répartis entre 47 m² au sol et une mezzanine de 25 m².",
+ "detail": "Sa façade vitrée et sa configuration ouverte permettent d’envisager différents aménagements selon l’activité. Les autorisations nécessaires à l’activité envisagée restent à vérifier.",
+ "features": [
+  "Surface exploitable d’environ 72 m² : 47 m² au sol et 25 m² en mezzanine",
+  "Grande façade vitrée donnant sur le passage commercial",
+  "Espace ouvert et modulable",
+  "Belle hauteur sous plafond",
+  "Éclairage encastré",
+  "Sol carrelé et miroirs muraux",
+  "Accès depuis le passage commercial, à proximité de Marjane"
+ ],
+ "availability": "Disponibilité sur demande.",
+ "mediaNote": "Photographies extraites de la fiche technique 1053, sans attribution à un lot précis.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/bourgogne-local-1053/bourgogne-local-1053-interieur.jpg",
+  "/assets/properties/bourgogne-local-1053/bourgogne-local-1053-facade.jpg",
+  "/assets/properties/bourgogne-local-1053/bourgogne-local-1053-acces.jpg"
+ ],
+ "photoAlts": [
+  "Intérieur du local commercial à Bourgogne",
+  "Façade du local donnant sur le passage commercial à Bourgogne",
+  "Accès depuis le passage commercial à Bourgogne"
+ ],
+ "mediaAlt": "Intérieur du local commercial à Bourgogne",
+ "pdf": {
+  "src": "/assets/properties/bourgogne-local-1053/bourgogne-local-1053-fiche-technique.pdf",
+  "filename": "bourgogne-local-1053-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "les-oceanes-1026",
+ "reference": "1026",
+ "title": "Résidence Les Océanes — Marina Casablanca",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Appartements et duplex",
+ "city": "Casablanca",
+ "district": "Marina",
+ "locationLabel": "Marina · Casablanca",
+ "price": 4118000,
+ "priceFrom": true,
+ "area": 172,
+ "areaRange": [
+  172,
+  352
+ ],
+ "description": "À Marina Casablanca, cette sélection réunit des appartements et un duplex dans les résidences Les Océanes 1 et 2. Les surfaces totales s’étendent de 172 à 352 m², avec terrasses, jardins et vues sur la mer ou la ville selon les lots.",
+ "detail": "La résidence dispose d’ascenseurs, d’un parking en sous-sol et d’une sécurité annoncée 24h/24. La composition détaillée indique deux chambres pour les appartements et trois pour le duplex ; l’appellation F4 utilisée ailleurs dans la fiche ne permet pas d’en déduire trois chambres pour tous les appartements.",
+ "features": [
+  "Cuisines équipées et espaces de lavage",
+  "Deux salles de bains et toilettes invités distinctes selon la composition détaillée",
+  "Climatisation",
+  "Jardins, terrasses et vues selon les lots",
+  "Ascenseurs et parking en sous-sol",
+  "Sécurité annoncée 24h/24"
+ ],
+ "variants": {
+  "columns": [
+   {
+    "key": "floor",
+    "label": "Étage",
+    "kind": "text"
+   },
+   {
+    "key": "view",
+    "label": "Vue et orientation",
+    "kind": "text"
+   },
+   {
+    "key": "area",
+    "label": "Surface totale",
+    "kind": "area"
+   },
+   {
+    "key": "livingArea",
+    "label": "Surface habitable",
+    "kind": "area"
+   },
+   {
+    "key": "gardenArea",
+    "label": "Jardin",
+    "kind": "area"
+   },
+   {
+    "key": "terraceArea",
+    "label": "Terrasses et balcons",
+    "kind": "area"
+   },
+   {
+    "key": "parking",
+    "label": "Places de parking",
+    "kind": "number"
+   },
+   {
+    "key": "beds",
+    "label": "Chambres",
+    "kind": "number"
+   }
+  ],
+  "rows": [
+   {
+    "id": "oceanes-1-1",
+    "label": "Océanes 1 — Appartement n°1",
+    "type": "Appartement",
+    "floor": "RDC",
+    "view": "Vue ville · Sud-ouest",
+    "area": 226,
+    "livingArea": 156,
+    "terraceArea": 15,
+    "parking": 1,
+    "beds": 2,
+    "bathrooms": 2,
+    "price": 4353000,
+    "gardenArea": 55
+   },
+   {
+    "id": "oceanes-1-3",
+    "label": "Océanes 1 — Appartement n°3",
+    "type": "Appartement",
+    "floor": "RDC",
+    "view": "Vue mer · Nord-ouest",
+    "area": 176,
+    "livingArea": 161,
+    "terraceArea": 15,
+    "parking": 1,
+    "beds": 2,
+    "bathrooms": 2,
+    "price": 4353000
+   },
+   {
+    "id": "oceanes-1-5",
+    "label": "Océanes 1 — Appartement n°5",
+    "type": "Appartement",
+    "floor": "1er étage",
+    "view": "Vue ville · Sud-ouest",
+    "area": 172,
+    "livingArea": 157,
+    "terraceArea": 15,
+    "parking": 1,
+    "beds": 2,
+    "bathrooms": 2,
+    "price": 4118000
+   },
+   {
+    "id": "oceanes-1-8",
+    "label": "Océanes 1 — Duplex n°8",
+    "type": "Duplex",
+    "floor": "1er étage",
+    "view": "Vue mer · Sud-est",
+    "area": 352,
+    "livingArea": 200,
+    "terraceArea": 18,
+    "parking": 2,
+    "beds": 3,
+    "bathrooms": 2,
+    "price": 5648000,
+    "gardenArea": 134
+   },
+   {
+    "id": "oceanes-2-2",
+    "label": "Océanes 2 — Appartement n°2",
+    "type": "Appartement",
+    "floor": "RDC",
+    "view": "Vue mer · Nord-ouest",
+    "area": 177,
+    "livingArea": 162,
+    "terraceArea": 15,
+    "parking": 1,
+    "beds": 2,
+    "bathrooms": 2,
+    "price": 4392000
+   },
+   {
+    "id": "oceanes-2-4",
+    "label": "Océanes 2 — Appartement n°4",
+    "type": "Appartement",
+    "floor": "RDC",
+    "view": "Vue ville · Nord-ouest",
+    "area": 209,
+    "livingArea": 156,
+    "terraceArea": 15,
+    "parking": 1,
+    "beds": 2,
+    "bathrooms": 2,
+    "price": 4295000,
+    "gardenArea": 38
+   },
+   {
+    "id": "oceanes-2-8",
+    "label": "Océanes 2 — Appartement n°8",
+    "type": "Appartement",
+    "floor": "1er étage",
+    "view": "Vue ville · Sud-ouest",
+    "area": 172,
+    "livingArea": 157,
+    "terraceArea": 15,
+    "parking": 1,
+    "beds": 2,
+    "bathrooms": 2,
+    "price": 4236000
+   }
+  ],
+  "note": "Lots décrits dans la fiche, disponibilité à confirmer. Les surfaces annexes sont incluses dans les totaux. Les photos ne sont pas attribuées à un lot précis."
+ },
+ "availability": "Disponibilité sur demande.",
+ "mediaNote": "Photographies extraites de la fiche technique 1026, sans attribution à un lot précis.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/les-oceanes-1026/les-oceanes-1026-residences.jpg",
+  "/assets/properties/les-oceanes-1026/les-oceanes-1026-espace-vie.jpg",
+  "/assets/properties/les-oceanes-1026/les-oceanes-1026-chambre.jpg",
+  "/assets/properties/les-oceanes-1026/les-oceanes-1026-terrasse.jpg"
+ ],
+ "photoAlts": [
+  "Résidences Les Océanes à Marina Casablanca",
+  "Espace de vie présenté dans la sélection Les Océanes, lot non précisé",
+  "Chambre présentée dans la sélection Les Océanes, lot non précisé",
+  "Terrasse présentée dans la sélection Les Océanes, lot non précisé"
+ ],
+ "mediaAlt": "Résidences Les Océanes à Marina Casablanca",
+ "pdf": {
+  "src": "/assets/properties/les-oceanes-1026/les-oceanes-1026-fiche-technique.pdf",
+  "filename": "les-oceanes-1026-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "ayad-1033",
+ "reference": "1033",
+ "title": "Résidence Ayad — Ferme Bretonne",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Studios",
+ "city": "Casablanca",
+ "district": "Ferme Bretonne",
+ "locationLabel": "Ferme Bretonne · Casablanca",
+ "price": 1325000,
+ "priceFrom": true,
+ "area": 45,
+ "areaRange": [
+  45,
+  93
+ ],
+ "areaNote": "de surface totale annoncée",
+ "description": "À Ferme Bretonne, Résidence Ayad propose des logements avec salon, chambre et cuisine équipée, ainsi que des terrasses selon les lots. La résidence dispose d’un ascenseur, d’un parking en sous-sol et d’une sécurité annoncée 24h/24.",
+ "detail": "Le document désigne ces logements comme des studios et annonce 41 à 52 m² habitables, pour 45 à 93 m² de surface totale. Certaines surfaces pondérées dépassent les surfaces totales : les intitulés et valeurs sont repris sans inversion ni recalcul. L’attribution d’une terrasse ou d’un parking privatif à chaque lot reste à confirmer.",
+ "features": [
+  "Composition annoncée : salon, une chambre, une salle de bains et cuisine équipée",
+  "Climatisation",
+  "Isolation thermique et acoustique",
+  "Ascenseur",
+  "Sécurité annoncée 24h/24",
+  "Terrasses selon les lots ; parking privatif annoncé, attribution à confirmer"
+ ],
+ "variants": {
+  "columns": [
+   {
+    "key": "floor",
+    "label": "Étage",
+    "kind": "text"
+   },
+   {
+    "key": "area",
+    "label": "Surface totale",
+    "kind": "area"
+   },
+   {
+    "key": "weightedArea",
+    "label": "Surface pondérée",
+    "kind": "area"
+   }
+  ],
+  "rows": [
+   {
+    "id": "lot-17",
+    "label": "Logement n°17",
+    "type": "Studio",
+    "floor": "2e étage",
+    "area": 45,
+    "weightedArea": 53,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1325000
+   },
+   {
+    "id": "lot-13",
+    "label": "Logement n°13",
+    "type": "Studio",
+    "floor": "1er étage",
+    "area": 48,
+    "weightedArea": 56,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1400000
+   },
+   {
+    "id": "lot-12",
+    "label": "Logement n°12",
+    "type": "Studio",
+    "floor": "1er étage",
+    "area": 51,
+    "weightedArea": 59,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1500000
+   },
+   {
+    "id": "lot-10",
+    "label": "Logement n°10",
+    "type": "Studio",
+    "floor": "1er étage",
+    "area": 93,
+    "weightedArea": 78,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1550000
+   },
+   {
+    "id": "lot-8",
+    "label": "Logement n°8",
+    "type": "Studio",
+    "floor": "1er étage",
+    "area": 71,
+    "weightedArea": 67,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1600000
+   },
+   {
+    "id": "lot-23",
+    "label": "Logement n°23",
+    "type": "Studio",
+    "floor": "3e étage",
+    "area": 74,
+    "weightedArea": 71,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1700000
+   },
+   {
+    "id": "lot-28",
+    "label": "Logement n°28",
+    "type": "Studio",
+    "floor": "4e étage",
+    "area": 85,
+    "weightedArea": 74,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 1600000
+   }
+  ],
+  "note": "Surfaces communiquées dans la fiche, à confirmer. La surface pondérée n’est pas une surface habitable. Disponibilité et attribution des annexes à confirmer."
+ },
+ "mediaNote": "Visuels de présentation extraits de la fiche 1033, sans attribution à un lot précis ni confirmation de leur correspondance avec les logements réels.",
+ "availability": "Disponibilité sur demande.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/ayad-1033/ayad-1033-espace-vie.jpg",
+  "/assets/properties/ayad-1033/ayad-1033-chambre.jpg",
+  "/assets/properties/ayad-1033/ayad-1033-cuisine.jpg",
+  "/assets/properties/ayad-1033/ayad-1033-terrasse.jpg"
+ ],
+ "photoAlts": [
+  "Visuel de présentation d’un espace de vie à Résidence Ayad",
+  "Visuel de présentation d’une chambre à Résidence Ayad",
+  "Visuel de présentation d’une cuisine à Résidence Ayad",
+  "Visuel de présentation d’une terrasse à Résidence Ayad, selon les lots"
+ ],
+ "mediaAlt": "Visuel de présentation d’un espace de vie à Résidence Ayad",
+ "pdf": {
+  "src": "/assets/properties/ayad-1033/ayad-1033-fiche-technique.pdf",
+  "filename": "ayad-1033-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "alsace-lorraine-1034",
+ "reference": "1034",
+ "title": "Studios et lofts à Alsace-Lorraine",
+ "category": "location",
+ "status": "À louer",
+ "transaction": "rent",
+ "type": "Studios et lofts",
+ "city": "Casablanca",
+ "district": "Alsace-Lorraine",
+ "locationLabel": "Alsace-Lorraine · Casablanca",
+ "price": null,
+ "priceLabel": "Loyers sur demande",
+ "area": 30,
+ "areaRange": [
+  30,
+  45
+ ],
+ "description": "À Alsace-Lorraine, cette sélection comprend des studios de 45 m² avec salon et chambre, ainsi que des lofts de 30 m² organisés en espace ouvert. Les logements disposent d’une cuisine moderne et d’une salle de bains, au sein d’un immeuble sécurisé proche des commerces et des transports.",
+ "detail": "Le loyer des studios est de 6 000 DH par mois ; celui des lofts reste à confirmer. La localisation principale communiquée est Alsace-Lorraine, malgré une autre mention du Maarif dans le document. Aucune place de parking n’est attribuée à un logement sans confirmation.",
+ "features": [
+  "Résidence sécurisée et immeuble entretenu",
+  "Proximité des commerces et transports",
+  "Cuisine moderne et une salle de bains par logement selon la fiche"
+ ],
+ "variants": {
+  "columns": [
+   {
+    "key": "area",
+    "label": "Surface",
+    "kind": "area"
+   },
+   {
+    "key": "composition",
+    "label": "Composition annoncée",
+    "kind": "text"
+   }
+  ],
+  "rows": [
+   {
+    "id": "studios",
+    "label": "Studios",
+    "type": "Studio",
+    "area": 45,
+    "beds": 1,
+    "bathrooms": 1,
+    "price": 6000,
+    "unit": "mois",
+    "composition": "Salon, une chambre, une salle de bains et cuisine moderne"
+   },
+   {
+    "id": "lofts",
+    "label": "Lofts",
+    "type": "Loft",
+    "area": 30,
+    "bathrooms": 1,
+    "price": null,
+    "priceLabel": "Loyer sur demande",
+    "composition": "Espace ouvert, une salle de bains et cuisine moderne"
+   }
+  ],
+  "note": "Le loyer des lofts reste à confirmer. Les quantités indiquées dans le document ne constituent pas un stock actuel confirmé."
+ },
+ "availability": "Disponibilité sur demande.",
+ "mediaNote": "Photographies extraites de la fiche technique 1034, sans attribution à un lot précis.",
+ "destination": "maroc",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/alsace-lorraine-1034/alsace-lorraine-1034-immeuble.jpg",
+  "/assets/properties/alsace-lorraine-1034/alsace-lorraine-1034-salon.jpg",
+  "/assets/properties/alsace-lorraine-1034/alsace-lorraine-1034-chambre.jpg",
+  "/assets/properties/alsace-lorraine-1034/alsace-lorraine-1034-cuisine.jpg"
+ ],
+ "photoAlts": [
+  "Immeuble présenté dans la fiche des studios et lofts à Alsace-Lorraine",
+  "Salon présenté dans la sélection Alsace-Lorraine, logement non précisé",
+  "Chambre présentée dans la sélection Alsace-Lorraine, logement non précisé",
+  "Cuisine présentée dans la sélection Alsace-Lorraine, logement non précisé"
+ ],
+ "mediaAlt": "Immeuble présenté dans la fiche des studios et lofts à Alsace-Lorraine",
+ "pdf": {
+  "src": "/assets/properties/alsace-lorraine-1034/alsace-lorraine-1034-fiche-technique.pdf",
+  "filename": "alsace-lorraine-1034-fiche-technique.pdf"
+ }
+});
 export const projects=[
  {id:'INT-MAR-01',destination:'maroc',title:'Matières vivantes',type:'Résidence · Marrakech',image:'interior',text:'Une inspiration autour du tadelakt, du bois et des matières naturelles. Un intérieur ouvert sur un patio, où la lumière dessine les volumes.',palette:['#d9c7ac','#a87554','#72785a']},
  {id:'INT-MAR-02',destination:'maroc',title:'L’élégance essentielle',type:'Appartement · Casablanca',image:'living',text:'Des lignes épurées, des tons chauds et des espaces de vie qui se répondent. Une piste créative pour un quotidien plus fluide.',palette:['#e7dfcf','#807766','#393e34']},
@@ -289,4 +1432,4 @@ export const projects=[
  {id:'INT-DXB-02',destination:'dubai',title:'Une terrasse sur la ville',type:'Résidence · Dubaï',image:'dubai',text:'Un dialogue entre intérieur et extérieur, avec des matières minérales et des assises accueillantes pour prolonger le lieu de vie.',palette:['#d9d1bc','#a99b82','#38473e']}
 ];
 export const steps=[['Vous écouter','Destination, budget, calendrier et priorités : le projet commence par vos attentes.'],['Sélectionner','Une sélection adaptée, des informations structurées et des critères faciles à comparer.'],['Explorer','Échanger sur les biens, préparer les visites et préciser les points à vérifier.'],['Vous accompagner','Coordonner les prochaines étapes selon la mission et les interlocuteurs concernés.']];
-export const faqs=[['Puis-je rechercher un bien au Maroc et à Dubaï ?','Oui. Les deux destinations disposent des mêmes cinq rubriques, avec une sélection propre à chacune. Vous pouvez changer de destination à tout moment depuis le menu.'],['Comment obtenir des informations sur un bien ?','Depuis la fiche du bien, utilisez « Ce bien m’intéresse ». Sa référence est automatiquement reprise dans votre demande de contact.'],['Puis-je réserver un séjour sur le site ?','Le site permet de demander des informations et de préciser vos dates. Aucune réservation, confirmation de disponibilité ou transaction n’est effectuée en ligne.'],['Proposez-vous un accompagnement en décoration ?','Oui. La rubrique Décoration & aménagement présente notre accompagnement et des inspirations. Le périmètre de votre projet se précise avec l’agence.']];
+export const faqs=[['Puis-je rechercher un bien au Maroc et à Dubaï ?','Le Maroc propose cinq rubriques et Dubaï quatre. La rubrique Hôtel & Appart’Hôtel est réservée à l’acquisition d’établissements au Maroc. Vous pouvez changer de destination depuis le menu.'],['Comment obtenir des informations sur un bien ?','Depuis la fiche du bien, utilisez « Ce bien m’intéresse ». Sa référence est automatiquement reprise dans votre demande de contact.'],['Accompagnez-vous l’achat d’un établissement hôtelier ?','Oui. La rubrique Hôtel & Appart’Hôtel concerne l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes au Maroc. Contactez l’agence pour préciser votre projet.'],['Proposez-vous un accompagnement en décoration ?','Oui. La rubrique Décoration & aménagement présente notre accompagnement et des inspirations. Le périmètre de votre projet se précise avec l’agence.']];

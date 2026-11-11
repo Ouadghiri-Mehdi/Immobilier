@@ -49,7 +49,7 @@ export function applyDocumentLanguage(){
  for(const [selector,value] of [
   ['meta[name="description"]',tr('Sarouty Properties, agence de services immobiliers au Maroc et à Dubaï. Découvrez nos destinations, nos biens et notre accompagnement.')],
   ['meta[property="og:title"]','Sarouty Properties | '+tr('Immobilier au Maroc et à Dubaï')],
-  ['meta[property="og:description"]',tr('Immobilier, séjours et intérieurs au Maroc et à Dubaï. Prototype de présentation.')],
+  ['meta[property="og:description"]',tr('Achat, vente, location et aménagement au Maroc et à Dubaï. Acquisition hôtelière au Maroc.')],
   ['meta[property="og:locale"]',language==='en'?'en_GB':'fr_FR'],
  ])document.querySelector(selector)?.setAttribute('content',value);
  for(const input of document.querySelectorAll('form input, form select, form textarea'))if(input.validity?.customError)localizeValidity(input);

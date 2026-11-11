@@ -2,11 +2,12 @@ import {tr} from '../i18n/index.js';
 import React from 'react';
 import {ArrowUpRight} from 'lucide-react';
 import {homeContent} from '../content';
-import {images, properties} from '../data';
+import {images, properties, isPublicProperty} from '../data';
 import {Photo, Link, ButtonLink, Eyebrow, Reveal, SectionTitle, DemoNote} from './ui';
 import {DestinationCards, ServiceCards, Method, Partners} from './marketing';
 import {PropertyGrid} from './property';
 import {HeroMedia} from './HeroMedia';
+import {homeDestinationMedia} from '../config';
 
 export function HomeLayout({children}) {
   const {hero, agency, destinations, services, selection} = homeContent;
@@ -27,7 +28,7 @@ export function HomeLayout({children}) {
 
     <section className="section intro-section" id="destinations-home">
       <SectionTitle {...destinations} italic={tr(destinations.emphasis)}/>
-      <DestinationCards/>
+      <DestinationCards media={homeDestinationMedia}/>
     </section>
 
     <section className="about-split home-agency" id="agence-home" aria-labelledby="agency-home-title">
@@ -47,7 +48,7 @@ export function HomeLayout({children}) {
 
     <section className="section selection-section" id="selection-home">
       <SectionTitle {...selection} italic={tr(selection.emphasis)} action={<Link to="/destinations" className="text-link">{tr("Voir les catalogues ")}<ArrowUpRight size={17}/></Link>}/>
-      <PropertyGrid items={properties.filter(property => property.featured).slice(0, 6)}/>
+      <PropertyGrid items={properties.filter(property => isPublicProperty(property)&&property.featured).slice(0, 6)}/>
       <DemoNote/>
     </section>
     <Method/>

@@ -17,8 +17,13 @@ export const heroMediaConfig = {
   {src:'/assets/hero/hero-dubai.jpeg', label:'Dubaï',
    alt:'Vue de Dubaï et de sa skyline depuis une terrasse résidentielle.',
    position:{desktop:'center 50%',mobile:'56% center'}},
-  {src:'/assets/hero/hero-marrakech.png', label:'Marrakech',
-   alt:'Vue de Marrakech, de la Koutoubia et des montagnes de l’Atlas.',
-   position:{desktop:'center 50%',mobile:'76% center'}},
+  {src:'/assets/hero/hero-marrakech1.png', label:'Marrakech',
+   alt:'Illustration d’une villa à Marrakech avec piscine.',
+   position:{desktop:'center 56%',mobile:'62% 56%'}},
  ],
+};
+
+// Visuel réservé à la carte Maroc de l’accueil.
+export const homeDestinationMedia={
+ maroc:{src:'/assets/home/maroc-villa1.png',position:{desktop:'50% 54%',mobile:'55% 54%'}},
 };
