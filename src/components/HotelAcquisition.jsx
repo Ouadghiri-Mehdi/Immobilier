@@ -28,7 +28,7 @@ export function RetiredProperty({property}){
  return <section className="page-intro section">
   <Breadcrumb items={[{label:property.destination==='maroc'?'Maroc':'Dubaï',to:destPath(property.destination)},{label:property.title}]}/>
   <Eyebrow>{tr('EXEMPLE RETIRÉ DU CATALOGUE')}</Eyebrow><h1>{tr(property.title)}</h1>
-  <p>{tr('Cet ancien exemple de séjour a été retiré du catalogue. Il ne constitue pas une offre d’acquisition hôtelière.')}</p>
+  <p>{tr('Cette annonce illustrative a été retirée du catalogue. Elle ne constitue pas une offre immobilière disponible.')}</p>
   <Favorite property={property} className="retired-property-favorite"/>
   <ButtonLink to={destPath(property.destination)}>{tr('Explorer la destination')}</ButtonLink>
  </section>;
@@ -37,7 +37,7 @@ export function RetiredProperty({property}){
 export function RetiredFavorites({items}){
  if(!items.length)return null;
  return <div className="retired-favorites">
-  <p>{tr('Ces anciens exemples de séjour sont conservés dans vos favoris, mais ont été retirés du catalogue. Vous pouvez les retirer de votre sélection.')}</p>
+  <p>{tr('Ces annonces illustratives ont été retirées du catalogue et ne sont pas comptabilisées parmi vos favoris actifs. Vous pouvez les retirer de votre sélection.')}</p>
   <ul className="retired-favorites-list">{items.map(property=><li key={property.id}><span>{tr(property.title)}</span><Favorite property={property}/></li>)}</ul>
  </div>;
 }

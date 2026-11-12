@@ -1,6 +1,6 @@
 # Rubrique hôtelière et tarifs de location
 
-« Hôtel & Appart’Hôtel » (`Hotels & Aparthotels`) concerne l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes au Maroc. Aucun service de réservation, de gestion hôtelière, rendement ou garantie n’est ajouté.
+« Hôtel & Appart Hôtel » (`Hotels & Aparthotels`) concerne l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes au Maroc. Aucun service de réservation, de gestion hôtelière, rendement ou garantie n’est ajouté.
 
 Le slug technique `hotels-appartements` est conservé : les liens vers la rubrique marocaine et `/services?activite=hotels-appartements` restent valides. `categoriesForDestination` centralise les cinq rubriques du Maroc et les quatre de Dubaï pour les menus, cartes et liens contextualisés.
 

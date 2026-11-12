@@ -36,7 +36,7 @@ Le dossier `dist/` contient la version statique prête à publier. Les pages uti
 
 ## Parcours
 
-Accueil → destination Maroc ou Dubaï → achat/vente, location, locaux professionnels ou décoration/aménagement → fiche ou inspiration → contact contextualisé. Le Maroc propose aussi « Hôtel & Appart’Hôtel », consacré à l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes.
+Accueil → destination Maroc ou Dubaï → achat/vente, location, locaux professionnels ou décoration/aménagement → fiche ou inspiration → contact contextualisé. Le Maroc propose aussi « Hôtel & Appart Hôtel », consacré à l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes.
 
 Le contact est intégré en bas de l’accueil : les boutons y conduisent avec un défilement doux. Depuis une fiche, le bien et le sujet restent préremplis. Les anciens liens `#/contact` restent compatibles et affichent cette même section. Les pages Agence, Services, Favoris, Mentions légales et Confidentialité complètent le site. La décoration présente des inspirations. La rubrique hôtelière au Maroc concerne l’acquisition d’établissements, sans demande de séjour ni réservation.
 

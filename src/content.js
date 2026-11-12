@@ -41,6 +41,6 @@ export const homeContent = {
     eyebrow: 'EXPLORER LES POSSIBILITÉS',
     title: 'Quelques adresses',
     emphasis: 'pour vous projeter.',
-    description: 'Vente et location : une sélection illustrative pour découvrir les fiches et préparer votre demande.',
+    description: 'Une sélection de biens et de programmes au Maroc et à Dubaï pour préciser votre recherche.',
   },
 };

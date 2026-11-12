@@ -36,15 +36,15 @@ export const categories=[
  },
  {
   slug:'decoration',title:'Décoration & aménagement',short:'Créer un intérieur',number:'04',image:'interior',
-  intro:'Donner une direction à votre intérieur, des usages aux matières.',
-  description:'Explorez des ambiances et des pistes d’aménagement pour clarifier votre projet intérieur.',
-  audience:'Pour les propriétaires et occupants qui souhaitent repenser une pièce, une résidence ou un espace professionnel.',
-  includes:['Échange sur les usages et les contraintes du lieu','Définition d’une ambiance et d’une palette','Pistes d’organisation des espaces selon la mission'],
-  approach:'Vos envies et les possibilités du lieu servent de point de départ. Le livrable, le budget et le périmètre d’intervention sont définis ensemble ; les inspirations présentées ne sont pas des réalisations client.',
-  subject:'Décoration et aménagement',action:'Parler de mon intérieur',
+  intro:'Un intérieur adapté à vos usages.',
+  description:'Sarouty Properties vous accompagne dans la décoration et l’aménagement de votre logement ou de votre espace professionnel, selon vos besoins, vos envies et votre budget.',
+  audience:'Pour les propriétaires, occupants et professionnels qui souhaitent repenser un intérieur ou préciser son aménagement.',
+  includes:['Comprendre vos usages et les contraintes du lieu.','Définir une ambiance, des couleurs et des matières.','Étudier l’organisation des espaces et les choix de mobilier selon le périmètre convenu.'],
+  approach:'Présentez-nous le lieu concerné, vos attentes et votre budget. Un premier échange permettra de préciser vos priorités et l’accompagnement adapté à votre projet.',
+  subject:'Décoration et aménagement',action:'Parlons de votre aménagement',
  },
  {
-  slug:'hotels-appartements',title:'Hôtel & Appart’Hôtel',short:'Acquérir un établissement',number:'05',image:'pool',destinations:['maroc'],
+  slug:'hotels-appartements',title:'Hôtel & Appart Hôtel',short:'Acquérir un établissement',number:'05',image:'pool',destinations:['maroc'],
   intro:'Acquérir un hôtel, un appart’hôtel ou une maison d’hôtes au Maroc.',
   description:'Un accompagnement pour votre projet d’acquisition d’un hôtel, d’un appart’hôtel ou d’une maison d’hôtes au Maroc.',
   audience:'Pour les particuliers et investisseurs souhaitant acquérir un établissement hôtelier au Maroc.',
@@ -60,7 +60,7 @@ export const dubaiPurchaseTypes=[
 ];
 // Les anciens exemples de séjour restent dans les données et les favoris enregistrés.
 // Une offre hôtelière publiée doit explicitement porter sur une acquisition au Maroc.
-export const isPublicProperty=property=>property.category!=='hotels-appartements'||(property.isDemo===false&&property.destination==='maroc'&&(property.transaction==='sale'||property.status==='À vendre')&&!property.unit);
+export const isPublicProperty=property=>property.isDemo===false&&Object.hasOwn(destinations,property.destination)&&categoriesForDestination(property.destination).some(service=>service.slug===property.category)&&(property.category!=='hotels-appartements'||((property.transaction==='sale'||property.status==='À vendre')&&!property.unit));
 // Ajouter uniquement des partenaires autorisés et confirmés.
 // Format : {id, name, description, logo: '/assets/...', validated: true}.
 // Une entrée sans validation explicite n’est jamais affichée.
@@ -1425,6 +1425,319 @@ properties.unshift({
   "filename": "alsace-lorraine-1034-fiche-technique.pdf"
  }
 });
+properties.unshift({
+ "id": "prestigia-ville-verte-1023",
+ "reference": "1023",
+ "title": "Villa contemporaine à Prestigia Ville Verte",
+ "city": "Bouskoura",
+ "district": "Prestigia Ville Verte",
+ "locationLabel": "Prestigia Ville Verte · Bouskoura",
+ "price": 5200000,
+ "area": 225,
+ "areaLabel": "Surface habitable",
+ "beds": 3,
+ "description": "À Prestigia Ville Verte, cette villa rénovée propose 225 m² habitables sur deux niveaux. Le rez-de-chaussée réunit un double salon avec cheminée, une salle à manger et une cuisine américaine équipée, ouverts sur le jardin et la piscine privative.",
+ "detail": "À l’étage, une suite parentale avec dressing et salle de bains privative complète deux chambres supplémentaires. La surface totale annoncée est de 263 m², distincte des 225 m² habitables et sans qualification confirmée de terrain. Deux places de stationnement et un ameublement proposé en option complètent l’offre.",
+ "features": [
+  "Surface totale annoncée : 263 m² ; surface habitable : 225 m²",
+  "Villa entièrement rénovée sur deux niveaux",
+  "Double salon avec cheminée et salle à manger",
+  "Cuisine américaine équipée avec électroménager encastré",
+  "Suite parentale avec dressing et salle de bains privative",
+  "Salles de bains rénovées mentionnées, nombre total à confirmer",
+  "Climatisation",
+  "Jardin paysager et piscine privative",
+  "Terrasse et salon extérieur",
+  "2 places de stationnement",
+  "Résidence fermée et sécurisée",
+  "Caméra de surveillance et serrure électronique",
+  "Ameublement haut de gamme proposé en option"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1023.",
+ "destination": "maroc",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Villa",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/prestigia-ville-verte-1023/prestigia-ville-verte-1023-jardin-piscine.jpg",
+  "/assets/properties/prestigia-ville-verte-1023/prestigia-ville-verte-1023-salon.jpg",
+  "/assets/properties/prestigia-ville-verte-1023/prestigia-ville-verte-1023-chambre.jpg",
+  "/assets/properties/prestigia-ville-verte-1023/prestigia-ville-verte-1023-cuisine.jpg"
+ ],
+ "photoAlts": [
+  "Jardin et piscine privative de la villa à Prestigia Ville Verte",
+  "Salon de la villa à Prestigia Ville Verte",
+  "Chambre de la villa à Prestigia Ville Verte",
+  "Cuisine de la villa à Prestigia Ville Verte"
+ ],
+ "mediaAlt": "Jardin et piscine privative de la villa à Prestigia Ville Verte",
+ "pdf": {
+  "src": "/assets/properties/prestigia-ville-verte-1023/prestigia-ville-verte-1023-fiche-technique.pdf",
+  "filename": "prestigia-ville-verte-1023-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "jardins-ocean-1051",
+ "reference": "1051",
+ "title": "Villa avec piscine — Les Jardins de l’Océan",
+ "city": "Dar Bouazza",
+ "district": "Les Jardins de l’Océan",
+ "locationLabel": "Les Jardins de l’Océan · Dar Bouazza",
+ "price": 12000000,
+ "area": 741,
+ "areaLabel": "Terrain",
+ "beds": 5,
+ "bathrooms": 5,
+ "description": "Dans la résidence Les Jardins de l’Océan à Dar Bouazza, cette villa est implantée sur un terrain de 741 m². Elle comprend cinq chambres, cinq salles de bains et plusieurs espaces de réception.",
+ "detail": "Le jardin paysager, la piscine privée, la terrasse et le balcon prolongent les espaces intérieurs, au sein d’une résidence fermée et sécurisée. La fiche annonce un garage et deux places de parking, sans les compter comme des stationnements supplémentaires, ainsi que la proximité de l’océan, des commerces et des écoles.",
+ "features": [
+  "Terrain : 741 m² ; surface habitable non communiquée",
+  "Grand salon, salon marocain et salle à manger",
+  "Cuisine équipée",
+  "Climatisation",
+  "Jardin paysager et piscine privée",
+  "Terrasse et balcon",
+  "Garage et deux places de parking annoncés, sans cumul",
+  "Résidence fermée et sécurisée"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1051.",
+ "destination": "maroc",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Villa",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/jardins-ocean-1051/jardins-ocean-1051-piscine.jpg",
+  "/assets/properties/jardins-ocean-1051/jardins-ocean-1051-salon.jpg",
+  "/assets/properties/jardins-ocean-1051/jardins-ocean-1051-chambre.jpg",
+  "/assets/properties/jardins-ocean-1051/jardins-ocean-1051-facade.jpg"
+ ],
+ "photoAlts": [
+  "Piscine privée de la villa aux Jardins de l’Océan",
+  "Salon de la villa aux Jardins de l’Océan",
+  "Chambre de la villa aux Jardins de l’Océan",
+  "Façade de la villa aux Jardins de l’Océan"
+ ],
+ "mediaAlt": "Piscine privée de la villa aux Jardins de l’Océan",
+ "pdf": {
+  "src": "/assets/properties/jardins-ocean-1051/jardins-ocean-1051-fiche-technique.pdf",
+  "filename": "jardins-ocean-1051-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "ber-noussi-1044",
+ "reference": "1044",
+ "title": "Villa familiale avec jardin à Bernoussi",
+ "city": "Casablanca",
+ "district": "Bernoussi",
+ "locationLabel": "Bernoussi · Casablanca",
+ "price": 2700000,
+ "area": 342,
+ "areaLabel": "Surface habitable annoncée",
+ "beds": 5,
+ "bedsNote": "annoncées, répartition à confirmer",
+ "description": "À Bernoussi, cette villa familiale offre 342 m² habitables annoncés sur un terrain de 402 m². Répartie sur trois niveaux, elle comprend plusieurs espaces de réception, une suite parentale et cinq chambres annoncées, dont la répartition reste à confirmer.",
+ "detail": "Le rez-de-chaussée réunit un salon traditionnel, deux salons européens et un salon contemporain. La suite parentale dispose d’un dressing, d’une salle de bains et d’un balcon. Une cuisine et un grand séjour se trouvent au deuxième étage ; le jardin, la cour et la grande terrasse complètent les espaces de vie.",
+ "features": [
+  "Terrain : 402 m² ; surface habitable annoncée : 342 m²",
+  "Rez-de-chaussée, premier et deuxième étages",
+  "5 chambres annoncées, répartition à confirmer",
+  "Quatre espaces de réception au rez-de-chaussée",
+  "Suite parentale avec dressing, salle de bains et balcon",
+  "Cuisine et grand séjour au deuxième étage",
+  "Plusieurs salles de bains décrites, total à confirmer",
+  "Jardin, cour extérieure et grande terrasse"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1044.",
+ "destination": "maroc",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Villa",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/ber-noussi-1044/ber-noussi-1044-reception.jpg",
+  "/assets/properties/ber-noussi-1044/ber-noussi-1044-chambre.jpg",
+  "/assets/properties/ber-noussi-1044/ber-noussi-1044-cuisine.jpg",
+  "/assets/properties/ber-noussi-1044/ber-noussi-1044-terrasse.jpg"
+ ],
+ "photoAlts": [
+  "Réception de la villa familiale à Bernoussi",
+  "Chambre de la villa familiale à Bernoussi",
+  "Cuisine de la villa familiale à Bernoussi",
+  "Terrasse de la villa familiale à Bernoussi"
+ ],
+ "mediaAlt": "Réception de la villa familiale à Bernoussi",
+ "pdf": {
+  "src": "/assets/properties/ber-noussi-1044/ber-noussi-1044-fiche-technique.pdf",
+  "filename": "ber-noussi-1044-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "dar-bouazza-villa-1038",
+ "reference": "1038",
+ "title": "Villa avec jardin et piscine à Dar Bouazza",
+ "city": "Dar Bouazza",
+ "locationLabel": "Dar Bouazza",
+ "price": 4700000,
+ "area": 402,
+ "areaLabel": "Terrain",
+ "beds": 4,
+ "description": "À Dar Bouazza, cette villa est implantée sur un terrain de 402 m² et se développe sur trois niveaux. Le rez-de-chaussée comprend une double réception, une cuisine ouverte, un coin repas, des WC invités et une petite chambre.",
+ "detail": "À l’étage, la suite parentale avec salle de bains est accompagnée de deux chambres et d’une salle de bains commune. Le sous-sol accueille une chambre pour le personnel avec salle de bains, une cuisine et des rangements. Un jardin, une cour et une piscine privative annoncée comme rénovée complètent l’ensemble.",
+ "features": [
+  "Terrain : 402 m² ; surface habitable non communiquée",
+  "Sous-sol, rez-de-chaussée et étage",
+  "Trois chambres à l’étage et une petite chambre au rez-de-chaussée, hors personnel",
+  "Chambre du personnel avec salle de bains au sous-sol",
+  "Salle de bains de la suite et salle de bains commune à l’étage",
+  "Double réception, cuisine ouverte et coin repas",
+  "WC invités distincts",
+  "Cuisine et rangements au sous-sol",
+  "Jardin et cour extérieure",
+  "Piscine privative annoncée comme rénovée"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1038.",
+ "destination": "maroc",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Villa",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/dar-bouazza-villa-1038/dar-bouazza-villa-1038-piscine.jpg",
+  "/assets/properties/dar-bouazza-villa-1038/dar-bouazza-villa-1038-reception.jpg",
+  "/assets/properties/dar-bouazza-villa-1038/dar-bouazza-villa-1038-chambre.jpg",
+  "/assets/properties/dar-bouazza-villa-1038/dar-bouazza-villa-1038-cuisine.jpg"
+ ],
+ "photoAlts": [
+  "Piscine et jardin de la villa à Dar Bouazza, référence 1038",
+  "Réception de la villa à Dar Bouazza, référence 1038",
+  "Chambre de la villa à Dar Bouazza, référence 1038",
+  "Cuisine de la villa à Dar Bouazza, référence 1038"
+ ],
+ "mediaAlt": "Piscine et jardin de la villa à Dar Bouazza, référence 1038",
+ "pdf": {
+  "src": "/assets/properties/dar-bouazza-villa-1038/dar-bouazza-villa-1038-fiche-technique.pdf",
+  "filename": "dar-bouazza-villa-1038-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "les-perles-sidi-rahal",
+ "title": "Villa — Les Perles de Sidi Rahal",
+ "city": "Sidi Rahal",
+ "district": "Résidence Les Perles de Sidi Rahal",
+ "locationLabel": "Les Perles de Sidi Rahal",
+ "price": 1800000,
+ "area": 173,
+ "areaLabel": "Surface annoncée",
+ "description": "Dans la résidence fermée Les Perles de Sidi Rahal, cette villa de 173 m² annoncés se répartit sur trois niveaux. Elle comprend un salon, une salle à manger et une cuisine équipée IKEA, ainsi que des chambres à l’étage.",
+ "detail": "Une terrasse accessible, un espace polyvalent au dernier niveau, une cour et un garage privatif complètent le bien. La plage est annoncée à environ 500 mètres selon la fiche. La nature exacte des 173 m², ainsi que les nombres de chambres et de salles de bains, restent à préciser.",
+ "features": [
+  "173 m² annoncés, nature de la surface à confirmer",
+  "Trois niveaux",
+  "Grand salon et salle à manger",
+  "Cuisine entièrement équipée IKEA",
+  "Salle d’eau au rez-de-chaussée",
+  "Chambres avec placards intégrés à l’étage",
+  "Salle(s) de bains et balcon mentionnés, nombre à préciser",
+  "Terrasse accessible et espace polyvalent au dernier niveau",
+  "Garage privatif, nombre de places non précisé",
+  "Cour extérieure et résidence fermée et sécurisée",
+  "Plage à environ 500 mètres selon la fiche"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien aux Perles de Sidi Rahal.",
+ "destination": "maroc",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Villa",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/les-perles-sidi-rahal/les-perles-sidi-rahal-facade.jpg",
+  "/assets/properties/les-perles-sidi-rahal/les-perles-sidi-rahal-salon.jpg",
+  "/assets/properties/les-perles-sidi-rahal/les-perles-sidi-rahal-piece.jpg",
+  "/assets/properties/les-perles-sidi-rahal/les-perles-sidi-rahal-cuisine.jpg"
+ ],
+ "photoAlts": [
+  "Façade de la villa aux Perles de Sidi Rahal",
+  "Salon de la villa aux Perles de Sidi Rahal",
+  "Pièce présentée dans la fiche de la villa aux Perles de Sidi Rahal",
+  "Cuisine de la villa aux Perles de Sidi Rahal"
+ ],
+ "mediaAlt": "Façade de la villa aux Perles de Sidi Rahal",
+ "pdf": {
+  "src": "/assets/properties/les-perles-sidi-rahal/les-perles-sidi-rahal-fiche-technique.pdf",
+  "filename": "les-perles-sidi-rahal-fiche-technique.pdf"
+ }
+});
+properties.unshift({
+ "id": "villa-miami-1040",
+ "reference": "1040",
+ "title": "Villa Miami — Californie",
+ "city": "Casablanca",
+ "district": "Californie",
+ "locationLabel": "Californie · Casablanca",
+ "price": 48000000,
+ "area": 1200,
+ "areaLabel": "Terrain",
+ "beds": 5,
+ "description": "À Californie, Villa Miami est implantée sur un terrain de 1 200 m². Elle propose cinq chambres, de vastes espaces de réception et une cuisine équipée avec îlot central.",
+ "detail": "Son jardin paysager accueille une piscine privée et un jacuzzi. Une cheminée, la climatisation centralisée, de grandes baies vitrées et un espace fitness complètent les prestations annoncées.",
+ "features": [
+  "Terrain : 1 200 m² ; surface habitable non communiquée",
+  "Vastes espaces de réception",
+  "Cuisine équipée avec îlot central",
+  "Jardin paysager, piscine privée et jacuzzi",
+  "Cheminée et climatisation centralisée",
+  "Salle de sport ou espace fitness",
+  "Grandes baies vitrées"
+ ],
+ "mediaNote": "Photographies extraites de la fiche technique du bien, référence 1040.",
+ "destination": "maroc",
+ "category": "achat-vente",
+ "status": "À vendre",
+ "type": "Villa",
+ "currency": "DH",
+ "isDemo": false,
+ "featured": false,
+ "contactViaWhatsApp": true,
+ "photos": [
+  "/assets/properties/villa-miami-1040/villa-miami-1040-piscine.jpg",
+  "/assets/properties/villa-miami-1040/villa-miami-1040-reception.jpg",
+  "/assets/properties/villa-miami-1040/villa-miami-1040-chambre.jpg",
+  "/assets/properties/villa-miami-1040/villa-miami-1040-cuisine.jpg"
+ ],
+ "photoAlts": [
+  "Piscine et jardin de Villa Miami à Californie",
+  "Réception de Villa Miami à Californie",
+  "Chambre de Villa Miami à Californie",
+  "Cuisine de Villa Miami à Californie"
+ ],
+ "mediaAlt": "Piscine et jardin de Villa Miami à Californie",
+ "pdf": {
+  "src": "/assets/properties/villa-miami-1040/villa-miami-1040-fiche-technique.pdf",
+  "filename": "villa-miami-1040-fiche-technique.pdf"
+ }
+});
+// Sources historiques conservées ; seuls les biens explicitement réels sont publics.
+export const publicProperties=properties.filter(isPublicProperty);
+// Choix éditorial équilibré, sans classement de popularité ni modification des offres.
+const selectionIds=['oak-yard-residences','prestigia-ville-verte-1023','the-yards-plaza','cfc-1047','dubai-islands-2-bedroom','oulfa-bureaux-1037'];
+export const featuredProperties=selectionIds.map(id=>publicProperties.find(property=>property.id===id)).filter(Boolean);
 export const projects=[
  {id:'INT-MAR-01',destination:'maroc',title:'Matières vivantes',type:'Résidence · Marrakech',image:'interior',text:'Une inspiration autour du tadelakt, du bois et des matières naturelles. Un intérieur ouvert sur un patio, où la lumière dessine les volumes.',palette:['#d9c7ac','#a87554','#72785a']},
  {id:'INT-MAR-02',destination:'maroc',title:'L’élégance essentielle',type:'Appartement · Casablanca',image:'living',text:'Des lignes épurées, des tons chauds et des espaces de vie qui se répondent. Une piste créative pour un quotidien plus fluide.',palette:['#e7dfcf','#807766','#393e34']},
@@ -1432,4 +1745,4 @@ export const projects=[
  {id:'INT-DXB-02',destination:'dubai',title:'Une terrasse sur la ville',type:'Résidence · Dubaï',image:'dubai',text:'Un dialogue entre intérieur et extérieur, avec des matières minérales et des assises accueillantes pour prolonger le lieu de vie.',palette:['#d9d1bc','#a99b82','#38473e']}
 ];
 export const steps=[['Vous écouter','Destination, budget, calendrier et priorités : le projet commence par vos attentes.'],['Sélectionner','Une sélection adaptée, des informations structurées et des critères faciles à comparer.'],['Explorer','Échanger sur les biens, préparer les visites et préciser les points à vérifier.'],['Vous accompagner','Coordonner les prochaines étapes selon la mission et les interlocuteurs concernés.']];
-export const faqs=[['Puis-je rechercher un bien au Maroc et à Dubaï ?','Le Maroc propose cinq rubriques et Dubaï quatre. La rubrique Hôtel & Appart’Hôtel est réservée à l’acquisition d’établissements au Maroc. Vous pouvez changer de destination depuis le menu.'],['Comment obtenir des informations sur un bien ?','Depuis la fiche du bien, utilisez « Ce bien m’intéresse ». Sa référence est automatiquement reprise dans votre demande de contact.'],['Accompagnez-vous l’achat d’un établissement hôtelier ?','Oui. La rubrique Hôtel & Appart’Hôtel concerne l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes au Maroc. Contactez l’agence pour préciser votre projet.'],['Proposez-vous un accompagnement en décoration ?','Oui. La rubrique Décoration & aménagement présente notre accompagnement et des inspirations. Le périmètre de votre projet se précise avec l’agence.']];
+export const faqs=[['Puis-je rechercher un bien au Maroc et à Dubaï ?','Le Maroc propose cinq rubriques et Dubaï quatre. La rubrique Hôtel & Appart Hôtel est réservée à l’acquisition d’établissements au Maroc. Vous pouvez changer de destination depuis le menu.'],['Comment obtenir des informations sur un bien ?','Depuis la fiche du bien, utilisez « Ce bien m’intéresse ». Sa référence est automatiquement reprise dans votre demande de contact.'],['Accompagnez-vous l’achat d’un établissement hôtelier ?','Oui. La rubrique Hôtel & Appart Hôtel concerne l’acquisition d’hôtels, d’appart’hôtels et de maisons d’hôtes au Maroc. Contactez l’agence pour préciser votre projet.'],['Proposez-vous un accompagnement en décoration ?','Oui. La rubrique Décoration & aménagement présente notre accompagnement et des inspirations. Le périmètre de votre projet se précise avec l’agence.']];

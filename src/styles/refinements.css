@@ -2,6 +2,7 @@
 :root {
   --muted: #606b60;
   --accent: #80603f;
+  --brand-orange: #ff8500; /* Approximation des documents fournis, sans référence de charte officielle. */
   --section-space: clamp(64px, 7vw, 108px);
   --header-offset: 110px;
 }
@@ -132,6 +133,35 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .destination-card:focus-visible .destination-bottom { transform: translateY(-15px); }
 .destination-card:focus-visible .destination-hover { opacity: 1; transform: none; }
 
+/* Images de services : médias locaux, cadrages centralisés et légendes HTML. */
+.service-visual { display: grid; grid-template-columns: minmax(0,1fr); width: 100%; height: 100%; }
+.service-visual--pair { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.service-visual figure { position: relative; margin: 0; min-width: 0; height: 100%; overflow: hidden; background: var(--paper); }
+.service-visual--pair figure + figure { border-left: 2px solid var(--paper); }
+.service-media-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--service-position,center); }
+.service-visual figcaption { position: absolute; z-index: 2; left: 10px; right: 10px; bottom: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; pointer-events: none; }
+.service-visual figcaption span, .service-visual figcaption small { background: #f7f6f1f2; color: var(--ink); padding: 3px 7px; line-height: 1.45; font-size: 11px; }
+.service-visual figcaption span { font-weight: 500; border-left: 2px solid var(--brand-orange); }
+.service-visual figcaption small { font-size: 10px; }
+.category-tile > .service-visual { position: absolute; inset: 0; }
+.category-tile .service-visual figcaption { top: 48px; bottom: auto; }
+.category-tile .service-visual figcaption span { display: none; }
+.service-editorial-image > .service-visual { position: absolute; inset: 0; }
+.service-editorial-image { position: relative; }
+.decoration-cover > .service-media-image { width: 100%; height: 100%; }
+.inspiration-page > .service-media-image { width: 100%; height: 65vh; max-height: 700px; object-fit: cover; }
+.mega-copy .destination-name { display: inline-block; white-space: nowrap; }
+.mega-copy h2 em { overflow-wrap: normal; }
+.eyebrow:not(.eyebrow-light) > span { background: var(--brand-orange); }
+.header:not(.on-hero) :is(.main-nav>a,.nav-destination>button)::after { background: var(--brand-orange); }
+.text-link:hover { border-bottom-color: var(--brand-orange); }
+@media (max-width: 760px) {
+ .inspiration-page > .service-media-image { height: 55vh; min-height: 330px; }
+ .service-media-image { object-position: var(--service-position-mobile,center); }
+ .service-visual figcaption { left: 6px; right: 6px; bottom: 6px; }
+ .service-visual figcaption span, .service-visual figcaption small { font-size: 10px; padding: 3px 5px; }
+}
+
 /* Deux grands services, puis trois cartes : la même hiérarchie sur toutes les tailles. */
 .service-card-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 28px; }
 .service-card-grid > * { grid-column: span 2; min-width: 0; }
@@ -139,8 +169,8 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .service-card { display: flex; flex-direction: column; height: 100%; background: var(--white); border: 1px solid var(--line); transition: transform .25s var(--ease), box-shadow .25s; }
 .service-card-photo { position: relative; overflow: hidden; aspect-ratio: 1.55; }
 .service-card-grid > :nth-child(-n+2) .service-card-photo { aspect-ratio: 2; }
-.service-card-photo img { transition: transform .5s var(--ease); }
-.service-card-photo > span { position: absolute; inset: 18px auto auto 18px; background: var(--paper); padding: 5px 10px; font-size: 12px; }
+.service-card-photo .service-media-image { transition: transform .5s var(--ease); }
+.service-card-photo > span { position: absolute; inset: 12px auto auto 12px; background: var(--paper); color: var(--ink); border-top: 2px solid var(--brand-orange); padding: 4px 8px; font-size: 12px; }
 .service-card-copy { display: flex; flex-direction: column; flex: 1; padding: 26px; }
 .service-card h3 { font-size: clamp(26px, 2.3vw, 34px); line-height: 1.15; margin-bottom: 14px; letter-spacing: -.5px; }
 .service-card p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
@@ -172,6 +202,7 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .partner-list { list-style: none; margin: 0; padding: 16px calc(var(--partner-gap) / 2); display: flex; flex: 0 0 auto; align-items: center; justify-content: space-around; gap: var(--partner-gap); min-width: 100vw; }
 .partner-mark { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; width: clamp(148px, 14vw, 192px); height: 88px; }
 .partner-mark img { display: block; width: min(var(--partner-logo-width, 160px), 100%); height: var(--partner-logo-height, 64px); max-height: 88px; object-fit: contain; filter: brightness(0); }
+.partner-mark[data-partner="cgi"] img { filter: none; }
 .partner-mark > span { font-family: var(--serif); font-size: 23px; line-height: 1.3; text-align: center; }
 .partner-band:hover .partner-track, .partner-band:focus-within .partner-track { animation-play-state: paused; }
 @keyframes partnersMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -206,6 +237,23 @@ h1, h2, h3 { overflow-wrap: break-word; }
 
 /* Cartes, galerie et formulaire : une lecture et des cibles tactiles régulières. */
 .property-grid { gap: 36px 26px; }
+.property-card { display: flex; flex-direction: column; height: 100%; }
+.property-card > .property-photo { height: auto; aspect-ratio: 1.4; flex-shrink: 0; }
+.property-card .property-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.property-card .property-price { margin-top: auto; align-items: flex-start; gap: 16px; }
+.property-card .property-price > span { min-width: 0; }
+/* Les lignes partagées suivent le texte le plus long, sans hauteur fixe ni troncature. */
+@supports (grid-template-rows: subgrid) {
+ .property-grid { row-gap: 0; }
+ .property-card { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; margin-bottom: 36px; }
+ .property-card > .property-photo { grid-row: 1; }
+ .property-card .property-info { display: grid; grid-row: 2 / span 5; grid-template-rows: subgrid; row-gap: 0; }
+ .property-card .property-location { grid-row: 1; }
+ .property-card .property-info h3 { grid-row: 2; align-self: start; }
+ .property-card .purchase-classification-note { grid-row: 3; }
+ .property-card .property-specs { grid-row: 4; align-self: start; }
+ .property-card .property-price { grid-row: 5; margin-top: 0; align-self: stretch; }
+}
 .property-info h3 { font-size: clamp(25px, 2.2vw, 31px); }
 .property-location { font-size: 11px; }
 .property-specs { font-size: 12px; gap: 12px; }

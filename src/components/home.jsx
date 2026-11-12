@@ -2,7 +2,7 @@ import {tr} from '../i18n/index.js';
 import React from 'react';
 import {ArrowUpRight} from 'lucide-react';
 import {homeContent} from '../content';
-import {images, properties, isPublicProperty} from '../data';
+import {images, featuredProperties} from '../data';
 import {Photo, Link, ButtonLink, Eyebrow, Reveal, SectionTitle, DemoNote} from './ui';
 import {DestinationCards, ServiceCards, Method, Partners} from './marketing';
 import {PropertyGrid} from './property';
@@ -48,8 +48,8 @@ export function HomeLayout({children}) {
 
     <section className="section selection-section" id="selection-home">
       <SectionTitle {...selection} italic={tr(selection.emphasis)} action={<Link to="/destinations" className="text-link">{tr("Voir les catalogues ")}<ArrowUpRight size={17}/></Link>}/>
-      <PropertyGrid items={properties.filter(property => isPublicProperty(property)&&property.featured).slice(0, 6)}/>
-      <DemoNote/>
+      <PropertyGrid items={featuredProperties}/>
+      <DemoNote items={featuredProperties}/>
     </section>
     <Method/>
     <Partners/>
