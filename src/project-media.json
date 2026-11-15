@@ -1,0 +1,200 @@
+{
+  "squarex-one": [
+    {
+      "src": "/assets/properties/squarex-one/exterior-official-night-2560.webp",
+      "srcSet": "/assets/properties/squarex-one/exterior-official-night-640.webp 640w, /assets/properties/squarex-one/exterior-official-night-1280.webp 1280w, /assets/properties/squarex-one/exterior-official-night-1920.webp 1920w, /assets/properties/squarex-one/exterior-official-night-2560.webp 2560w",
+      "width": 2560,
+      "height": 1536,
+      "alt": "projects.media.squarex.exterior",
+      "position": "76% 50%",
+      "positionMobile": "78% 50%",
+      "detailFit": "cover"
+    },
+    {
+      "src": "/assets/properties/squarex-one/living-600.webp",
+      "srcSet": "/assets/properties/squarex-one/living-480.webp 480w, /assets/properties/squarex-one/living-600.webp 600w",
+      "width": 600,
+      "height": 800,
+      "alt": "projects.media.squarex.living",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/squarex-one/bedroom-600.webp",
+      "srcSet": "/assets/properties/squarex-one/bedroom-480.webp 480w, /assets/properties/squarex-one/bedroom-600.webp 600w",
+      "width": 600,
+      "height": 800,
+      "alt": "projects.media.squarex.bedroom",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/squarex-one/exterior-600.webp",
+      "srcSet": "/assets/properties/squarex-one/exterior-480.webp 480w, /assets/properties/squarex-one/exterior-600.webp 600w",
+      "width": 600,
+      "height": 800,
+      "alt": "projects.media.squarex.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/squarex-one/studio-600.webp",
+      "srcSet": "/assets/properties/squarex-one/studio-480.webp 480w, /assets/properties/squarex-one/studio-600.webp 600w",
+      "width": 600,
+      "height": 800,
+      "alt": "projects.media.squarex.studio",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "shione": [
+    {
+      "src": "/assets/properties/shione/exterior-1600.webp",
+      "srcSet": "/assets/properties/shione/exterior-480.webp 480w, /assets/properties/shione/exterior-960.webp 960w, /assets/properties/shione/exterior-1600.webp 1600w",
+      "width": 1672,
+      "height": 941,
+      "alt": "projects.media.shione.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/shione/pool-1600.webp",
+      "srcSet": "/assets/properties/shione/pool-480.webp 480w, /assets/properties/shione/pool-960.webp 960w, /assets/properties/shione/pool-1600.webp 1600w",
+      "width": 1672,
+      "height": 941,
+      "alt": "projects.media.shione.pool",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/shione/waterfront-1600.webp",
+      "srcSet": "/assets/properties/shione/waterfront-480.webp 480w, /assets/properties/shione/waterfront-960.webp 960w, /assets/properties/shione/waterfront-1600.webp 1600w",
+      "width": 2000,
+      "height": 1124,
+      "alt": "projects.media.shione.waterfront",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "taormina-village": [
+    {
+      "src": "/assets/properties/taormina-village/exterior-1600.webp",
+      "srcSet": "/assets/properties/taormina-village/exterior-480.webp 480w, /assets/properties/taormina-village/exterior-960.webp 960w, /assets/properties/taormina-village/exterior-1600.webp 1600w",
+      "width": 2109,
+      "height": 1103,
+      "alt": "projects.media.taormina.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/taormina-village/living-1600.webp",
+      "srcSet": "/assets/properties/taormina-village/living-480.webp 480w, /assets/properties/taormina-village/living-960.webp 960w, /assets/properties/taormina-village/living-1600.webp 1600w",
+      "width": 2032,
+      "height": 1032,
+      "alt": "projects.media.taormina.living",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/taormina-village/kitchen-1600.webp",
+      "srcSet": "/assets/properties/taormina-village/kitchen-480.webp 480w, /assets/properties/taormina-village/kitchen-960.webp 960w, /assets/properties/taormina-village/kitchen-1600.webp 1600w",
+      "width": 2032,
+      "height": 1032,
+      "alt": "projects.media.taormina.kitchen",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/taormina-village/bedroom-1600.webp",
+      "srcSet": "/assets/properties/taormina-village/bedroom-480.webp 480w, /assets/properties/taormina-village/bedroom-960.webp 960w, /assets/properties/taormina-village/bedroom-1600.webp 1600w",
+      "width": 2032,
+      "height": 1032,
+      "alt": "projects.media.taormina.bedroom",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/taormina-village/communal-pool-1600.webp",
+      "srcSet": "/assets/properties/taormina-village/communal-pool-480.webp 480w, /assets/properties/taormina-village/communal-pool-960.webp 960w, /assets/properties/taormina-village/communal-pool-1600.webp 1600w",
+      "width": 2032,
+      "height": 1032,
+      "alt": "projects.media.taormina.communal-pool",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "damac-islands-2": [
+    {
+      "src": "/assets/properties/damac-islands-2/townhouses-1600.webp",
+      "srcSet": "/assets/properties/damac-islands-2/townhouses-480.webp 480w, /assets/properties/damac-islands-2/townhouses-960.webp 960w, /assets/properties/damac-islands-2/townhouses-1600.webp 1600w",
+      "width": 2252,
+      "height": 1173,
+      "alt": "projects.media.islands.townhouses",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/damac-islands-2/six-bedroom-living-1600.webp",
+      "srcSet": "/assets/properties/damac-islands-2/six-bedroom-living-480.webp 480w, /assets/properties/damac-islands-2/six-bedroom-living-960.webp 960w, /assets/properties/damac-islands-2/six-bedroom-living-1600.webp 1600w",
+      "width": 2501,
+      "height": 1562,
+      "alt": "projects.media.islands.six-bedroom-living",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/damac-islands-2/semi-detached-kitchen-1106.webp",
+      "srcSet": "/assets/properties/damac-islands-2/semi-detached-kitchen-480.webp 480w, /assets/properties/damac-islands-2/semi-detached-kitchen-960.webp 960w, /assets/properties/damac-islands-2/semi-detached-kitchen-1106.webp 1106w",
+      "width": 1106,
+      "height": 753,
+      "alt": "projects.media.islands.semi-detached-kitchen",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/damac-islands-2/six-bedroom-villa-1600.webp",
+      "srcSet": "/assets/properties/damac-islands-2/six-bedroom-villa-480.webp 480w, /assets/properties/damac-islands-2/six-bedroom-villa-960.webp 960w, /assets/properties/damac-islands-2/six-bedroom-villa-1600.webp 1600w",
+      "width": 2012,
+      "height": 1173,
+      "alt": "projects.media.islands.six-bedroom-villa",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/damac-islands-2/six-bedroom-bedroom-1600.webp",
+      "srcSet": "/assets/properties/damac-islands-2/six-bedroom-bedroom-480.webp 480w, /assets/properties/damac-islands-2/six-bedroom-bedroom-960.webp 960w, /assets/properties/damac-islands-2/six-bedroom-bedroom-1600.webp 1600w",
+      "width": 1784,
+      "height": 1173,
+      "alt": "projects.media.islands.six-bedroom-bedroom",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/damac-islands-2/semi-detached-villa-1600.webp",
+      "srcSet": "/assets/properties/damac-islands-2/semi-detached-villa-480.webp 480w, /assets/properties/damac-islands-2/semi-detached-villa-960.webp 960w, /assets/properties/damac-islands-2/semi-detached-villa-1600.webp 1600w",
+      "width": 1925,
+      "height": 1173,
+      "alt": "projects.media.islands.semi-detached-villa",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ]
+}

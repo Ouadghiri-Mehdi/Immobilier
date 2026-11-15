@@ -6,6 +6,7 @@ import {destPath} from '../routing';
 import {Breadcrumb,ButtonLink,Eyebrow} from './ui';
 import {Favorite,PropertyGrid} from './property';
 import {ServiceDetails,ContactBanner} from './marketing';
+import {ServiceVisual} from './ServiceVisual';
 
 export function HotelAcquisitionPage({tabs}){
  const service=categories.find(item=>item.slug==='hotels-appartements');
@@ -16,6 +17,7 @@ export function HotelAcquisitionPage({tabs}){
    <div className="catalogue-title"><div><Eyebrow>{tr('MAROC')} / {service.number}</Eyebrow><h1>{tr(service.title)}</h1></div><p>{tr(service.description)}</p></div>
    {tabs}
   </section>
+  <div className="hotel-acquisition-media"><ServiceVisual service={service} destination="maroc"/></div>
   <section className="catalogue-body section">
    {offers.length?<PropertyGrid items={offers}/>:<div className="empty-state"><h2>{tr('Votre projet hôtelier commence par un échange.')}</h2><p>{tr('Contactez l’agence pour connaître les opportunités d’acquisition au Maroc.')}</p></div>}
    <ServiceDetails service={service}/>

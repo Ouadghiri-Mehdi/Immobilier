@@ -1,0 +1,284 @@
+[
+  {
+    "project": "squarex-one",
+    "name": "exterior",
+    "source": "https://tasmeerindigo.com/wp-content/uploads/2025/08/Squarex-one-all-images-interior-22-scaled-600x800-1.webp",
+    "width": 600,
+    "height": 800,
+    "files": [
+      "/assets/properties/squarex-one/exterior-480.webp",
+      "/assets/properties/squarex-one/exterior-600.webp"
+    ],
+    "publisher": "Tasmeer Indigo Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "squarex-one",
+    "name": "living",
+    "source": "https://tasmeerindigo.com/wp-content/uploads/2025/08/Artboard-4.webp",
+    "width": 600,
+    "height": 800,
+    "files": [
+      "/assets/properties/squarex-one/living-480.webp",
+      "/assets/properties/squarex-one/living-600.webp"
+    ],
+    "publisher": "Tasmeer Indigo Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "squarex-one",
+    "name": "studio",
+    "source": "https://tasmeerindigo.com/wp-content/uploads/2025/08/Artboard-5.webp",
+    "width": 600,
+    "height": 800,
+    "files": [
+      "/assets/properties/squarex-one/studio-480.webp",
+      "/assets/properties/squarex-one/studio-600.webp"
+    ],
+    "publisher": "Tasmeer Indigo Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "squarex-one",
+    "name": "bedroom",
+    "source": "https://tasmeerindigo.com/wp-content/uploads/2025/08/Artboard-3.webp",
+    "width": 600,
+    "height": 800,
+    "files": [
+      "/assets/properties/squarex-one/bedroom-480.webp",
+      "/assets/properties/squarex-one/bedroom-600.webp"
+    ],
+    "publisher": "Tasmeer Indigo Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "shione",
+    "name": "exterior",
+    "source": "https://img.einpresswire.com/large/1246227/shione-by-beyond.jpeg",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      "/assets/properties/shione/exterior-480.webp",
+      "/assets/properties/shione/exterior-960.webp",
+      "/assets/properties/shione/exterior-1600.webp"
+    ],
+    "publisher": "BEYOND Developments (company-issued press release)",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "shione",
+    "name": "pool",
+    "source": "https://img.einpresswire.com/large/1246231/shione.jpeg",
+    "width": 1672,
+    "height": 941,
+    "files": [
+      "/assets/properties/shione/pool-480.webp",
+      "/assets/properties/shione/pool-960.webp",
+      "/assets/properties/shione/pool-1600.webp"
+    ],
+    "publisher": "BEYOND Developments (company-issued press release)",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "shione",
+    "name": "waterfront",
+    "source": "https://img.einpresswire.com/large/1246232/shione-at-siora.jpeg",
+    "width": 2000,
+    "height": 1124,
+    "files": [
+      "/assets/properties/shione/waterfront-480.webp",
+      "/assets/properties/shione/waterfront-960.webp",
+      "/assets/properties/shione/waterfront-1600.webp"
+    ],
+    "publisher": "BEYOND Developments (company-issued press release)",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "taormina-village",
+    "name": "exterior",
+    "source": "https://reportagegroup.com/wp-content/uploads/TAORMINA-BROCHURE-ARTWORK-tk06-1.pdf#page=7",
+    "width": 2109,
+    "height": 1103,
+    "files": [
+      "/assets/properties/taormina-village/exterior-480.webp",
+      "/assets/properties/taormina-village/exterior-960.webp",
+      "/assets/properties/taormina-village/exterior-1600.webp"
+    ],
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "taormina-village",
+    "name": "living",
+    "source": "https://reportagegroup.com/wp-content/uploads/TAORMINA-BROCHURE-ARTWORK-tk06-1.pdf#page=12",
+    "width": 2032,
+    "height": 1032,
+    "files": [
+      "/assets/properties/taormina-village/living-480.webp",
+      "/assets/properties/taormina-village/living-960.webp",
+      "/assets/properties/taormina-village/living-1600.webp"
+    ],
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "taormina-village",
+    "name": "kitchen",
+    "source": "https://reportagegroup.com/wp-content/uploads/TAORMINA-BROCHURE-ARTWORK-tk06-1.pdf#page=13",
+    "width": 2032,
+    "height": 1032,
+    "files": [
+      "/assets/properties/taormina-village/kitchen-480.webp",
+      "/assets/properties/taormina-village/kitchen-960.webp",
+      "/assets/properties/taormina-village/kitchen-1600.webp"
+    ],
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "taormina-village",
+    "name": "bedroom",
+    "source": "https://reportagegroup.com/wp-content/uploads/TAORMINA-BROCHURE-ARTWORK-tk06-1.pdf#page=14",
+    "width": 2032,
+    "height": 1032,
+    "files": [
+      "/assets/properties/taormina-village/bedroom-480.webp",
+      "/assets/properties/taormina-village/bedroom-960.webp",
+      "/assets/properties/taormina-village/bedroom-1600.webp"
+    ],
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "taormina-village",
+    "name": "communal-pool",
+    "source": "https://reportagegroup.com/wp-content/uploads/TAORMINA-BROCHURE-ARTWORK-tk06-1.pdf#page=10",
+    "width": 2032,
+    "height": 1032,
+    "files": [
+      "/assets/properties/taormina-village/communal-pool-480.webp",
+      "/assets/properties/taormina-village/communal-pool-960.webp",
+      "/assets/properties/taormina-village/communal-pool-1600.webp"
+    ],
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "damac-islands-2",
+    "name": "townhouses",
+    "source": "DAMAC ISLANDS 2 Brochure_DIGITAL_ENG_NOV12.pdf, physical page 64, xref 840",
+    "width": 2252,
+    "height": 1173,
+    "files": [
+      "/assets/properties/damac-islands-2/townhouses-480.webp",
+      "/assets/properties/damac-islands-2/townhouses-960.webp",
+      "/assets/properties/damac-islands-2/townhouses-1600.webp"
+    ],
+    "publisher": "DAMAC",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "damac-islands-2",
+    "name": "six-bedroom-villa",
+    "source": "DAMAC ISLANDS 2 Brochure_DIGITAL_ENG_NOV12.pdf, physical page 43, xref 677",
+    "width": 2012,
+    "height": 1173,
+    "files": [
+      "/assets/properties/damac-islands-2/six-bedroom-villa-480.webp",
+      "/assets/properties/damac-islands-2/six-bedroom-villa-960.webp",
+      "/assets/properties/damac-islands-2/six-bedroom-villa-1600.webp"
+    ],
+    "publisher": "DAMAC",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "damac-islands-2",
+    "name": "six-bedroom-living",
+    "source": "DAMAC ISLANDS 2 Brochure_DIGITAL_ENG_NOV12.pdf, physical page 46, xref 695",
+    "width": 2501,
+    "height": 1562,
+    "files": [
+      "/assets/properties/damac-islands-2/six-bedroom-living-480.webp",
+      "/assets/properties/damac-islands-2/six-bedroom-living-960.webp",
+      "/assets/properties/damac-islands-2/six-bedroom-living-1600.webp"
+    ],
+    "publisher": "DAMAC",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "damac-islands-2",
+    "name": "six-bedroom-bedroom",
+    "source": "DAMAC ISLANDS 2 Brochure_DIGITAL_ENG_NOV12.pdf, physical page 47, xref 705",
+    "width": 1784,
+    "height": 1173,
+    "files": [
+      "/assets/properties/damac-islands-2/six-bedroom-bedroom-480.webp",
+      "/assets/properties/damac-islands-2/six-bedroom-bedroom-960.webp",
+      "/assets/properties/damac-islands-2/six-bedroom-bedroom-1600.webp"
+    ],
+    "publisher": "DAMAC",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "damac-islands-2",
+    "name": "semi-detached-villa",
+    "source": "DAMAC ISLANDS 2 Brochure_DIGITAL_ENG_NOV12.pdf, physical page 56, xref 786",
+    "width": 1925,
+    "height": 1173,
+    "files": [
+      "/assets/properties/damac-islands-2/semi-detached-villa-480.webp",
+      "/assets/properties/damac-islands-2/semi-detached-villa-960.webp",
+      "/assets/properties/damac-islands-2/semi-detached-villa-1600.webp"
+    ],
+    "publisher": "DAMAC",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "damac-islands-2",
+    "name": "semi-detached-kitchen",
+    "source": "DAMAC ISLANDS 2 Brochure_DIGITAL_ENG_NOV12.pdf, physical page 58, xref 798",
+    "width": 1106,
+    "height": 753,
+    "files": [
+      "/assets/properties/damac-islands-2/semi-detached-kitchen-480.webp",
+      "/assets/properties/damac-islands-2/semi-detached-kitchen-960.webp",
+      "/assets/properties/damac-islands-2/semi-detached-kitchen-1106.webp"
+    ],
+    "publisher": "DAMAC",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026; supplied DAMAC client brochure for this integration. No open licence claimed."
+  },
+  {
+    "project": "squarex-one",
+    "name": "exterior-official-night",
+    "source": "https://tasmeerindigo.com/wp-content/uploads/2025/09/nd2-min-scaled.webp",
+    "publisher": "Tasmeer Indigo Properties",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client-confirmed permission to publish official promoter visuals for Sarouty Properties, 15 November 2026. No open licence claimed.",
+    "width": 2560,
+    "height": 1536,
+    "files": [
+      "/assets/properties/squarex-one/exterior-official-night-640.webp",
+      "/assets/properties/squarex-one/exterior-official-night-1280.webp",
+      "/assets/properties/squarex-one/exterior-official-night-1920.webp",
+      "/assets/properties/squarex-one/exterior-official-night-2560.webp"
+    ]
+  }
+]

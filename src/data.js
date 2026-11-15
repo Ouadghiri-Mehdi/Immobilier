@@ -1,3 +1,6 @@
+import {additionalEmirates} from './property-locations.js';
+import {newProjects} from './new-projects.js';
+
 export const images = {
  maroc:'/assets/maroc-villa.jpg', dubai:'/assets/dubai-terrace.jpg', interior:'/assets/riad-interior.jpg',
  villa:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=85',
@@ -17,13 +20,13 @@ export const categories=[
   subject:'Achat immobilier',action:'Décrire mon projet immobilier',
  },
  {
-  slug:'location',title:'Location',short:'Louer',number:'02',image:'living',
-  intro:'Trouver un logement adapté à votre quotidien et à votre calendrier.',
-  description:'Explorez les logements par ville, budget et configuration pour préparer une recherche précise.',
-  audience:'Pour les personnes qui préparent une installation ou recherchent une nouvelle résidence en location.',
-  includes:['Précision de la durée et des critères de recherche','Comparaison des loyers et des équipements annoncés','Préparation d’une demande sur les logements retenus'],
-  approach:'Vous indiquez votre destination, vos dates et vos besoins. Un échange permet de préciser les conditions à vérifier avant toute visite ou engagement.',
-  subject:'Location',action:'Préciser ma recherche locative',
+  slug:'location',title:'Location immobilière',short:'Louer',number:'02',image:'living',
+  intro:'Mettre votre bien en location ou trouver un logement adapté.',
+  description:'Vous souhaitez mettre votre bien en location ou trouver un logement ? Sarouty Properties accompagne les propriétaires et les locataires à chaque étape de leur projet.',
+  audience:'Propriétaires et locataires, au Maroc et à Dubaï.',
+  includes:[{title:'Pour les propriétaires',text:'Nous vous accompagnons dans la mise en location de votre bien et la recherche de locataires correspondant aux conditions définies ensemble.'},{title:'Pour les locataires',text:'Nous vous proposons des appartements, villas et autres biens selon vos besoins, votre localisation souhaitée et votre budget.'}],
+  approach:'Présentez-nous votre bien ou votre recherche pour définir les prochaines étapes.',
+  subject:'Location',action:'Parlons de votre projet locatif',
  },
  {
   slug:'locaux-professionnels',title:'Locaux professionnels',short:'Entreprendre',number:'03',image:'office',
@@ -56,24 +59,25 @@ export const categories=[
 export const categoriesForDestination=destination=>categories.filter(service=>!service.destinations||service.destinations.includes(destination));
 export const dubaiPurchaseTypes=[
  {id:'off-plan',slug:'sur-plan',title:'Achat sur plan',description:'Découvrez les programmes et biens proposés à l’achat avant leur livraison.',image:'/assets/hero/hero-dubai.jpeg',alt:'Illustration architecturale de Dubaï pour l’achat sur plan'},
- {id:'resale',slug:'marche-secondaire',title:'Marché secondaire',description:'Explorez les biens proposés à la revente sur le marché immobilier de Dubaï.',image:'/assets/dubai-terrace.jpg',alt:'Illustration d’ambiance résidentielle à Dubaï pour le marché secondaire'},
+ {id:'resale',slug:'marche-secondaire',title:'Marché secondaire',description:'Vous recherchez un bien sur le marché secondaire à Dubaï ? Présentez-nous vos critères pour préparer votre recherche.',image:'/assets/dubai-terrace.jpg',alt:'Illustration d’ambiance résidentielle à Dubaï pour le marché secondaire'},
 ];
 // Les anciens exemples de séjour restent dans les données et les favoris enregistrés.
 // Une offre hôtelière publiée doit explicitement porter sur une acquisition au Maroc.
-export const isPublicProperty=property=>property.isDemo===false&&Object.hasOwn(destinations,property.destination)&&categoriesForDestination(property.destination).some(service=>service.slug===property.category)&&(property.category!=='hotels-appartements'||((property.transaction==='sale'||property.status==='À vendre')&&!property.unit));
+export const isDraftProperty=property=>property?.publicationStatus==='draft';
+export const isPublicProperty=property=>!isDraftProperty(property)&&property.isDemo===false&&(Object.hasOwn(destinations,property.destination)||(Object.hasOwn(additionalEmirates,property.destination)&&property.category==='achat-vente'&&property.saleMarket==='off-plan'))&&categoriesForDestination(property.destination).some(service=>service.slug===property.category)&&(property.category!=='hotels-appartements'||((property.transaction==='sale'||property.status==='À vendre')&&!property.unit));
 // Ajouter uniquement des partenaires autorisés et confirmés.
 // Format : {id, name, description, logo: '/assets/...', validated: true}.
 // Une entrée sans validation explicite n’est jamais affichée.
 // Partenaires et fichiers communiqués par le client. Un logo absent affiche le nom.
 export const partners=[
- {id:'damac',name:'DAMAC',logo:'/assets/partners/damac.svg',logoMonochrome:true,logoWidth:180,logoHeight:40,validated:true},
- {id:'deca',name:'DECA Properties',validated:true},
- {id:'meraki',name:'Meraki Developers',logo:'/assets/partners/meraki.webp',logoMonochrome:true,logoWidth:180,logoHeight:52,validated:true},
- {id:'reportage',name:'Reportage',logo:'/assets/partners/reportage.svg',logoWidth:185,logoHeight:50,validated:true},
- {id:'ellington',name:'Ellington Properties',logo:'/assets/partners/ellington.png',logoWidth:180,logoHeight:70,validated:true},
- {id:'imtiaz',name:'Imtiaz Developments',logo:'/assets/partners/imtiaz.svg',logoWidth:160,logoHeight:56,validated:true},
- {id:'residence-affinities',name:'Résidence Affinities',logo:'/assets/partners/residence-affinities.png',logoWidth:120,logoHeight:88,validated:true},
- {id:'cgi',name:'CGI',logo:'/assets/partners/cgi.png',logoWidth:145,logoHeight:72,validated:true},
+ {id:'damac',name:'DAMAC',logo:'/assets/partners/damac.svg',logoMonochrome:true,logoWidth:188,logoHeight:25,validated:true},
+ {id:'deca',name:'DECA Properties',logoTextSize:20,validated:true},
+ {id:'meraki',name:'Meraki Developers',logo:'/assets/partners/meraki-trimmed.webp',logoMonochrome:true,logoWidth:142,logoHeight:40,validated:true},
+ {id:'reportage',name:'Reportage',logo:'/assets/partners/reportage.svg',logoWidth:170,logoHeight:28,validated:true},
+ {id:'ellington',name:'Ellington Properties',logo:'/assets/partners/ellington-trimmed.png',logoWidth:128,logoHeight:51,validated:true},
+ {id:'imtiaz',name:'Imtiaz Developments',logo:'/assets/partners/imtiaz.svg',logoWidth:120,logoHeight:33,validated:true},
+ {id:'residence-affinities',name:'Résidence Affinities',logo:'/assets/partners/residence-affinities-trimmed.png',logoWidth:48,logoHeight:34,validated:true},
+ {id:'serraj-immobilier',name:'Serraj Immobilier',logo:'/assets/partners/logo-serraj-immobilier.png',logoWidth:176,logoHeight:46,validated:true},
 ];
 export const destinations={
  maroc:{name:'Maroc',label:'au Maroc',currency:'MAD',eyebrow:'LA BEAUTÉ D’UN ART DE VIVRE',headline:'Le temps de vivre.',description:'Des patios de Marrakech aux lignes contemporaines de Casablanca et Rabat, découvrez des lieux qui ont quelque chose à raconter.',cities:['Marrakech','Casablanca','Rabat'],image:'maroc',tone:'warm',editorial:'Lumière, matière, caractère.',text:'Une architecture ouverte sur les jardins, des matières vivantes, des villes aux rythmes singuliers. Au Maroc, chaque projet commence par un choix de vie.'},
@@ -109,7 +113,7 @@ export const properties=rows.map(([id,destination,category,title,city,district,t
 // Offre réelle communiquée par l’agence. L’id est un slug technique, pas une référence d’unité.
 properties.unshift({
  id:'oak-yard-residences',project:'Oak Yard Residences',isDemo:false,
- saleMarket:'unconfirmed',
+ saleMarket:'off-plan',
  destination:'dubai',category:'achat-vente',
  title:'Oak Yard Residences',
  city:'JVC',district:'District 10',type:'Penthouse duplex',currency:'AED',
@@ -137,7 +141,7 @@ properties.unshift({
 });
 properties.unshift({
  id:'lily-tower',project:'LILY TOWER',title:'LILY TOWER',isDemo:false,
- saleMarket:'unconfirmed',
+ saleMarket:'off-plan',
  destination:'dubai',category:'achat-vente',price:null,featured:false,
  photos:['/assets/properties/lily-tower/lily-tower-poster.jpg'],
  mediaAlt:'Image extraite de la vidéo promotionnelle transmise pour LILY TOWER.',
@@ -183,7 +187,7 @@ properties.unshift({
 });
 properties.unshift({
  id:'dubai-islands-2-bedroom',title:'Appartement meublé de 2 chambres à Dubai Islands',isDemo:false,
- saleMarket:'unconfirmed',
+ saleMarket:'off-plan',
  destination:'dubai',category:'achat-vente',status:'À vendre',type:'Appartement',
  city:'Dubai Islands',locationLabel:'Dubai Islands · Dubaï',beds:2,
  currency:'AED',price:2000000,priceNote:'Paiement comptant',featured:false,
@@ -1734,6 +1738,8 @@ properties.unshift({
  }
 });
 // Sources historiques conservées ; seuls les biens explicitement réels sont publics.
+properties.push(...newProjects);
+export const propertyDestinations={...destinations,...additionalEmirates};
 export const publicProperties=properties.filter(isPublicProperty);
 // Choix éditorial équilibré, sans classement de popularité ni modification des offres.
 const selectionIds=['oak-yard-residences','prestigia-ville-verte-1023','the-yards-plaza','cfc-1047','dubai-islands-2-bedroom','oulfa-bureaux-1037'];

@@ -11,7 +11,7 @@ export const heroMediaConfig = {
  poster:'/assets/maroc-villa.jpg',
  posterAlt:'Illustration d’une villa contemporaine au Maroc, façade et espaces de vie ouverts sur le jardin.',
  video:{desktop:[],mobile:[]},
- intervalMs:7000,
+ intervalMs:5250,
  fadeMs:1000,
  slides:[
   {src:'/assets/hero/hero-dubai.jpeg', label:'Dubaï',

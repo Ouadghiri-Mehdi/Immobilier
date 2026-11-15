@@ -7,10 +7,19 @@ function matchesPropertyCriteria(property,{type,beds,budget,max}){
 export function parseLocation(hash){const raw=normalizeContactPath(hash.replace(/^#/, '')||'/');const [path,query='']=raw.split('?');return {path:path.replace(/\/$/,'')||'/',params:new URLSearchParams(query)};}
 export function filterProperties(items,{destination='',category='',city='',type='',beds='',budget='',sort='selection',favorites=null,saleMarket=''}={}){
  const max=budget===''?Infinity:Number(budget);
- const result=items.filter(p=>isPublicProperty(p)&&(!destination||p.destination===destination)&&(!category||p.category===category)&&(!city||p.city===city)&&matchesPropertyCriteria(p,{type,beds,budget,max})&&(!favorites||favorites.includes(p.id))&&(!saleMarket||(p.destination==='dubai'&&p.category==='achat-vente'&&p.isDemo===false&&p.saleMarket===saleMarket)));
+ const result=items.filter(p=>isPublicProperty(p)&&(!destination||p.destination===destination)&&(!category||p.category===category)&&(!city||p.city===city)&&matchesPropertyCriteria(p,{type,beds,budget,max})&&(!favorites||favorites.includes(p.id))&&(!saleMarket||(p.category==='achat-vente'&&p.isDemo===false&&p.saleMarket===saleMarket)));
  if(sort==='price-asc'||sort==='price-desc')result.sort((a,b)=>a.price==null?b.price==null?0:1:b.price==null?-1:a.currency.localeCompare(b.currency)||(sort==='price-asc'?a.price-b.price:b.price-a.price));
  if(sort==='area-desc')result.sort((a,b)=>a.area==null?b.area==null?0:1:b.area==null?-1:b.area-a.area);
  return result;
+}
+export function variantPriceDetails(property){
+ if(!property.variantPricing||!property.selectedVariant)return property;
+ const row=property.selectedVariant;
+ return {...property,...row,price:row.price??null,priceFrom:row.priceFrom===true,priceLabel:'Prix sur demande',priceNote:row.priceCondition||property.priceCondition};
+}
+export function variantPriceMessage(property){
+ const quote=variantPriceDetails(property);
+ return tr('projects.enquiry.price',{price:(quote.priceFrom&&Number.isFinite(quote.price)?tr('projects.price.from'):'')+priceText(quote)})+(quote.priceNote?'\n'+tr(quote.priceNote):'');
 }
 export const priceText=p=>p.price==null?tr(p.priceLabel||'Prix sur demande'):formatNumber(p.price)+' '+p.currency+(p.priceTaxExcluded?' '+tr('HT'):'');
 export const isRental=property=>property.category==='location'||property.status==='À louer'||property.transaction==='rent'||(property.category==='locaux-professionnels'&&property.status!=='À vendre'&&Boolean(property.unit));

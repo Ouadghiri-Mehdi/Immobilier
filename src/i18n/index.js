@@ -1,6 +1,10 @@
 import {useSyncExternalStore} from 'react';
-import fr from './fr.json' with {type:'json'};
-import en from './en.json' with {type:'json'};
+import baseFr from './fr.json' with {type:'json'};
+import baseEn from './en.json' with {type:'json'};
+import projectFr from './projects.fr.json' with {type:'json'};
+import projectEn from './projects.en.json' with {type:'json'};
+const fr={...baseFr,...projectFr};
+const en={...baseEn,...projectEn};
 
 export const languageStorageKey='sarouty-language';
 let language='fr';

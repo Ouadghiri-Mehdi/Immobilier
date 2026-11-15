@@ -21,11 +21,17 @@ function ServiceCards(){
  </Reveal>))}</div>;
 }
 
-function ServiceDetails({service}){
+function ServiceDetails({service,variant='default'}){
+ if(variant==='editorial')return <div className="service-details service-details--editorial">
+  {service.audience&&<p className="service-audience">{tr(service.audience)}</p>}
+  <h3>{tr('Notre accompagnement')}</h3>
+  <ul>{service.includes.map(item=><li key={typeof item==='string'?item:item.title}><Check size={15} aria-hidden="true"/>{typeof item==='string'?tr(item):<div><strong>{tr(item.title)}</strong><p>{tr(item.text)}</p></div>}</li>)}</ul>
+  <ButtonLink to={contactPath(null,service.subject)}>{tr(service.action)}</ButtonLink>
+ </div>;
  return <div className="service-details">
   <p className="service-audience">{tr(service.audience)}</p>
   <h3>{tr("Ce que nous préparons avec vous")}</h3>
-  <ul>{tr(service.includes.map(item=><li key={item}><Check size={15} aria-hidden="true"/>{tr(item)}</li>))}</ul>
+  <ul>{tr(service.includes.map(item=><li key={typeof item==='string'?item:item.title}><Check size={15} aria-hidden="true"/>{typeof item==='string'?tr(item):<div><strong>{tr(item.title)}</strong><p>{tr(item.text)}</p></div>}</li>))}</ul>
   <h3>{tr("Comment avancer")}</h3><p>{tr(service.approach)}</p>
   <ButtonLink to={contactPath(null,service.subject)}>{tr(service.action)}</ButtonLink>
  </div>;
@@ -40,7 +46,7 @@ function Partners({items=partners}){
  const renderList=(copy=false)=><ul className="partner-list" role="list" aria-label={copy?undefined:tr('Liste des partenaires')}
   aria-hidden={copy?true:undefined} inert={copy?true:undefined}>
   {confirmed.map(partner=><li className="partner-mark" key={partner.id} data-partner={partner.id}
-   style={{'--partner-logo-width':(partner.logoWidth||160)+'px','--partner-logo-height':(partner.logoHeight||64)+'px'}}>
+   style={{'--partner-logo-width':((partner.logoWidth||160)/192*100)+'%','--partner-logo-height':((partner.logoHeight||40)/192*100)+'cqw','--partner-name-size':((partner.logoTextSize||20)/192*100)+'cqw'}}>
    {partner.logo&&!failed[partner.id]?<img src={partner.logo} alt={copy?'':partner.name}
     loading="eager" fetchPriority="low" decoding="async"
     onLoad={()=>setLoaded(previous=>previous[partner.id]?previous:{...previous,[partner.id]:true})}
@@ -49,7 +55,7 @@ function Partners({items=partners}){
  </ul>;
  return <section className="section partners-section" id="partenaires-home">
   <SectionTitle eyebrow={tr("DES INTERLOCUTEURS IDENTIFIÉS")} title={tr("Nos partenaires de confiance")}/>
-  <div className="partner-band" style={{'--partner-play-state':ready?'running':'paused'}}>
+  <div className="partner-band" style={{'--partner-play-state':ready?'running':'paused','--partner-duration':(64*confirmed.length/8)+'s'}}>
    <div className="partner-band-viewport" tabIndex={0} role="group" aria-label={tr('Logos des partenaires')}>
     <div className="partner-track">{renderList()}{renderList(true)}</div>
    </div>

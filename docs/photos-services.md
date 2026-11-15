@@ -1,5 +1,41 @@
 # Photographies des services
 
+## Compositions complètes fournies par le client — accueil et Nos services
+
+Les fichiers client `achat&vente.webp`, `location immobiliere.webp`, `Locaux profesionnel.webp` et `decoration.webp` mesurent chacun 1024 × 765. Ils sont conservés sans modification sous `public/assets/services/compositions/originals/`, avec les noms des quatre rubriques. Les variantes 640 px sont réduites proportionnellement ; les variantes 1024 px sont des copies exactes des originaux WebP, sans recompression ni agrandissement.
+
+`serviceCompositions` dans `src/service-media.js` est distinct de `serviceMedia`. Seuls les appels `paired` de l’accueil et de Nos services utilisent ces nouvelles compositions, avec une seule image, affichée intégralement au rapport d’origine et sans séparation centrale CSS supplémentaire. Les repères Maroc et Dubaï sont ajoutés par le site ; ils désignent les deux parties de ces visuels éditoriaux fournis par le client. Aucun établissement, bien disponible ou réalisation Sarouty n’est identifié par ces compositions. Auteur et licence autonome non communiqués.
+
+Les médias individuels des destinations, la couverture Décoration dédiée, les inspirations et le visuel Hôtel & Appart Hôtel restent inchangés. Les textes alternatifs sont disponibles en FR/EN. Les dimensions et `srcSet` sont renseignés et le chargement reste différé. La définition maximale reste celle des fichiers fournis : 1024 px de large, sans prétendre obtenir une définition supérieure par conversion.
+
+## Nouvelle présentation éditoriale et visuel hôtelier — 14 novembre 2026
+
+Le fichier client `Hôtel de luxe au bord de la piscine.png` remplace le riad précédent dans la configuration du service hôtelier : original copié sans modification dans `public/assets/services/hotel-piscine-visuel-client.png` (1535 × 1024), variantes WebP 640, 1024 et 1535 pixels de large, qualité 87, sans agrandissement. Le fichier a été examiné visuellement. Les huit photographies des quatre autres services restent les mêmes.
+
+Source : fichier joint par le client pour cette utilisation éditoriale. Auteur, établissement représenté, localisation et licence autonome non communiqués ; aucune provenance géographique ou licence libre n’est inventée. Le repère Maroc désigne le périmètre du service, sans identifier le lieu représenté. Le visuel ne constitue ni une annonce ni la photographie d’un hôtel proposé à la vente. Le texte alternatif FR/EN décrit seulement un bâtiment hôtelier éclairé, une piscine et la végétation.
+
+La référence partagée sert à l’accueil, à Nos services, aux cartes de la destination Maroc et à la présentation dédiée à l’acquisition hôtelière. Cette dernière n’avait pas de couverture : elle utilise désormais `ServiceVisual` avec le même média, sans second jeu de données.
+
+`servicesPageContent` dans `src/content.js` et la variante explicite `ServiceDetails variant="editorial"` limitent la nouvelle rédaction à Nos services. Les introductions, publics utiles et listes remplacent les conclusions répétitives ; les autres usages du composant restent inchangés. Les cadrages `editorialPosition` concernent les cadres 4/3 sur ordinateur et 3/2 sur mobile et tablette de cette page ; les positions des autres emplacements restent indépendantes.
+
+## Mise à jour du 14 novembre 2026
+
+Les deux anciennes photographies Achat ne sont plus utilisées par les services. La villa marocaine trop petite et la maison méditerranéenne de Dubaï rejetée restent seulement dans les fichiers historiques ; aucun média d’annonce n’a été modifié.
+
+| Usage actuel | Fichiers dans `public/assets/services/` | Source, auteur et droits |
+| --- | --- | --- |
+| Achat / Maroc | `achat-maroc-rabat-{640,1280,2160}.webp` | [Pexels 21273694](https://www.pexels.com/photo/patio-with-a-swimming-pool-21273694/), Mounir El Barji, licence Pexels. La page indique une villa à Rabat, Maroc, original 5472 × 3648 et appareil Canon EOS 6D. Fichier de travail téléchargé à 2400 × 1600. |
+| Achat / Dubaï | `achat-dubai-contemporaine-{640,1280,2160}.webp` | [Pexels 10647324](https://www.pexels.com/photo/white-and-brown-concrete-building-near-the-swimming-pool-10647324/), Abid Ali, licence Pexels. La page indique une villa à Dubaï, Émirats arabes unis, original 5760 × 3840 et appareil Canon EOS 5D Mark III. Fichier de travail téléchargé à 2400 × 1600. |
+| Décoration / Maroc | `decoration-maroc-jardins-{640,1280,1448}.webp` | Photo client du salon Jardins de l’Océan 1051 à Dar Bouazza, issue du PDF client déjà documenté dans `jardins-ocean-1051.md`. Original local 1448 × 1086, intact ; auteur non communiqué, droits fournis par le client à documenter par l’agence. |
+
+Les six autres photographies et leurs sources décrites ci-dessous restent utilisées. Les trois nouvelles photographies ont été examinées visuellement, puis réduites proportionnellement en WebP, qualité 86, sans agrandissement ni retouche de contenu. Le nouveau salon marocain est plus lumineux et conserve mobilier, matières et éclairage. Un intérieur de bureaux trouvé sur Pexels 19893586 a été écarté pour son apparence de rendu ; aucun fichier correspondant n’a été ajouté au site.
+
+Les cartes partagées affichent uniquement Maroc puis Dubaï, dans cet ordre explicite. Le service hôtelier garde une seule photo au Maroc. Les textes alternatifs et cette documentation conservent la qualification éditoriale : ces photographies ne constituent ni une offre disponible ni une réalisation Sarouty.
+
+Les cadres de Nos services sont désormais au rapport 16/9. Les fichiers de bureaux marocains restent limités à 869 × 652 dans le PDF lui-même : aucun original local plus grand n’a été trouvé. Cette limite reste à considérer sur les grands écrans haute densité ; aucun agrandissement artificiel n’est présenté comme une amélioration de définition.
+
+La sélection et les variantes antérieures ci-dessous constituent l’historique des sources ; seules les nouvelles références Achat et Décoration/Maroc ci-dessus font foi pour ces trois usages.
+
 Sélection du 12 novembre 2026. Configuration commune : `src/service-media.js` ; affichage : `src/components/ServiceVisual.jsx`. Les quatre services communs associent Maroc et Dubaï sur l’accueil, avec séparation verticale et repères géographiques. Les destinations utilisent seulement leur propre photographie. L’hôtellerie reste limitée au Maroc.
 
 ## Photographies externes

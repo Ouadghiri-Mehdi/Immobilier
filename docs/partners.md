@@ -1,5 +1,41 @@
 # Partenaires de Sarouty Properties
 
+## Ajout de Serraj Immobilier
+
+Logo fourni par le client : `C:/Users/USER/Downloads/logo-serraj-immobilier.png`, 1000 × 300. Variante locale : `public/assets/partners/logo-serraj-immobilier.png`, 980 × 257, sans agrandissement. Le motif bleu isolé en haut est supprimé uniquement dans sa zone, séparée du symbole principal et située au-dessus du texte. Le fond blanc est rendu transparent pour permettre le traitement noir sans rectangle opaque. Le nom et la signature « Agence immobilière » sont conservés ; aucun lien externe n’est ajouté.
+
+L’entrée unique `serraj-immobilier` réutilise le composant et les copies accessibles existants. La boucle passe de 64 à 72 secondes pour neuf marques, afin de conserver la vitesse de déplacement malgré son allongement. Les espacements, pauses au survol/focus, réduction des mouvements et exception CGI en couleurs sont préservés. Captures de contrôle ordinateur/mobile : `.qa-ssr/partners-check/serraj-*.png`.
+
+## Calibrage optique contrôlé dans Chrome — 14 novembre 2026
+
+Les cases et l’animation seules ne normalisaient pas les marques : à l’arrêt, les hauteurs utiles allaient d’environ 18 à 86 px, et le repli textuel DECA passait sur deux lignes. Les dimensions de chaque marque ont donc été recalibrées en comparant les huit entrées, y compris les marques hors champ pendant le mouvement.
+
+`logoWidth` / `logoHeight` sont désormais les dimensions d’une boîte optique de référence dans une case de 192 px. Le composant les convertit en largeur relative et en hauteur proportionnelle à la largeur de la case (`cqw`). Chaque marque garde ainsi le même facteur de réduction sur mobile, au lieu de conserver une grande hauteur fixe alors que seules les marques horizontales rétrécissent. `object-fit: contain` conserve chaque logo entier et sans déformation. Le nom DECA possède un réglage explicite de taille et reste sur une ligne.
+
+Les variantes transparentes recadrées d’Ellington, Meraki et Résidence Affinities sont conservées : leurs marges alpha ont été mesurées, avec deux ou trois pixels de sécurité autour du contenu. Les SVG ont également été examinés. Aucun recadrage supplémentaire nécessaire n’a été trouvé et aucun pixel blanc n’a été supprimé. Les originaux restent intacts.
+
+Les largeurs des cases, les espacements et les images dupliquées restent identiques en mode animé. Les deux groupes mesurent toujours 2112 px à une fenêtre de 1440 px, et 1472 px à 390 px ; le cycle reste de 64 s. Le défilement, la pause au survol et au focus, l’absence de débordement et l’intégrité des logos dans leurs cases ont été vérifiés dans Chrome, puis comparés en présentation statique. Avec réduction des mouvements, les huit marques sont réparties sur quatre colonnes sur ordinateur et deux sur mobile, sans copie accessible en double.
+
+Captures de contrôle dans `.qa-ssr/partners-check/` (dossier exclu de Git) : `after-moving-1440.png`, `after-moving-390.png`, `after-static-1440.png` et `after-static-390.png`. Les mesures avant/après sont enregistrées dans le même dossier.
+
+**CGI n’est pas déclaré corrigé** : seul `public/assets/partners/cgi.png` est disponible, ancien fichier 166 × 105 de la Compagnie Générale Immobilière — Groupe CDG. Ses couleurs sont conservées, sans filtre noir ; sa signature blanche reste illisible sur le fond clair. Fournir une version complète à signature foncée, par exemple `public/assets/partners/cgi-signature-foncee.png` ou un SVG équivalent, sans supprimer le blanc des lettres à l’intérieur du symbole. Aucun logo d’une autre société CGI n’a été utilisé ou recréé.
+
+**DECA reste un nom textuel**, le logo officiel restant absent du projet et ses URL précédemment contrôlées étant inaccessibles. Le repli est inclus dans la comparaison, sans inventer de logo. Ces deux limites empêchent de considérer les huit fichiers de marque comme définitifs.
+
+## Ajustements du 14 novembre 2026
+
+Le centrage, les cases et le bandeau défilant restent partagés. Les dimensions par entrée ont été rééquilibrées selon la surface visible. Les dérivés `ellington-trimmed.png`, `meraki-trimmed.webp` et `residence-affinities-trimmed.png` retirent uniquement les marges extérieures entièrement transparentes, avec une marge de sécurité de trois pixels. Aucune lettre, signature ou zone blanche opaque n’est supprimée ; les originaux et couleurs restent intacts.
+
+Les logos conservent le filtre noir existant, sauf CGI qui garde `filter: none`. Le fichier client de remplacement CGI n’est toujours pas présent : `/assets/partners/cgi.png` reste l’ancien fichier de la Compagnie Générale Immobilière marocaine, 166 × 105, à signature blanche. Aucun logo de l’entreprise informatique CGI n’est utilisé.
+
+DECA reste textuel : les URL officielles communiquée et actuellement référencée par la page d’accueil ont été essayées, ainsi que leurs versions PNG, et renvoient HTTP 404 :
+
+- https://deca-properties.com/wp-content/uploads/2025/05/DECA-Logo-white-e1748388147281.png.webp
+- https://deca-properties.com/wp-content/uploads/2025/05/deca-logo-new.png.webp
+- Les deux mêmes chemins sans le suffixe `.webp`.
+
+Aucun faux fichier `deca.webp` n’a été créé. La pause au survol/focus, les copies `aria-hidden`/`inert`, le chargement préalable et la réduction des mouvements restent présents. Il n’existe plus de commande visible Pause/Reprise ; les notes plus anciennes ci-dessous décrivent l’état historique.
+
 ## État livré — 30 octobre 2026
 
 Les huit entrées et les URL ci-dessous ont été communiquées par le client pour
