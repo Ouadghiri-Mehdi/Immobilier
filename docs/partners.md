@@ -1,5 +1,13 @@
 # Partenaires de Sarouty Properties
 
+## Ajustement ciblé — 18 novembre 2026
+
+Dimensions optiques dans les cases existantes de référence 192 × 88 px : Reportage passe de 170 × 28 à 148 × 24 ; AR (Résidence Affinities) de 48 × 34 à 80 × 57 ; Serraj de 176 × 46 à 192 × 52. `object-fit: contain` conserve les proportions réelles : ces dimensions sont des limites de boîte, jamais un étirement du logo. Serraj utilise ainsi toute la largeur disponible pour augmenter aussi la taille de sa signature, sans la détacher ni la redessiner.
+
+Les marges sources ont été examinées : Serraj 980 × 257, contenu alpha (4, 4)–(976, 253) ; AR dérivé 202 × 142, contenu alpha (2, 3)–(199, 139) ; Reportage SVG 200 × 31, contenu presque bord à bord. Les dérivés Ellington et Meraki ont également des marges de quelques pixels. Aucun recadrage supplémentaire n’est justifié, aucun nouveau dérivé n’est créé. Les fichiers d’origine, le traitement noir et l’exception colorée CGI sont conservés ; CGI reste retiré de la liste selon la demande précédente.
+
+L’ordre, le nombre de partenaires, les cases communes, l’espacement, la durée de boucle, les deux groupes identiques, les pauses et la réduction des mouvements ne sont pas modifiés. Les sources raster sont suffisamment définies pour les dimensions retenues ; la signature Serraj reste fine du fait de la composition horizontale d’origine. Aucun contrôle du rendu dans le navigateur, test, build ou capture effectué pour cet ajustement. Les contrôles Chrome relatés plus bas sont historiques.
+
 ## Ajout de Serraj Immobilier
 
 Logo fourni par le client : `C:/Users/USER/Downloads/logo-serraj-immobilier.png`, 1000 × 300. Variante locale : `public/assets/partners/logo-serraj-immobilier.png`, 980 × 257, sans agrandissement. Le motif bleu isolé en haut est supprimé uniquement dans sa zone, séparée du symbole principal et située au-dessus du texte. Le fond blanc est rendu transparent pour permettre le traitement noir sans rectangle opaque. Le nom et la signature « Agence immobilière » sont conservés ; aucun lien externe n’est ajouté.

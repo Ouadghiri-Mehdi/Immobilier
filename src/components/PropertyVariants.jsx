@@ -5,10 +5,10 @@ import {propertyPath} from '../routing';
 import {Link} from './ui';
 import {RentalRateMarker,RentalRateNote} from './property';
 
-function CellValue({value,kind}){
+function CellValue({value,kind,from=false}){
  if(value==null)return <>—</>;
- if(kind==='sqft')return <>{Array.isArray(value)?value.map(number=>tr(number)).join('–'):tr(value)} sq. ft.</>;
- if(kind==='area')return <>{Array.isArray(value)?value.map(number=>tr(number)).join('–'):tr(value)} m²</>;
+ if(kind==='sqft')return <>{from&&tr('projects.price.from')}{Array.isArray(value)?value.map(number=>tr(number)).join('–'):tr(value)} sq. ft.</>;
+ if(kind==='area')return <>{from&&tr('projects.price.from')}{Array.isArray(value)?value.map(number=>tr(number)).join('–'):tr(value)} m²</>;
  return <>{tr(value)}</>;
 }
 
@@ -24,7 +24,7 @@ export function PropertyVariants({property}){
      const selected=property.selectedVariant?.id===row.id;
      return <tr key={row.id} className={selected?'is-selected':undefined}>
       <th scope="row">{tr(row.label)}</th>
-      {variants.columns.map(column=><td key={column.key} data-label={tr(column.label)}><span><CellValue value={row[column.key]} kind={column.kind}/></span></td>)}
+      {variants.columns.map(column=><td key={column.key} data-label={tr(column.label)}><span><CellValue value={row[column.key]} kind={column.kind} from={property.variantPresentation&&row.areaFrom}/></span></td>)}
       <td data-label={tr('Prix ou loyer')}><span>{row.priceFrom&&tr(property.variantPricing?'projects.price.from':'Dès ')}{priceText({...property,...row})}{Number.isFinite(row.price)&&row.unit&&<> / {tr(row.unit)}</>}<RentalRateMarker property={property} price={row.price}/>{property.variantPricing&&(row.priceCondition||property.priceCondition)&&<small className="property-price-note">{tr(row.priceCondition||property.priceCondition)}</small>}</span></td>
       <td data-label={tr('Votre sélection')}><span><Link to={propertyPath({...property,selectedVariant:row})} className="text-link" aria-current={selected?'true':undefined} aria-label={tr('Choisir {lot}',{lot:tr(row.label)})}>{tr(selected?'Sélectionné':property.projectProgramme?'projects.choose.type':'Choisir ce lot')}</Link></span></td>
      </tr>;

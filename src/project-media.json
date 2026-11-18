@@ -196,5 +196,216 @@
       "position": "50% 50%",
       "positionMobile": "50% 50%"
     }
+  ],
+  "sol-terra-casa": [
+    {
+      "src": "/assets/properties/sol-terra-casa/exterior-2400.webp",
+      "srcSet": "/assets/properties/sol-terra-casa/exterior-480.webp 480w, /assets/properties/sol-terra-casa/exterior-960.webp 960w, /assets/properties/sol-terra-casa/exterior-1600.webp 1600w, /assets/properties/sol-terra-casa/exterior-2400.webp 2400w",
+      "width": 2560,
+      "height": 1920,
+      "alt": "nov18.media.sol-terra-casa.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "cardFit": "cover",
+      "cardPosition": "50% 53%",
+      "cardPositionMobile": "50% 53%"
+    },
+    {
+      "src": "/assets/properties/sol-terra-casa/living-925.webp",
+      "srcSet": "/assets/properties/sol-terra-casa/living-480.webp 480w, /assets/properties/sol-terra-casa/living-925.webp 925w",
+      "width": 925,
+      "height": 520,
+      "alt": "nov18.media.sol-terra-casa.living",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/sol-terra-casa/bedroom-925.webp",
+      "srcSet": "/assets/properties/sol-terra-casa/bedroom-480.webp 480w, /assets/properties/sol-terra-casa/bedroom-925.webp 925w",
+      "width": 925,
+      "height": 520,
+      "alt": "nov18.media.sol-terra-casa.bedroom",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/sol-terra-casa/kitchen-925.webp",
+      "srcSet": "/assets/properties/sol-terra-casa/kitchen-480.webp 480w, /assets/properties/sol-terra-casa/kitchen-925.webp 925w",
+      "width": 925,
+      "height": 520,
+      "alt": "nov18.media.sol-terra-casa.kitchen",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "mondrian-al-marjan": [
+    {
+      "src": "/assets/properties/mondrian-al-marjan/exterior-2400.webp",
+      "srcSet": "/assets/properties/mondrian-al-marjan/exterior-480.webp 480w, /assets/properties/mondrian-al-marjan/exterior-960.webp 960w, /assets/properties/mondrian-al-marjan/exterior-1600.webp 1600w, /assets/properties/mondrian-al-marjan/exterior-2400.webp 2400w",
+      "width": 2640,
+      "height": 1784,
+      "alt": "nov18.media.mondrian-al-marjan.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "cardFit": "cover",
+      "cardPosition": "50% 52%",
+      "cardPositionMobile": "50% 52%"
+    },
+    {
+      "src": "/assets/properties/mondrian-al-marjan/pool-2400.webp",
+      "srcSet": "/assets/properties/mondrian-al-marjan/pool-480.webp 480w, /assets/properties/mondrian-al-marjan/pool-960.webp 960w, /assets/properties/mondrian-al-marjan/pool-1600.webp 1600w, /assets/properties/mondrian-al-marjan/pool-2400.webp 2400w",
+      "width": 2560,
+      "height": 1440,
+      "alt": "nov18.media.mondrian-al-marjan.pool",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/mondrian-al-marjan/lounge-2400.webp",
+      "srcSet": "/assets/properties/mondrian-al-marjan/lounge-480.webp 480w, /assets/properties/mondrian-al-marjan/lounge-960.webp 960w, /assets/properties/mondrian-al-marjan/lounge-1600.webp 1600w, /assets/properties/mondrian-al-marjan/lounge-2400.webp 2400w",
+      "width": 2560,
+      "height": 1152,
+      "alt": "nov18.media.mondrian-al-marjan.lounge",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "reportage-village-dubai": [
+    {
+      "src": "/assets/properties/reportage-village-dubai/exterior-1500.webp",
+      "srcSet": "/assets/properties/reportage-village-dubai/exterior-480.webp 480w, /assets/properties/reportage-village-dubai/exterior-960.webp 960w, /assets/properties/reportage-village-dubai/exterior-1500.webp 1500w",
+      "width": 1500,
+      "height": 650,
+      "alt": "nov18.media.reportage-village-dubai.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "cardFit": "cover",
+      "cardPosition": "52% 50%",
+      "cardPositionMobile": "52% 50%"
+    },
+    {
+      "src": "/assets/properties/reportage-village-dubai/entrance-1200.webp",
+      "srcSet": "/assets/properties/reportage-village-dubai/entrance-480.webp 480w, /assets/properties/reportage-village-dubai/entrance-960.webp 960w, /assets/properties/reportage-village-dubai/entrance-1200.webp 1200w",
+      "width": 1200,
+      "height": 925,
+      "alt": "nov18.media.reportage-village-dubai.entrance",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/reportage-village-dubai/communal-pool-1760.webp",
+      "srcSet": "/assets/properties/reportage-village-dubai/communal-pool-480.webp 480w, /assets/properties/reportage-village-dubai/communal-pool-960.webp 960w, /assets/properties/reportage-village-dubai/communal-pool-1600.webp 1600w, /assets/properties/reportage-village-dubai/communal-pool-1760.webp 1760w",
+      "width": 1760,
+      "height": 1460,
+      "alt": "nov18.media.reportage-village-dubai.communal-pool",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/reportage-village-dubai/streetscape-1500.webp",
+      "srcSet": "/assets/properties/reportage-village-dubai/streetscape-480.webp 480w, /assets/properties/reportage-village-dubai/streetscape-960.webp 960w, /assets/properties/reportage-village-dubai/streetscape-1500.webp 1500w",
+      "width": 1500,
+      "height": 650,
+      "alt": "nov18.media.reportage-village-dubai.streetscape",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "azure-by-lapis": [
+    {
+      "src": "/assets/properties/azure-by-lapis/exterior-1024.webp",
+      "srcSet": "/assets/properties/azure-by-lapis/exterior-480.webp 480w, /assets/properties/azure-by-lapis/exterior-960.webp 960w, /assets/properties/azure-by-lapis/exterior-1024.webp 1024w",
+      "width": 1024,
+      "height": 657,
+      "alt": "nov18.media.azure-by-lapis.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "cardFit": "cover",
+      "cardPosition": "50% 46%",
+      "cardPositionMobile": "50% 46%"
+    },
+    {
+      "src": "/assets/properties/azure-by-lapis/lobby-1024.webp",
+      "srcSet": "/assets/properties/azure-by-lapis/lobby-480.webp 480w, /assets/properties/azure-by-lapis/lobby-960.webp 960w, /assets/properties/azure-by-lapis/lobby-1024.webp 1024w",
+      "width": 1024,
+      "height": 657,
+      "alt": "nov18.media.azure-by-lapis.lobby",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/azure-by-lapis/pool-1024.webp",
+      "srcSet": "/assets/properties/azure-by-lapis/pool-480.webp 480w, /assets/properties/azure-by-lapis/pool-960.webp 960w, /assets/properties/azure-by-lapis/pool-1024.webp 1024w",
+      "width": 1024,
+      "height": 657,
+      "alt": "nov18.media.azure-by-lapis.pool",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/azure-by-lapis/elevators-1024.webp",
+      "srcSet": "/assets/properties/azure-by-lapis/elevators-480.webp 480w, /assets/properties/azure-by-lapis/elevators-960.webp 960w, /assets/properties/azure-by-lapis/elevators-1024.webp 1024w",
+      "width": 1024,
+      "height": 657,
+      "alt": "nov18.media.azure-by-lapis.elevators",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
+  ],
+  "celesto-4": [
+    {
+      "src": "/assets/properties/celesto-4/exterior-661.webp",
+      "srcSet": "/assets/properties/celesto-4/exterior-480.webp 480w, /assets/properties/celesto-4/exterior-661.webp 661w",
+      "width": 661,
+      "height": 1048,
+      "alt": "nov18.media.celesto-4.exterior",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "cardCover": {
+        "src": "/assets/properties/celesto-4/card-facade-environment-2400.webp",
+        "srcSet": "/assets/properties/celesto-4/card-facade-environment-640.webp 640w, /assets/properties/celesto-4/card-facade-environment-1280.webp 1280w, /assets/properties/celesto-4/card-facade-environment-2400.webp 2400w",
+        "width": 3870,
+        "height": 2160,
+        "cardFit": "cover",
+        "cardPosition": "47% 50%",
+        "cardPositionMobile": "47% 50%"
+      }
+    },
+    {
+      "src": "/assets/properties/celesto-4/studio-plan-700.webp",
+      "srcSet": "/assets/properties/celesto-4/studio-plan-480.webp 480w, /assets/properties/celesto-4/studio-plan-700.webp 700w",
+      "width": 700,
+      "height": 369,
+      "alt": "nov18.media.celesto-4.studio-plan",
+      "detailFit": "contain",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    },
+    {
+      "src": "/assets/properties/celesto-4/pool-lounge-2400.webp",
+      "srcSet": "/assets/properties/celesto-4/pool-lounge-480.webp 480w, /assets/properties/celesto-4/pool-lounge-960.webp 960w, /assets/properties/celesto-4/pool-lounge-1600.webp 1600w, /assets/properties/celesto-4/pool-lounge-2400.webp 2400w",
+      "width": 2560,
+      "height": 1452,
+      "alt": "nov18.media.celesto-4.pool-lounge",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%"
+    }
   ]
 }

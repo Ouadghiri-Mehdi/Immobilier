@@ -1,4 +1,5 @@
 import media from './project-media.json' with {type:'json'};
+import {novemberOffers} from './november-offers.js';
 
 const common={destination:'dubai',category:'achat-vente',transaction:'sale',saleMarket:'off-plan',currency:'AED',status:'À vendre',isDemo:false,publicationStatus:'published',projectProgramme:true,mediaNote:'projects.media.note',availability:'Disponibilité sur demande.',price:null,priceLabel:'projects.prices.request'};
 const document=(folder,filename,label,sizeBytes)=>({src:`/assets/properties/${folder}/${filename}`,filename,label,sizeBytes});
@@ -7,7 +8,7 @@ function programme(id,fields){
  if(fields.variantPricing){
   const rows=fields.variants.rows.map(row=>({...row,price:fields.pricesByBedrooms?.[row.beds]??row.price}));
   const minimum=rows.filter(row=>Number.isFinite(row.price)).reduce((min,row)=>!min||row.price<min.price?row:min,null);
-  fields={...fields,variants:{...fields.variants,rows},price:minimum?.price??null,priceFrom:Boolean(minimum),priceLabel:'Prix sur demande',priceNote:minimum?.priceCondition||fields.priceCondition};
+  fields={...fields,variants:{...fields.variants,rows},price:minimum?.price??null,priceFrom:fields.priceFrom??Boolean(minimum),priceLabel:'Prix sur demande',priceNote:minimum?.priceCondition||fields.priceCondition};
  }
  return {...common,id,...fields,project:fields.project||(fields.title?.startsWith('projects.')?undefined:fields.title),photos:gallery.map(image=>image.src),photoMedia:gallery,photoAlts:gallery.map(image=>image.alt),mediaAlt:gallery[0]?.alt};
 }
@@ -72,4 +73,5 @@ export const newProjects=[
   title:'projects.ajman.title',publicationStatus:'draft',saleMarket:null,destination:'ajman',city:'Al Zorah',type:'Appartement',
   description:'projects.ajman.description',price:null,
  }),
+ ...novemberOffers(programme),
 ];

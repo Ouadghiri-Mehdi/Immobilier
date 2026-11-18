@@ -18,7 +18,7 @@ function App(){const language=useLanguage();const [route,setRoute]=useState(()=>
  const parts=route.path.split('/').filter(Boolean);
  const pageTitles={'/destinations':'Nos destinations','/services':'Nos services','/agence':'L’agence','/favoris':'Mes favoris','/mentions-legales':'Mentions légales','/confidentialite':'Confidentialité'};
  let title=tr(pageTitles[route.path]||'Immobilier au Maroc et à Dubaï');
- if(parts[0]==='destination'&&destinations[parts[1]])title=tr((parts[1]==='dubai'&&parts[2]==='achat-vente'?(parts[3]==='marche-secondaire'?'Marché secondaire':'Achat & vente'):null)||categories.find(c=>c.slug===parts[2])?.title||'Immobilier')+' '+tr(destinations[parts[1]].label);
+ if(parts[0]==='destination'&&destinations[parts[1]])title=tr((parts[1]==='dubai'&&parts[2]==='achat-vente'?(parts[3]==='marche-secondaire'?'Marché secondaire':'Achat & vente'):null)||categories.find(c=>c.slug===parts[2])?.title||'Immobilier')+' '+tr(parts[1]==='dubai'&&parts[2]==='achat-vente'&&parts[3]!=='marche-secondaire'?'catalogue.uae.label':destinations[parts[1]].label);
  if(parts[0]==='bien')title=tr(properties.find(p=>p.id===parts[1]&&!isDraftProperty(p))?.title||'Bien immobilier');
  if(parts[0]==='emirats')title=tr(additionalEmirates[parts[1]]?.name||'projects.emirates.title');
  if(parts[0]==='inspiration')title=tr(projects.find(p=>p.id===parts[1])?.title||'Décoration');

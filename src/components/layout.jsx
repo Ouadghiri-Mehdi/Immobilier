@@ -1,10 +1,10 @@
 import {tr} from '../i18n/index.js';
 import React,{useState,useEffect,useRef} from 'react';
 import {ArrowUpRight,ChevronDown,Heart,Menu,X,Check,Copy} from 'lucide-react';
-import {categoriesForDestination,destinations,images,publicProperties} from '../data';
+import {categoriesForDestination,destinations,publicProperties} from '../data';
 import {useApp} from '../context';
 import {destPath,categoryPath} from '../routing';
-import {Photo,Link,Eyebrow} from './ui';
+import {Link,Eyebrow} from './ui';
 import {LanguageSwitch} from './LanguageSwitch';
 import {WhatsAppIcon} from './WhatsAppIcon';
 function Logo({footer=false}){return <Link to="/" className={'logo '+(footer?'logo-footer':'')} aria-label={tr("Sarouty Properties, accueil")}><img src="/assets/sarouty-logo.png" alt={tr("Sarouty Properties")} width="1050" height="300" loading={footer?'lazy':'eager'}/></Link>;}
@@ -81,7 +81,6 @@ function Header({route}) {
   <div id="destination-menu" className={'mega-menu '+(desktopOpen?'is-open':'')} inert={!desktopOpen} aria-hidden={!desktopOpen} aria-labelledby={'destination-trigger-'+lastDestination}>
    <div className="mega-copy"><Eyebrow>{tr("VOTRE DESTINATION")}</Eyebrow><h2><span className="destination-name">{tr(destinations[lastDestination].name)},</span><em>{tr("à votre rythme.")}</em></h2><Link className="text-link" to={destPath(lastDestination)} onClick={close}>{tr("Explorer la destination ")}<ArrowUpRight size={18}/></Link></div>
    <div className="mega-categories">{tr(categoriesForDestination(lastDestination).map(service=><Link key={service.slug} to={categoryPath(lastDestination,service.slug)} onClick={close}><span>{tr(service.number)}</span>{tr(service.title)}<ArrowUpRight size={15}/></Link>))}</div>
-   <Photo src={images[destinations[lastDestination].image]} alt={tr("Ambiance {value0}", {value0:tr(destinations[lastDestination].name)})}/>
   </div>
  </header>;
 }

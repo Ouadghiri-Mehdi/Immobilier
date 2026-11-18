@@ -45,9 +45,7 @@ function Breadcrumb({items=[]}){return <nav className="breadcrumbs" aria-label={
 
 function DemoNote({items,illustrative=false}){
  if(illustrative)return <p className="demo-note">{tr('Visuels d’inspiration, sans réalisation client attribuée à Sarouty.')}</p>;
- const count=items?.filter(property=>property.isDemo===false).length||0;
- if(!count)return null;
- return <p className="demo-note">{tr(count>1?'Offres communiquées par l’agence. Prix, conditions et disponibilités à confirmer.':'Offre communiquée par l’agence. Prix, conditions et disponibilité à confirmer.')}</p>;
+ return null;
 }
 
 function EmptyState({title,text,onReset,contactTo}){return <div className="empty-state"><Compass size={36} strokeWidth={1}/><h2>{tr(title)}</h2><p>{tr(text)}</p>{tr(contactTo?<ButtonLink to={contactTo}>{tr("Parlons de votre recherche")}</ButtonLink>:onReset?<button className="button" onClick={onReset}>{tr("Réinitialiser les filtres ")}<ArrowRight size={16}/></button>:<ButtonLink to="/destinations">{tr("Explorer les destinations")}</ButtonLink>)}</div>;}

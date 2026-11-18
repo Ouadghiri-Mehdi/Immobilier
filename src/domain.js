@@ -1,13 +1,14 @@
 import {formatNumber,tr} from './i18n/index.js';
 import {isPublicProperty} from './data.js';
-export function withSelectedVariant(property,id){const selectedVariant=property?.variants?.rows.find(row=>row.id===id);return selectedVariant?{...property,selectedVariant}:property;}
+import {additionalEmirates} from './property-locations.js';
+export function withSelectedVariant(property,id){const selectedVariant=property?.variants?.rows.find(row=>row.id===id);return selectedVariant?{...property,...(property.variantPresentation?{type:selectedVariant.type||property.type,beds:selectedVariant.beds??null,area:selectedVariant.area??null,areaRange:selectedVariant.areaRange,areaSqFt:selectedVariant.areaSqFt,areaSqFtRange:selectedVariant.areaSqFtRange,areaFrom:Boolean(selectedVariant.areaFrom),areaApproximate:Boolean(selectedVariant.areaApproximate),areaLabel:selectedVariant.areaLabel||property.areaLabel}:{}),selectedVariant}:property;}
 function matchesPropertyCriteria(property,{type,beds,budget,max}){
  return (property.variants?.rows||[property]).some(row=>(!type||property.type===type||row.type===type)&&(!beds||row.beds>=Number(beds))&&(budget===''||(row.price!=null&&row.price<=max)));
 }
 export function parseLocation(hash){const raw=normalizeContactPath(hash.replace(/^#/, '')||'/');const [path,query='']=raw.split('?');return {path:path.replace(/\/$/,'')||'/',params:new URLSearchParams(query)};}
-export function filterProperties(items,{destination='',category='',city='',type='',beds='',budget='',sort='selection',favorites=null,saleMarket=''}={}){
+export function filterProperties(items,{destination='',category='',city='',type='',beds='',budget='',sort='selection',favorites=null,saleMarket='',region=''}={}){
  const max=budget===''?Infinity:Number(budget);
- const result=items.filter(p=>isPublicProperty(p)&&(!destination||p.destination===destination)&&(!category||p.category===category)&&(!city||p.city===city)&&matchesPropertyCriteria(p,{type,beds,budget,max})&&(!favorites||favorites.includes(p.id))&&(!saleMarket||(p.category==='achat-vente'&&p.isDemo===false&&p.saleMarket===saleMarket)));
+ const result=items.filter(p=>isPublicProperty(p)&&(region!=='uae'||p.destination==='dubai'||Object.hasOwn(additionalEmirates,p.destination))&&(!destination||p.destination===destination)&&(!category||p.category===category)&&(!city||p.city===city)&&matchesPropertyCriteria(p,{type,beds,budget,max})&&(!favorites||favorites.includes(p.id))&&(!saleMarket||(p.category==='achat-vente'&&p.isDemo===false&&p.saleMarket===saleMarket)));
  if(sort==='price-asc'||sort==='price-desc')result.sort((a,b)=>a.price==null?b.price==null?0:1:b.price==null?-1:a.currency.localeCompare(b.currency)||(sort==='price-asc'?a.price-b.price:b.price-a.price));
  if(sort==='area-desc')result.sort((a,b)=>a.area==null?b.area==null?0:1:b.area==null?-1:b.area-a.area);
  return result;

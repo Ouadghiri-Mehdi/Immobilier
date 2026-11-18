@@ -280,5 +280,306 @@
       "/assets/properties/squarex-one/exterior-official-night-1920.webp",
       "/assets/properties/squarex-one/exterior-official-night-2560.webp"
     ]
+  },
+  {
+    "project": "sol-terra-casa",
+    "name": "exterior",
+    "source": "https://solproperties.ae/wp-content/uploads/2026/04/View-11-scaled.jpg",
+    "publisher": "SOL Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 2560,
+    "height": 1920,
+    "files": [
+      "/assets/properties/sol-terra-casa/exterior-480.webp",
+      "/assets/properties/sol-terra-casa/exterior-960.webp",
+      "/assets/properties/sol-terra-casa/exterior-1600.webp",
+      "/assets/properties/sol-terra-casa/exterior-2400.webp"
+    ]
+  },
+  {
+    "project": "sol-terra-casa",
+    "name": "living",
+    "source": "https://solproperties.ae/wp-content/uploads/2026/04/LIVING-DINING-ROOM-2.jpg",
+    "publisher": "SOL Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 925,
+    "height": 520,
+    "files": [
+      "/assets/properties/sol-terra-casa/living-480.webp",
+      "/assets/properties/sol-terra-casa/living-925.webp"
+    ]
+  },
+  {
+    "project": "sol-terra-casa",
+    "name": "bedroom",
+    "source": "https://solproperties.ae/wp-content/uploads/2026/04/MASTER-BEDROOM-2.jpg",
+    "publisher": "SOL Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 925,
+    "height": 520,
+    "files": [
+      "/assets/properties/sol-terra-casa/bedroom-480.webp",
+      "/assets/properties/sol-terra-casa/bedroom-925.webp"
+    ]
+  },
+  {
+    "project": "sol-terra-casa",
+    "name": "kitchen",
+    "source": "https://solproperties.ae/wp-content/uploads/2026/04/KITCHEN-2.jpg",
+    "publisher": "SOL Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 925,
+    "height": 520,
+    "files": [
+      "/assets/properties/sol-terra-casa/kitchen-480.webp",
+      "/assets/properties/sol-terra-casa/kitchen-925.webp"
+    ]
+  },
+  {
+    "project": "mondrian-al-marjan",
+    "name": "exterior",
+    "source": "https://mondrianalmarjanislandbeachresidences.com/wp-content/uploads/2025/11/4-min.jpg",
+    "publisher": "ELEVATE / Mondrian",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 2640,
+    "height": 1784,
+    "files": [
+      "/assets/properties/mondrian-al-marjan/exterior-480.webp",
+      "/assets/properties/mondrian-al-marjan/exterior-960.webp",
+      "/assets/properties/mondrian-al-marjan/exterior-1600.webp",
+      "/assets/properties/mondrian-al-marjan/exterior-2400.webp"
+    ]
+  },
+  {
+    "project": "mondrian-al-marjan",
+    "name": "pool",
+    "source": "https://liveelevated.com/wp-content/uploads/2026/04/Mondrian-Pool-Day-1-scaled.jpg",
+    "publisher": "ELEVATE / Mondrian",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 2560,
+    "height": 1440,
+    "files": [
+      "/assets/properties/mondrian-al-marjan/pool-480.webp",
+      "/assets/properties/mondrian-al-marjan/pool-960.webp",
+      "/assets/properties/mondrian-al-marjan/pool-1600.webp",
+      "/assets/properties/mondrian-al-marjan/pool-2400.webp"
+    ]
+  },
+  {
+    "project": "mondrian-al-marjan",
+    "name": "lounge",
+    "source": "https://liveelevated.com/wp-content/uploads/2026/04/Mondrian-Sky-Lounge-1-scaled.jpg",
+    "publisher": "ELEVATE / Mondrian",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 2560,
+    "height": 1152,
+    "files": [
+      "/assets/properties/mondrian-al-marjan/lounge-480.webp",
+      "/assets/properties/mondrian-al-marjan/lounge-960.webp",
+      "/assets/properties/mondrian-al-marjan/lounge-1600.webp",
+      "/assets/properties/mondrian-al-marjan/lounge-2400.webp"
+    ]
+  },
+  {
+    "project": "reportage-village-dubai",
+    "name": "exterior",
+    "source": "https://reportagegroup.com/wp-content/uploads/UAE_REPORTAGEVILLAGE_DUBAI_GALLERY-03.webp",
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1500,
+    "height": 650,
+    "files": [
+      "/assets/properties/reportage-village-dubai/exterior-480.webp",
+      "/assets/properties/reportage-village-dubai/exterior-960.webp",
+      "/assets/properties/reportage-village-dubai/exterior-1500.webp"
+    ]
+  },
+  {
+    "project": "reportage-village-dubai",
+    "name": "entrance",
+    "source": "https://reportagegroup.com/wp-content/uploads/UAE_REPORTAGEVILLAGE_DUBAI_INTRO.webp",
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1200,
+    "height": 925,
+    "files": [
+      "/assets/properties/reportage-village-dubai/entrance-480.webp",
+      "/assets/properties/reportage-village-dubai/entrance-960.webp",
+      "/assets/properties/reportage-village-dubai/entrance-1200.webp"
+    ]
+  },
+  {
+    "project": "reportage-village-dubai",
+    "name": "communal-pool",
+    "source": "https://reportagegroup.com/wp-content/uploads/POOL2.webp",
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1760,
+    "height": 1460,
+    "files": [
+      "/assets/properties/reportage-village-dubai/communal-pool-480.webp",
+      "/assets/properties/reportage-village-dubai/communal-pool-960.webp",
+      "/assets/properties/reportage-village-dubai/communal-pool-1600.webp",
+      "/assets/properties/reportage-village-dubai/communal-pool-1760.webp"
+    ]
+  },
+  {
+    "project": "reportage-village-dubai",
+    "name": "streetscape",
+    "source": "https://reportagegroup.com/wp-content/uploads/UAE_REPORTAGEVILLAGE_DUBAI_GALLERY-04.webp",
+    "publisher": "Reportage Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1500,
+    "height": 650,
+    "files": [
+      "/assets/properties/reportage-village-dubai/streetscape-480.webp",
+      "/assets/properties/reportage-village-dubai/streetscape-960.webp",
+      "/assets/properties/reportage-village-dubai/streetscape-1500.webp"
+    ]
+  },
+  {
+    "project": "azure-by-lapis",
+    "name": "exterior",
+    "source": "https://lapisproperties.com/wp-content/uploads/2025/11/22.jpg",
+    "publisher": "Lapis Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1024,
+    "height": 657,
+    "files": [
+      "/assets/properties/azure-by-lapis/exterior-480.webp",
+      "/assets/properties/azure-by-lapis/exterior-960.webp",
+      "/assets/properties/azure-by-lapis/exterior-1024.webp"
+    ]
+  },
+  {
+    "project": "azure-by-lapis",
+    "name": "lobby",
+    "source": "https://lapisproperties.com/wp-content/uploads/2025/11/lobby.jpg",
+    "publisher": "Lapis Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1024,
+    "height": 657,
+    "files": [
+      "/assets/properties/azure-by-lapis/lobby-480.webp",
+      "/assets/properties/azure-by-lapis/lobby-960.webp",
+      "/assets/properties/azure-by-lapis/lobby-1024.webp"
+    ]
+  },
+  {
+    "project": "azure-by-lapis",
+    "name": "pool",
+    "source": "https://lapisproperties.com/wp-content/uploads/2025/11/outdoor-pool-area.jpg",
+    "publisher": "Lapis Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1024,
+    "height": 657,
+    "files": [
+      "/assets/properties/azure-by-lapis/pool-480.webp",
+      "/assets/properties/azure-by-lapis/pool-960.webp",
+      "/assets/properties/azure-by-lapis/pool-1024.webp"
+    ]
+  },
+  {
+    "project": "azure-by-lapis",
+    "name": "elevators",
+    "source": "https://lapisproperties.com/wp-content/uploads/2025/11/elevators.jpg",
+    "publisher": "Lapis Properties",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 1024,
+    "height": 657,
+    "files": [
+      "/assets/properties/azure-by-lapis/elevators-480.webp",
+      "/assets/properties/azure-by-lapis/elevators-960.webp",
+      "/assets/properties/azure-by-lapis/elevators-1024.webp"
+    ]
+  },
+  {
+    "project": "celesto-4",
+    "name": "exterior",
+    "source": "https://tarrad.ae/img/footer/celesto-4-tower.webp",
+    "publisher": "Tarrad Development",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 661,
+    "height": 1048,
+    "files": [
+      "/assets/properties/celesto-4/exterior-480.webp",
+      "/assets/properties/celesto-4/exterior-661.webp"
+    ]
+  },
+  {
+    "project": "celesto-4",
+    "name": "studio-plan",
+    "source": "https://tarrad.ae/celesto/unit-studio.jpg",
+    "publisher": "Tarrad Development",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 700,
+    "height": 369,
+    "files": [
+      "/assets/properties/celesto-4/studio-plan-480.webp",
+      "/assets/properties/celesto-4/studio-plan-700.webp"
+    ]
+  },
+  {
+    "project": "celesto-4",
+    "name": "pool-lounge",
+    "source": "https://tarrad.ae/celesto/am-poolside-lounge.jpg",
+    "publisher": "Tarrad Development",
+    "individualAuthor": "Not identified by the official source",
+    "usageBasis": "Official marketing material; client confirmed permission for Sarouty on 18 November 2026. All rights reserved, no open licence claimed.",
+    "width": 2560,
+    "height": 1452,
+    "files": [
+      "/assets/properties/celesto-4/pool-lounge-480.webp",
+      "/assets/properties/celesto-4/pool-lounge-960.webp",
+      "/assets/properties/celesto-4/pool-lounge-1600.webp",
+      "/assets/properties/celesto-4/pool-lounge-2400.webp"
+    ]
+  },
+  {
+    "project": "mondrian-al-marjan",
+    "name": "studios-video",
+    "source": "Mondrian.mp4 supplied by client from local Downloads",
+    "publisher": "Client-supplied Mondrian / ELEVATE presentation film",
+    "individualAuthor": "Not identified in the supplied material",
+    "usageBasis": "Client supplied this file specifically for the Mondrian studio offer on 18 November 2026. Original copied unchanged; poster extracted from the exterior at 2.2 seconds.",
+    "width": 832,
+    "height": 464,
+    "files": [
+      "/assets/properties/mondrian-al-marjan/mondrian-studios.mp4",
+      "/assets/properties/mondrian-al-marjan/mondrian-studios-poster.webp"
+    ]
+  },
+  {
+    "project": "celesto-4",
+    "name": "card-facade-environment",
+    "source": "https://tarrad.ae/celesto/ext-6.jpg",
+    "publisher": "Tarrad Development",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Official marketing image; client-authorized use for Sarouty confirmed 18 November 2026. No open licence claimed. Card only; original detail gallery retained.",
+    "identification": "The architectural facade visibly bears CELESTO TOWER 4. Other generic folder images were not used as proof of identity.",
+    "width": 3870,
+    "height": 2160,
+    "files": [
+      "/assets/properties/celesto-4/card-facade-environment-640.webp",
+      "/assets/properties/celesto-4/card-facade-environment-1280.webp",
+      "/assets/properties/celesto-4/card-facade-environment-2400.webp"
+    ]
   }
 ]

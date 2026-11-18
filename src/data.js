@@ -64,7 +64,7 @@ export const dubaiPurchaseTypes=[
 // Les anciens exemples de séjour restent dans les données et les favoris enregistrés.
 // Une offre hôtelière publiée doit explicitement porter sur une acquisition au Maroc.
 export const isDraftProperty=property=>property?.publicationStatus==='draft';
-export const isPublicProperty=property=>!isDraftProperty(property)&&property.isDemo===false&&(Object.hasOwn(destinations,property.destination)||(Object.hasOwn(additionalEmirates,property.destination)&&property.category==='achat-vente'&&property.saleMarket==='off-plan'))&&categoriesForDestination(property.destination).some(service=>service.slug===property.category)&&(property.category!=='hotels-appartements'||((property.transaction==='sale'||property.status==='À vendre')&&!property.unit));
+export const isPublicProperty=property=>!isDraftProperty(property)&&property.isDemo===false&&(Object.hasOwn(destinations,property.destination)||(Object.hasOwn(additionalEmirates,property.destination)&&property.category==='achat-vente'&&['off-plan','resale','unconfirmed'].includes(property.saleMarket)))&&categoriesForDestination(property.destination).some(service=>service.slug===property.category)&&(property.category!=='hotels-appartements'||((property.transaction==='sale'||property.status==='À vendre')&&!property.unit));
 // Ajouter uniquement des partenaires autorisés et confirmés.
 // Format : {id, name, description, logo: '/assets/...', validated: true}.
 // Une entrée sans validation explicite n’est jamais affichée.
@@ -73,11 +73,11 @@ export const partners=[
  {id:'damac',name:'DAMAC',logo:'/assets/partners/damac.svg',logoMonochrome:true,logoWidth:188,logoHeight:25,validated:true},
  {id:'deca',name:'DECA Properties',logoTextSize:20,validated:true},
  {id:'meraki',name:'Meraki Developers',logo:'/assets/partners/meraki-trimmed.webp',logoMonochrome:true,logoWidth:142,logoHeight:40,validated:true},
- {id:'reportage',name:'Reportage',logo:'/assets/partners/reportage.svg',logoWidth:170,logoHeight:28,validated:true},
+ {id:'reportage',name:'Reportage',logo:'/assets/partners/reportage.svg',logoWidth:148,logoHeight:24,validated:true},
  {id:'ellington',name:'Ellington Properties',logo:'/assets/partners/ellington-trimmed.png',logoWidth:128,logoHeight:51,validated:true},
  {id:'imtiaz',name:'Imtiaz Developments',logo:'/assets/partners/imtiaz.svg',logoWidth:120,logoHeight:33,validated:true},
- {id:'residence-affinities',name:'Résidence Affinities',logo:'/assets/partners/residence-affinities-trimmed.png',logoWidth:48,logoHeight:34,validated:true},
- {id:'serraj-immobilier',name:'Serraj Immobilier',logo:'/assets/partners/logo-serraj-immobilier.png',logoWidth:176,logoHeight:46,validated:true},
+ {id:'residence-affinities',name:'Résidence Affinities',logo:'/assets/partners/residence-affinities-trimmed.png',logoWidth:80,logoHeight:57,validated:true},
+ {id:'serraj-immobilier',name:'Serraj Immobilier',logo:'/assets/partners/logo-serraj-immobilier.png',logoWidth:192,logoHeight:52,validated:true},
 ];
 export const destinations={
  maroc:{name:'Maroc',label:'au Maroc',currency:'MAD',eyebrow:'LA BEAUTÉ D’UN ART DE VIVRE',headline:'Le temps de vivre.',description:'Des patios de Marrakech aux lignes contemporaines de Casablanca et Rabat, découvrez des lieux qui ont quelque chose à raconter.',cities:['Marrakech','Casablanca','Rabat'],image:'maroc',tone:'warm',editorial:'Lumière, matière, caractère.',text:'Une architecture ouverte sur les jardins, des matières vivantes, des villes aux rythmes singuliers. Au Maroc, chaque projet commence par un choix de vie.'},

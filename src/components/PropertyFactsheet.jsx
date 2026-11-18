@@ -38,6 +38,7 @@ function FactsheetModal({property,onClose}){
 
 export function PropertyFactsheet({property}){
  const [open,setOpen]=useState(false);
+ if(property.documents?.length)return property.documents.map(pdf=><PropertyFactsheet key={pdf.src} property={{...property,documents:undefined,pdf}}/>);
  if(!property.pdf?.src)return null;
  return <>
   <button type="button" className="button button-outline property-factsheet-trigger" aria-haspopup="dialog" onClick={()=>setOpen(true)}>{tr(property.pdf.label||'Voir la fiche technique')}{property.pdf.sizeBytes&&<small className="project-document-size">{tr('projects.document.size',{size:tr(Math.round(property.pdf.sizeBytes/100000)/10)})}</small>}</button>
