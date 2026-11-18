@@ -61,12 +61,12 @@ Importer le dépôt GitHub, installer avec `npm ci`, construire avec `npm run bu
 
 Pour configurer les demandes par e-mail, suivre [le guide serveur](docs/contact-email.md). Le formulaire commun utilise déjà `/api/contact` ; aucun destinataire n'est exposé dans le navigateur.
 
-1. Copier `.env.example` vers `.env.local` à la racine et renseigner `CONTACT_RECIPIENT_EMAIL`, `RESEND_API_KEY`, `CONTACT_FROM` et `SITE_ORIGIN`.
-2. Vérifier le domaine de l'expéditeur dans Resend. L'adresse destinataire seule ne suffit pas.
-3. En local, redémarrer `npm run dev` après configuration ; l'adaptateur Vite exécute le même traitement que Vercel.
-4. Dans Vercel → projet → Settings → Environment Variables, ajouter ces quatre variables pour les environnements concernés, puis redéployer. `SITE_ORIGIN` est l'origine exacte, sans barre finale.
+1. Copier `.env.example` vers `.env.local` et renseigner `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_RECIPIENT_EMAIL` et `SITE_ORIGIN`.
+2. Pour Gmail : `smtp.gmail.com`, port `465`, `SMTP_SECURE=true`. `SMTP_USER` doit correspondre au compte Google ayant généré le mot de passe d'application saisi dans `SMTP_PASS`. Ne jamais utiliser le mot de passe principal.
+3. En local, lancer `npm run dev` ; l'adaptateur Vite exécute le même traitement que Vercel et recharge `.env.local` lors de ses modifications. Si nécessaire, redémarrer Vite.
+4. La configuration Vercel reste inchangée pendant cette migration locale. La procédure pour une migration de production ultérieure figure dans le guide.
 
-Ne jamais utiliser de variable `VITE_*` pour ces valeurs, ni commiter `.env.local`. Sans configuration valide, aucun faux succès : la saisie reste disponible avec un recours WhatsApp. L'acceptation Resend ne garantit pas la réception en boîte de messagerie. La limitation anti-abus en mémoire est propre à chaque instance serveur ; les limites et la configuration de confidentialité à compléter sont détaillées dans le guide.
+Ne jamais utiliser de variable `VITE_*` pour ces valeurs ni commiter `.env.local`. L'expéditeur est Sarouty avec l'adresse `SMTP_USER`, le destinataire est `CONTACT_RECIPIENT_EMAIL` et l'adresse du visiteur reste en Reply-To. Aucun repli vers Resend. Sans configuration valide, les saisies sont conservées et aucun faux succès n'est affiché. L'acceptation SMTP ne garantit pas l'arrivée en boîte de réception. Les limites anti-abus et les informations de confidentialité à compléter restent détaillées dans le guide.
 
 ## Visuels et animations
 

@@ -6,7 +6,7 @@ export default defineConfig({
  plugins:[{
   name:'local-contact-api',
   configureServer(server){
-   const contactKeys=['SITE_ORIGIN','CONTACT_RECIPIENT_EMAIL','CONTACT_FROM','RESEND_API_KEY'];
+   const contactKeys=['SITE_ORIGIN','CONTACT_RECIPIENT_EMAIL','SMTP_HOST','SMTP_PORT','SMTP_SECURE','SMTP_USER','SMTP_PASS'];
    const inherited=Object.fromEntries(contactKeys.map(key=>[key,process.env[key]]));
    // loadEnv normally gives process.env priority. Values loaded on a previous
    // Vite restart must not override subsequent edits to the local env files.
@@ -20,12 +20,15 @@ export default defineConfig({
      if(value===undefined)delete process.env[key];else process.env[key]=value;
     }
    }
-   const missing=['SITE_ORIGIN','CONTACT_RECIPIENT_EMAIL','CONTACT_FROM','RESEND_API_KEY'].filter(key=>!process.env[key]?.trim());
+   const missing=contactKeys.filter(key=>!process.env[key]?.trim());
    console.info('[contact/local] Configuration:',{
     recipient:process.env.CONTACT_RECIPIENT_EMAIL||'(absent)',
-    from:process.env.CONTACT_FROM||'(absent)',
+    smtpHost:process.env.SMTP_HOST||'(absent)',
+    smtpPort:process.env.SMTP_PORT||'(absent)',
+    smtpSecure:process.env.SMTP_SECURE||'(absent)',
+    from:process.env.SMTP_USER?'Sarouty <'+process.env.SMTP_USER+'>':'(absent)',
     origin:process.env.SITE_ORIGIN||'(absent)',
-    apiKeyLoaded:Boolean(process.env.RESEND_API_KEY?.trim())
+    smtpPasswordLoaded:Boolean(process.env.SMTP_PASS?.trim())
    });
    if(missing.length)console.warn('[contact/local] HTTP 503 / unavailable: missing '+missing.join(', '));
    server.middlewares.use('/api/contact',async(req,res)=>{
