@@ -59,14 +59,14 @@ Dans `src/config.js`, renseigner `whatsappNumber` au format international. Le bo
 
 Importer le dépôt GitHub, installer avec `npm ci`, construire avec `npm run build`, publier `dist/`. La configuration est dans `vercel.json`. Les fichiers `.openai/` concernent uniquement l’aperçu Sites et ne sont pas nécessaires à Vercel.
 
-Pour activer le formulaire :
+Pour configurer les demandes par e-mail, suivre [le guide serveur](docs/contact-email.md). Le formulaire commun utilise déjà `/api/contact` ; aucun destinataire n'est exposé dans le navigateur.
 
-1. Fournir les informations de confidentialité et les coordonnées de l’agence, puis configurer un service Resend avec expéditeur autorisé.
-2. Ajouter les variables serveur Vercel `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO` et `SITE_ORIGIN` (origine HTTPS exacte, sans barre finale).
-3. Renseigner `contactEndpoint: '/api/contact'` et l’e-mail public dans `src/config.js`.
-4. Redéployer puis tester un véritable envoi et sa réception. Prévoir une protection anti-abus adaptée avant ouverture publique.
+1. Copier `.env.example` vers `.env.local` à la racine et renseigner `CONTACT_RECIPIENT_EMAIL`, `RESEND_API_KEY`, `CONTACT_FROM` et `SITE_ORIGIN`.
+2. Vérifier le domaine de l'expéditeur dans Resend. L'adresse destinataire seule ne suffit pas.
+3. En local, redémarrer `npm run dev` après configuration ; l'adaptateur Vite exécute le même traitement que Vercel.
+4. Dans Vercel → projet → Settings → Environment Variables, ajouter ces quatre variables pour les environnements concernés, puis redéployer. `SITE_ORIGIN` est l'origine exacte, sans barre finale.
 
-Aucun secret ne doit être placé dans les fichiers publics ou commité. Le serveur valide les champs, l’accord pour être recontacté et l’origine ; il fixe le destinataire depuis l’environnement. En cas d’échec, le formulaire garde la saisie et n’affiche pas de faux succès. Sans configuration, la demande reste visible dans le navigateur sans transmission.
+Ne jamais utiliser de variable `VITE_*` pour ces valeurs, ni commiter `.env.local`. Sans configuration valide, aucun faux succès : la saisie reste disponible avec un recours WhatsApp. L'acceptation Resend ne garantit pas la réception en boîte de messagerie. La limitation anti-abus en mémoire est propre à chaque instance serveur ; les limites et la configuration de confidentialité à compléter sont détaillées dans le guide.
 
 ## Visuels et animations
 

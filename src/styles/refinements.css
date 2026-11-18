@@ -203,7 +203,7 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .partner-band-viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 .partner-track { display: flex; width: max-content; animation: partnersMarquee var(--partner-duration, 64s) linear infinite; animation-play-state: var(--partner-play-state, paused); will-change: transform; }
 .partner-list { list-style: none; margin: 0; padding: 16px calc(var(--partner-gap) / 2); display: flex; flex: 0 0 auto; align-items: center; justify-content: space-around; gap: var(--partner-gap); min-width: 100vw; }
-.partner-mark { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; width: clamp(148px, 14vw, 192px); height: 88px; container-type: inline-size; }
+.partner-mark { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; width: clamp(185px, 17.5vw, 240px); height: 88px; container-type: inline-size; }
 .partner-mark img { display: block; width: var(--partner-logo-width, 83.333%); height: var(--partner-logo-height, 20.833cqw); max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0); }
 .partner-mark[data-partner="cgi"] img { filter: none; }
 .partner-mark > span { font-family: var(--serif); font-size: var(--partner-name-size, 10.417cqw); line-height: 1.2; text-align: center; white-space: nowrap; }
@@ -223,7 +223,7 @@ h1, h2, h3 { overflow-wrap: break-word; }
   .partner-track { width: 100%; animation: none; transform: none; will-change: auto; }
   .partner-list { width: 100%; min-width: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
   .partner-list[aria-hidden="true"] { display: none; }
-  .partner-mark { width: 100%; max-width: 192px; justify-self: center; }
+  .partner-mark { width: 100%; max-width: 240px; justify-self: center; }
 }
 
 /* Les menus restent montés pour animer aussi leur fermeture. inert retire les liens masqués du clavier. */

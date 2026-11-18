@@ -1,5 +1,7 @@
 # Configuration du Contact — note interne
 
+> Configuration actuelle : voir [contact-email.md](contact-email.md). Le formulaire est maintenant raccordé à `/api/contact` et le marché secondaire au formulaire commun. Les notes ci-dessous décrivent l’ancien mode de préparation et ne sont plus les instructions d’activation.
+
 ## Marché secondaire à Dubaï
 
 `src/i18n/contact.js` centralise `resaleEnquiryMessage` et `resaleEnquiryMailto`. L’adresse provient uniquement de `siteConfig.email`. Tant qu’elle est vide ou invalide, aucun `mailto:` n’est affiché : le bouton prépare une conversation vers le numéro WhatsApp Sarouty existant, en FR/EN. Aucun message n’est envoyé automatiquement.

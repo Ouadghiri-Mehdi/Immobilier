@@ -1,4 +1,11 @@
 {
+  "contact.options.chooseProject": "Please choose a project available for the selected destination.",
+  "contact.options.projectPlaceholder": "Choose your project",
+  "contact.delivery.success": "Your enquiry has been sent to the agency.",
+  "contact.delivery.unavailable": "Email enquiries are temporarily unavailable. Your details have been kept in the form: please contact us on WhatsApp.",
+  "contact.delivery.rateLimit": "Too many enquiries in a short time. Your details have been kept in the form: wait a few minutes or use WhatsApp.",
+  "contact.delivery.error": "Your enquiry could not be sent. Your details have been kept in the form: please try again or use WhatsApp.",
+  "contact.delivery.privacy": "Once validated and accepted by the email service, your enquiry is forwarded to the agency via Resend. Favourites remain stored in your browser. The controller’s identity, retention period and processing details still need to be completed and approved.",
   "Immobilier au Maroc et à Dubaï": "Property in Morocco and Dubai",
   "Immobilier": "Property",
   "Bien immobilier": "Property",

@@ -1,4 +1,11 @@
 {
+  "contact.options.chooseProject": "Veuillez choisir un projet compatible avec la destination sélectionnée.",
+  "contact.options.projectPlaceholder": "Choisir votre projet",
+  "contact.delivery.success": "Votre demande a été transmise à l’agence.",
+  "contact.delivery.unavailable": "L’envoi par e-mail est momentanément indisponible. Vos informations sont conservées : contactez-nous sur WhatsApp.",
+  "contact.delivery.rateLimit": "Trop de demandes rapprochées. Vos informations sont conservées : patientez quelques minutes ou utilisez WhatsApp.",
+  "contact.delivery.error": "La demande n’a pas pu être transmise. Vos informations sont conservées : réessayez ou utilisez WhatsApp.",
+  "contact.delivery.privacy": "Après validation et acceptation par le service d’envoi, votre demande est transmise par e-mail à l’agence via Resend. Les favoris restent enregistrés dans votre navigateur. L’identité du responsable, la durée de conservation et les modalités de traitement restent à compléter et valider.",
   "Immobilier au Maroc et à Dubaï": "Immobilier au Maroc et à Dubaï",
   "Immobilier": "Immobilier",
   "Bien immobilier": "Bien immobilier",

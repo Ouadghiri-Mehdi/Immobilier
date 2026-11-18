@@ -2,7 +2,7 @@
 export const siteConfig = {
  name:'Sarouty Properties', tagline:'Deux destinations. Un art de vivre.',
  whatsappNumber:'212722624772', email:'', phone:'', address:'',
- contactEndpoint:'', // '/api/contact' après configuration serveur sur Vercel.
+ contactEndpoint:'/api/contact', // Configuration sensible exclusivement côté serveur.
  demo:true,
 };
 
@@ -11,7 +11,7 @@ export const heroMediaConfig = {
  poster:'/assets/maroc-villa.jpg',
  posterAlt:'Illustration d’une villa contemporaine au Maroc, façade et espaces de vie ouverts sur le jardin.',
  video:{desktop:[],mobile:[]},
- intervalMs:5250,
+ intervalMs:3675,
  fadeMs:1000,
  slides:[
   {src:'/assets/hero/hero-dubai.jpeg', label:'Dubaï',

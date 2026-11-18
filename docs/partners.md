@@ -1,5 +1,15 @@
 # Partenaires de Sarouty Properties
 
+## Calibrage des huit emplacements — 18 novembre 2026
+
+Les emplacements communs passent de 148–192 px à 185–240 px de large, pour une hauteur identique de 88 px. Les boîtes optiques individuelles compensent cette augmentation pour Reportage, Ellington, Imtiaz et AR ; DAMAC est réduit, tandis que Meraki et Serraj gagnent 25 % de largeur visible. Les dimensions restent proportionnelles sur mobile et `object-fit: contain` conserve les signatures. La durée de boucle est compensée selon la largeur réelle pour conserver la vitesse de déplacement ; pauses, copies accessibles et présentation statique avec réduction des mouvements sont conservées.
+
+Les dérivés existants sont déjà recadrés près du contenu utile : aucun nouvel écrêtage ni agrandissement des fichiers. Le logo Serraj de 980 × 257 px suffit à son affichage maximal de 240 px. Le traitement des couleurs n’est pas modifié.
+
+DECA reste provisoirement textuel : les fichiers annoncés sur son site officiel https://deca-properties.com/ sont inaccessibles, notamment https://deca-properties.com/wp-content/uploads/2025/05/deca-logo-new.png et https://deca-properties.com/wp-content/uploads/2025/05/DECA-Logo-white-e1748388147281.png (HTTP 404, variantes et domaine alternatif également essayés). Aucun fichier fictif ni logo redessiné. Un original officiel DECA reste nécessaire pour terminer son intégration.
+
+Contrôle limité au diff, aux dimensions des sources et aux chemins locaux. Aucun test, build, navigateur ou capture effectué pour cette intervention. Les validations visuelles relatées plus bas concernent des interventions antérieures.
+
 ## Ajustement ciblé — 18 novembre 2026
 
 Dimensions optiques dans les cases existantes de référence 192 × 88 px : Reportage passe de 170 × 28 à 148 × 24 ; AR (Résidence Affinities) de 48 × 34 à 80 × 57 ; Serraj de 176 × 46 à 192 × 52. `object-fit: contain` conserve les proportions réelles : ces dimensions sont des limites de boîte, jamais un étirement du logo. Serraj utilise ainsi toute la largeur disponible pour augmenter aussi la taille de sa signature, sans la détacher ni la redessiner.

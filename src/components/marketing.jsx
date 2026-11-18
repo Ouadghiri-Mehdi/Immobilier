@@ -1,5 +1,5 @@
 import {tr,localizeValidity} from '../i18n/index.js';
-import React,{useState} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import {ArrowUpRight,Search,Check,Plus} from 'lucide-react';
 import {categories,categoriesForDestination,destinations,steps,faqs,images,partners} from '../data';
 import {contactPath} from '../domain';
@@ -40,7 +40,26 @@ function ServiceDetails({service,variant='default'}){
 function Partners({items=partners}){
  const [loaded,setLoaded]=useState({});
  const [failed,setFailed]=useState({});
+ const bandRef=useRef(null);
+ const [durationScale,setDurationScale]=useState(1);
  const confirmed=items.filter(partner=>partner.validated===true&&partner.id&&partner.name?.trim());
+ useEffect(()=>{
+  const list=bandRef.current?.querySelector('.partner-list');
+  if(!list)return;
+  // Compensate for wider slots so the existing travel speed stays unchanged.
+  const measure=()=>{
+   const gap=parseFloat(getComputedStyle(list).columnGap)||0;
+   const previousSlot=Math.min(192,Math.max(148,window.innerWidth*.14));
+   const previousWidth=Math.max(window.innerWidth,confirmed.length*(previousSlot+gap));
+   const scale=list.getBoundingClientRect().width/previousWidth;
+   if(scale>0)setDurationScale(previous=>Math.abs(previous-scale)<.001?previous:scale);
+  };
+  measure();
+  const observer=typeof ResizeObserver==='undefined'?null:new ResizeObserver(measure);
+  observer?.observe(list);
+  window.addEventListener('resize',measure);
+  return ()=>{observer?.disconnect();window.removeEventListener('resize',measure);};
+ },[confirmed.length]);
  if(!confirmed.length)return null;
  const ready=confirmed.every(partner=>!partner.logo||loaded[partner.id]||failed[partner.id]);
  const renderList=(copy=false)=><ul className="partner-list" role="list" aria-label={copy?undefined:tr('Liste des partenaires')}
@@ -55,7 +74,7 @@ function Partners({items=partners}){
  </ul>;
  return <section className="section partners-section" id="partenaires-home">
   <SectionTitle eyebrow={tr("DES INTERLOCUTEURS IDENTIFIÉS")} title={tr("Nos partenaires de confiance")}/>
-  <div className="partner-band" style={{'--partner-play-state':ready?'running':'paused','--partner-duration':(64*confirmed.length/8)+'s'}}>
+  <div className="partner-band" ref={bandRef} style={{'--partner-play-state':ready?'running':'paused','--partner-duration':(64*confirmed.length/8*durationScale)+'s'}}>
    <div className="partner-band-viewport" tabIndex={0} role="group" aria-label={tr('Logos des partenaires')}>
     <div className="partner-track">{renderList()}{renderList(true)}</div>
    </div>

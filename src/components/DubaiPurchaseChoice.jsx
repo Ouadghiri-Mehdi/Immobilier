@@ -2,7 +2,7 @@ import React from 'react';
 import {ArrowUpRight} from 'lucide-react';
 import {dubaiPurchaseTypes,properties,isPublicProperty} from '../data';
 import {tr} from '../i18n/index.js';
-import {resaleEnquiryMailto,resaleEnquiryMessage} from '../i18n/contact.js';
+import {resaleEnquiryMessage} from '../i18n/contact.js';
 import {destPath,categoryPath} from '../routing';
 import {contactPath} from '../domain';
 import {useApp} from '../context';
@@ -12,11 +12,11 @@ import {PropertyGrid} from './property';
 
 function ResaleEnquiry(){
  const {openWhatsApp}=useApp();
- const mailto=resaleEnquiryMailto();
+ const enquiryPath=contactPath(null,'Achat immobilier')+'&destination=dubai&message='+encodeURIComponent(resaleEnquiryMessage());
  return <div className="resale-enquiry">
   <div><h2>{tr('Marché secondaire')}</h2><p>{tr('Vous recherchez un bien sur le marché secondaire à Dubaï ? Présentez-nous vos critères pour préparer votre recherche.')}</p></div>
   <div className="resale-enquiry-action">
-   {mailto?<><a className="button" href={mailto}>{tr('Préparer ma demande par e-mail')}<ArrowUpRight size={17}/></a><p>{tr('Votre messagerie s’ouvrira avec une demande préremplie. Vous pourrez la compléter et confirmer son envoi.')}</p></>:<><button className="button" type="button" onClick={()=>openWhatsApp(resaleEnquiryMessage)}><WhatsAppIcon size={17}/>{tr('Parlons de votre recherche sur WhatsApp')}</button><p>{tr('Précisez le type de bien, le quartier, votre budget et votre calendrier. Vous confirmez l’envoi dans WhatsApp.')}</p></>}
+   <ButtonLink to={enquiryPath}>{tr('Préparer ma demande par e-mail')}</ButtonLink><button className="text-link" type="button" onClick={()=>openWhatsApp(resaleEnquiryMessage)}><WhatsAppIcon size={17}/>{tr('Parlons de votre recherche sur WhatsApp')}</button><p>{tr('Précisez le type de bien, le quartier, votre budget et votre calendrier. Vous confirmez l’envoi dans WhatsApp.')}</p>
   </div>
  </div>;
 }
