@@ -10,7 +10,12 @@ export function dubaiPurchasePath(market,params){
  return path+(query?'?'+query:'');
 }
 export const defaultMessage='Bonjour Sarouty Properties, je souhaite échanger avec vous au sujet de mon projet immobilier.';
-export const propertyPath=property=>'/bien/'+property.id+(property.selectedVariant?'?'+new URLSearchParams({lot:property.selectedVariant.id}):'');
+export const propertyPath=property=>{
+ const params=new URLSearchParams();
+ if(property.selectedVariant)params.set('lot',property.selectedVariant.id);
+ if(property.selectedPaymentMode)params.set('paiement',property.selectedPaymentMode.id);
+ return '/bien/'+property.id+(params.size?'?'+params:'');
+};
 export function propertyURL(property){
  const hash=href(propertyPath(property));
  return typeof location!=='undefined'&&location.href?new URL(hash,location.href).href:hash;

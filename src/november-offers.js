@@ -33,11 +33,16 @@ export function novemberOffers(programme){
   }),
   programme('azure-by-lapis',{
    title:'Azure by Lapis',destination:'ras-al-khaimah',saleMarket:'off-plan',variantPricing:true,variantPresentation:true,city:'RAK Central',type:'Studio',
+   defaultVariantId:'standard-studio',defaultPaymentMode:'cash',priceFromLabel:'Dès ',
+   paymentModes:[
+    {id:'cash',label:'nov18.azure.cash',priceCondition:'nov18.azure.cash'},
+    {id:'plan',label:'nov18.azure.plan',priceCondition:'nov18.azure.planCondition',terms:'nov18.azure.schedule'},
+   ],
    description:'nov18.azure.description',detail:'nov18.azure.detail',
-   features:['nov18.azure.developer','nov18.azure.floor','nov18.azure.balcony','nov18.azure.views'],
+   features:['nov18.azure.developer','nov18.azure.views'],
    variants:{columns:[],rows:[
-    {id:'standard-studio',label:'nov18.azure.standard',type:'Studio',beds:0,price:695000,priceFrom:false,priceCondition:'nov18.azure.price'},
-    {id:'premium-convertible-studio',label:'nov18.azure.premium',type:'Studio',beds:0,price:895000,priceFrom:false,priceCondition:'nov18.azure.price'},
+    {id:'standard-studio',label:'nov18.azure.standard',type:'Studio',beds:0,paymentPrices:{cash:600000,plan:695000},priceFrom:false},
+    {id:'premium-convertible-studio',label:'nov18.azure.premium',type:'Studio',beds:0,paymentPrices:{cash:770000,plan:895000},priceFrom:false},
    ]},
   }),
   programme('celesto-4',{

@@ -1,5 +1,58 @@
 [
   {
+    "project": "jvc-residential-prelaunch",
+    "status": "draft_identity_and_media_unconfirmed",
+    "reviewDate": "2026-11-20",
+    "files": [],
+    "downloadedMedia": false,
+    "individualAuthor": "Not established; no media used",
+    "usageBasis": "No project-specific media identification or permission established. No external image downloaded, no promotional thumbnails reused, no substitute image or open licence claimed.",
+    "candidate": "Peace Homes JVC Pre-Launch; candidate only, not an official commercial name",
+    "sourcesReviewed": [
+      {
+        "url": "https://www.augusta-properties.com/explore/peace-homes-jvc-pre-launch",
+        "publisher": "Augusta Properties",
+        "finding": "Search-indexed page matches JVC, studio starting price, 20% plus 80 monthly 1% instalments and Q4 2028. It does not establish an official commercial name. Direct navigation redirected to the general off-plan catalogue. Furniture-brand claims, areas, floors and scarcity statements were not imported."
+      },
+      {
+        "url": "https://www.dubaivastgoed.com/projecten/peace-homes-jvc-pre-launch",
+        "publisher": "DubaiVastgoed.com",
+        "finding": "Secondary page repeats the pre-launch working label; not independent official identity confirmation."
+      },
+      {
+        "url": "https://www.peacehomesdevelopment.com/public/index.php/projects",
+        "publisher": "Peace Homes Development",
+        "finding": "Official project list reviewed; no project conclusively matched to the complete client offer."
+      },
+      {
+        "url": "https://www.peacehomesdevelopment.com/public/index.php/project/sky-suites",
+        "publisher": "Peace Homes Development",
+        "finding": "Official page announces Q4 2026, differing from the client's Q4 2028. No images attributed to this offer."
+      },
+      {
+        "url": "https://www.peacehomesdevelopment.com/public/index.php/project/sky-livings",
+        "publisher": "Peace Homes Development",
+        "finding": "Official page announces Q4 2026 and semi-furnished apartments, differing from the client offer. No images attributed to this offer."
+      },
+      {
+        "url": "https://www.peacehomesdevelopment.com/public/index.php/project/sky-vista",
+        "publisher": "Peace Homes Development",
+        "finding": "Official page announces Q4 2026. No images attributed to this offer."
+      },
+      {
+        "url": "https://www.peacehomesdevelopment.com/public/index.php/project/sky-harmony",
+        "publisher": "Peace Homes Development",
+        "finding": "Official page announces Q4 2027, differing from the client offer. No images attributed to this offer."
+      }
+    ],
+    "publicationBlockers": [
+      "Confirm official project name and developer attribution with a project-specific client or developer document.",
+      "Confirm the 232 homes, handover and payment schedule against that identified project.",
+      "Obtain attributable exterior, shared-space and suitable interior originals, with publication rights and typology attribution.",
+      "Replace the internal title and project identifier label before deliberately changing draft status."
+    ]
+  },
+  {
     "project": "squarex-one",
     "name": "exterior",
     "source": "https://tasmeerindigo.com/wp-content/uploads/2025/08/Squarex-one-all-images-interior-22-scaled-600x800-1.webp",
@@ -581,5 +634,217 @@
       "/assets/properties/celesto-4/card-facade-environment-1280.webp",
       "/assets/properties/celesto-4/card-facade-environment-2400.webp"
     ]
+  },
+  {
+    "project": "lily-tower",
+    "name": "official-exterior",
+    "source": "https://www.tigergroup.ae/assets/img/lily/web/Bannerimage.webp",
+    "publisher": "Tiger Properties",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 5418,
+    "height": 3334,
+    "original": "/assets/properties/lily-tower/originals/official-exterior.webp",
+    "files": [
+      "/assets/properties/lily-tower/official-exterior-480.webp",
+      "/assets/properties/lily-tower/official-exterior-960.webp",
+      "/assets/properties/lily-tower/official-exterior-1600.webp",
+      "/assets/properties/lily-tower/official-exterior-2400.webp"
+    ],
+    "scope": "project-common"
+  },
+  {
+    "project": "lily-tower",
+    "name": "official-living-dining",
+    "source": "https://www.tigergroup.ae/assets/img/lily/web/big/2.webp",
+    "publisher": "Tiger Properties",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 1543,
+    "height": 951,
+    "original": "/assets/properties/lily-tower/originals/official-living-dining.webp",
+    "files": [
+      "/assets/properties/lily-tower/official-living-dining-480.webp",
+      "/assets/properties/lily-tower/official-living-dining-960.webp",
+      "/assets/properties/lily-tower/official-living-dining-1543.webp"
+    ],
+    "scope": "project-interior-unassigned-typology"
+  },
+  {
+    "project": "lily-tower",
+    "name": "official-bedroom",
+    "source": "https://www.tigergroup.ae/assets/img/lily/web/big/8.webp",
+    "publisher": "Tiger Properties",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 1543,
+    "height": 951,
+    "original": "/assets/properties/lily-tower/originals/official-bedroom.webp",
+    "files": [
+      "/assets/properties/lily-tower/official-bedroom-480.webp",
+      "/assets/properties/lily-tower/official-bedroom-960.webp",
+      "/assets/properties/lily-tower/official-bedroom-1543.webp"
+    ],
+    "scope": "project-interior-unassigned-typology"
+  },
+  {
+    "project": "lily-tower",
+    "name": "official-lobby",
+    "source": "https://www.tigergroup.ae/assets/img/lily/web/big/1.webp",
+    "publisher": "Tiger Properties",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 1543,
+    "height": 951,
+    "original": "/assets/properties/lily-tower/originals/official-lobby.webp",
+    "files": [
+      "/assets/properties/lily-tower/official-lobby-480.webp",
+      "/assets/properties/lily-tower/official-lobby-960.webp",
+      "/assets/properties/lily-tower/official-lobby-1543.webp"
+    ],
+    "scope": "project-common"
+  },
+  {
+    "project": "lily-tower",
+    "name": "official-pool",
+    "source": "https://www.tigergroup.ae/assets/img/lily/web/big/4.webp",
+    "publisher": "Tiger Properties",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 1543,
+    "height": 951,
+    "original": "/assets/properties/lily-tower/originals/official-pool.webp",
+    "files": [
+      "/assets/properties/lily-tower/official-pool-480.webp",
+      "/assets/properties/lily-tower/official-pool-960.webp",
+      "/assets/properties/lily-tower/official-pool-1543.webp"
+    ],
+    "scope": "project-common"
+  },
+  {
+    "project": "lily-tower",
+    "name": "official-gym",
+    "source": "https://www.tigergroup.ae/assets/img/lily/web/big/3.webp",
+    "publisher": "Tiger Properties",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 1543,
+    "height": 951,
+    "original": "/assets/properties/lily-tower/originals/official-gym.webp",
+    "files": [
+      "/assets/properties/lily-tower/official-gym-480.webp",
+      "/assets/properties/lily-tower/official-gym-960.webp",
+      "/assets/properties/lily-tower/official-gym-1543.webp"
+    ],
+    "scope": "project-common"
+  },
+  {
+    "project": "oak-yard-residences",
+    "name": "official-exterior",
+    "source": "https://files.alnair.ae/uploads/2025/10/ca/76/ca76891b3734f2a948756967fb13596a.pdf",
+    "publisher": "Oak Yard Residences project brochure, hosted by Alnair",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 4000,
+    "height": 2272,
+    "original": "/assets/properties/oak-yard/originals/official-exterior.jpeg",
+    "files": [
+      "/assets/properties/oak-yard/official-exterior-480.webp",
+      "/assets/properties/oak-yard/official-exterior-960.webp",
+      "/assets/properties/oak-yard/official-exterior-1600.webp",
+      "/assets/properties/oak-yard/official-exterior-2400.webp"
+    ],
+    "scope": "project-common",
+    "pdfPage": 59,
+    "pdfImageXref": 2298,
+    "brochureVersion": "PDF metadata modified 2025-09-24; 75 pages",
+    "attribution": "General project exterior or common area; not a penthouse-specific interior or private-pool view. Direct embedded-image extraction, not a page screenshot."
+  },
+  {
+    "project": "oak-yard-residences",
+    "name": "official-facade",
+    "source": "https://files.alnair.ae/uploads/2025/10/ca/76/ca76891b3734f2a948756967fb13596a.pdf",
+    "publisher": "Oak Yard Residences project brochure, hosted by Alnair",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 4096,
+    "height": 2304,
+    "original": "/assets/properties/oak-yard/originals/official-facade.jpeg",
+    "files": [
+      "/assets/properties/oak-yard/official-facade-480.webp",
+      "/assets/properties/oak-yard/official-facade-960.webp",
+      "/assets/properties/oak-yard/official-facade-1600.webp",
+      "/assets/properties/oak-yard/official-facade-2400.webp"
+    ],
+    "scope": "project-common",
+    "pdfPage": 22,
+    "pdfImageXref": 803,
+    "brochureVersion": "PDF metadata modified 2025-09-24; 75 pages",
+    "attribution": "General project exterior or common area; not a penthouse-specific interior or private-pool view. Direct embedded-image extraction, not a page screenshot."
+  },
+  {
+    "project": "oak-yard-residences",
+    "name": "official-gym",
+    "source": "https://files.alnair.ae/uploads/2025/10/ca/76/ca76891b3734f2a948756967fb13596a.pdf",
+    "publisher": "Oak Yard Residences project brochure, hosted by Alnair",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 2000,
+    "height": 1072,
+    "original": "/assets/properties/oak-yard/originals/official-gym.jpeg",
+    "files": [
+      "/assets/properties/oak-yard/official-gym-480.webp",
+      "/assets/properties/oak-yard/official-gym-960.webp",
+      "/assets/properties/oak-yard/official-gym-1600.webp",
+      "/assets/properties/oak-yard/official-gym-2000.webp"
+    ],
+    "scope": "project-common",
+    "pdfPage": 35,
+    "pdfImageXref": 1221,
+    "brochureVersion": "PDF metadata modified 2025-09-24; 75 pages",
+    "attribution": "General project exterior or common area; not a penthouse-specific interior or private-pool view. Direct embedded-image extraction, not a page screenshot."
+  },
+  {
+    "project": "oak-yard-residences",
+    "name": "official-lobby",
+    "source": "https://files.alnair.ae/uploads/2025/10/ca/76/ca76891b3734f2a948756967fb13596a.pdf",
+    "publisher": "Oak Yard Residences project brochure, hosted by Alnair",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 2480,
+    "height": 3100,
+    "original": "/assets/properties/oak-yard/originals/official-lobby.jpeg",
+    "files": [
+      "/assets/properties/oak-yard/official-lobby-480.webp",
+      "/assets/properties/oak-yard/official-lobby-960.webp",
+      "/assets/properties/oak-yard/official-lobby-1600.webp",
+      "/assets/properties/oak-yard/official-lobby-2400.webp"
+    ],
+    "scope": "project-common",
+    "pdfPage": 29,
+    "pdfImageXref": 994,
+    "brochureVersion": "PDF metadata modified 2025-09-24; 75 pages",
+    "attribution": "General project exterior or common area; not a penthouse-specific interior or private-pool view. Direct embedded-image extraction, not a page screenshot."
+  },
+  {
+    "project": "oak-yard-residences",
+    "name": "official-coworking",
+    "source": "https://files.alnair.ae/uploads/2025/10/ca/76/ca76891b3734f2a948756967fb13596a.pdf",
+    "publisher": "Oak Yard Residences project brochure, hosted by Alnair",
+    "individualAuthor": "Not identified by the source",
+    "usageBasis": "Client explicitly authorized Sarouty publication of official Tiger Properties and Oak Yard visuals on 20 November 2026. No open licence claimed.",
+    "width": 1536,
+    "height": 1152,
+    "original": "/assets/properties/oak-yard/originals/official-coworking.jpeg",
+    "files": [
+      "/assets/properties/oak-yard/official-coworking-480.webp",
+      "/assets/properties/oak-yard/official-coworking-960.webp",
+      "/assets/properties/oak-yard/official-coworking-1536.webp"
+    ],
+    "scope": "project-common",
+    "pdfPage": 38,
+    "pdfImageXref": 1295,
+    "brochureVersion": "PDF metadata modified 2025-09-24; 75 pages",
+    "attribution": "General project exterior or common area; not a penthouse-specific interior or private-pool view. Direct embedded-image extraction, not a page screenshot."
   }
 ]

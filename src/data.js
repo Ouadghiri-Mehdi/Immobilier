@@ -2,6 +2,7 @@ import {categories,categoriesForDestination} from './services.js';
 export {categories,categoriesForDestination} from './services.js';
 import {additionalEmirates} from './property-locations.js';
 import {newProjects} from './new-projects.js';
+import propertyEnrichmentMedia from './property-enrichment-media.json' with {type:'json'};
 
 export const images = {
  maroc:'/assets/maroc-villa.jpg', dubai:'/assets/dubai-terrace.jpg', interior:'/assets/riad-interior.jpg',
@@ -65,24 +66,27 @@ export const properties=rows.map(([id,destination,category,title,city,district,t
  detail:'Cette annonce de démonstration montre le niveau de détail prévu pour les biens de l’agence. Les caractéristiques, prix, emplacements et disponibilités sont fictifs. Les photographies sont des ambiances et ne représentent pas une offre réelle.'
 }));
 // Offre réelle communiquée par l’agence. L’id est un slug technique, pas une référence d’unité.
+const oakYardPaymentPrices={cash:6300000,'plan-20-80':7000000};
 properties.unshift({
  id:'oak-yard-residences',project:'Oak Yard Residences',isDemo:false,
  saleMarket:'off-plan',
  destination:'dubai',category:'achat-vente',
  title:'Oak Yard Residences',
  city:'JVC',district:'District 10',type:'Penthouse duplex',currency:'AED',
- price:6300000,priceFrom:true,priceNote:'Paiement comptant',unit:'',
- pricing:[
-  {price:6300000,condition:'Paiement intégral comptant'},
-  {price:7000000,condition:'Plan de paiement 20/80'},
+ price:oakYardPaymentPrices.cash,priceFrom:true,priceFromLabel:'Dès ',priceNote:'Paiement comptant',unit:'',
+ variantPricing:true,defaultVariantId:'duplex-penthouse',defaultPaymentMode:'cash',
+ paymentModes:[
+  {id:'cash',label:'Paiement comptant',priceCondition:'Paiement comptant'},
+  {id:'plan-20-80',label:'Plan de paiement 20/80',priceCondition:'offers.oak.planCondition',terms:'offers.oak.schedule'},
  ],
- pricingNote:'Les échéances du plan 20/80 ne sont pas communiquées. Prix et conditions à confirmer auprès de l’agence.',
- area:524,areaSqFt:5645,areaApproximate:true,beds:3,bathrooms:3,featured:false,
- photos:['/assets/properties/oak-yard/oak-yard-residences-poster.jpg'],
- mediaAlt:'Image extraite de la vidéo promotionnelle d’Oak Yard Residences.',
- video:{src:'/assets/properties/oak-yard/oak-yard-residences.mp4',width:832,height:464},
- mediaNote:'Vidéo promotionnelle du projet : les rendus ne représentent pas des photos du chantier réel.',
- mediaDiscrepancy:'Le plan présenté dans la vidéo indique 5 616,30 sq. ft. / 521 m², contre les 5 645 sq. ft. / environ 524 m² annoncés pour cette offre. La correspondance du plan avec l’offre reste à confirmer.',
+ variants:{columns:[],rows:[{id:'duplex-penthouse',label:'Penthouse duplex',type:'Penthouse duplex',beds:3,price:oakYardPaymentPrices.cash,paymentPrices:oakYardPaymentPrices,priceFrom:false}]},
+ area:524.4,areaSqFt:5645,areaApproximate:true,beds:3,featured:false,
+ photos:propertyEnrichmentMedia['oak-yard-residences'].map(image=>image.src),
+ photoMedia:propertyEnrichmentMedia['oak-yard-residences'],photoAlts:propertyEnrichmentMedia['oak-yard-residences'].map(image=>image.alt),
+ mediaAlt:'offers.media.oak-yard-residences.exterior',
+ videoWithGallery:true,mediaGalleryNote:true,
+ video:{src:'/assets/properties/oak-yard/oak-yard-residences.mp4',poster:'/assets/properties/oak-yard/oak-yard-residences-poster.jpg',width:832,height:464,allVariants:true},
+ mediaNote:'projects.media.note',
  availability:'Disponibilité sur demande',
  delivery:'Livraison prévisionnelle annoncée : décembre 2026.',
  features:[
@@ -90,19 +94,29 @@ properties.unshift({
   '2 cuisines et 2 salons','Piscine privée et grandes terrasses','Semi-meublé',
   '3 places de parking','Vues panoramiques annoncées à 180° sur Burj Khalifa et Burj Al Arab',
  ],
- description:'À JVC, District 10, ce penthouse duplex d’Oak Yard Residences est annoncé sur les deux derniers étages résidentiels. Sa surface annoncée est de 5 645 sq. ft., soit environ 524 m², répartis sur deux niveaux.',
+ description:'offers.oak.description',
  detail:'Trois chambres avec salles de bains privatives, une chambre de service, deux cuisines et deux salons composent ce bien semi-meublé, avec piscine privée, grandes terrasses et trois places de parking. Les vues annoncées à 180° portent sur Burj Khalifa et Burj Al Arab.',
 });
 properties.unshift({
- id:'lily-tower',project:'LILY TOWER',title:'LILY TOWER',isDemo:false,
+ id:'lily-tower',project:'Lily Tower',title:'Lily Tower',isDemo:false,
  saleMarket:'off-plan',
- destination:'dubai',category:'achat-vente',price:null,featured:false,
- photos:['/assets/properties/lily-tower/lily-tower-poster.jpg'],
- mediaAlt:'Image extraite de la vidéo promotionnelle transmise pour LILY TOWER.',
- video:{src:'/assets/properties/lily-tower/lily-tower.mp4',width:1920,height:1080},
- mediaNote:'Vidéo promotionnelle transmise pour LILY TOWER : les rendus ne représentent pas des photos du chantier réel. Les aménagements illustrés et leur rattachement à la phase 2 restent à confirmer.',
+ destination:'ajman',category:'achat-vente',city:'Tiger Downtown',locationLabel:'Tiger Downtown · Ajman',currency:'AED',type:'Appartement',status:'À vendre',
+ price:360000,priceFrom:true,priceFromLabel:'Dès ',priceNote:'offers.lily.startingNote',featured:false,
+ variantPricing:true,variantPresentation:true,contactVariantPrice:true,projectProgramme:true,
+ variants:{columns:[],rows:[
+  {id:'studio',label:'Studio',type:'Studio',beds:0,price:null},
+  {id:'one-bedroom',label:'offers.lily.one',type:'Appartement',beds:1,price:null},
+  {id:'two-bedroom',label:'offers.lily.two',type:'Appartement',beds:2,price:null},
+  {id:'three-bedroom',label:'offers.lily.three',type:'Appartement',beds:3,price:null},
+ ],note:'offers.lily.variantNote'},
+ photos:propertyEnrichmentMedia['lily-tower'].map(image=>image.src),
+ photoMedia:propertyEnrichmentMedia['lily-tower'],photoAlts:propertyEnrichmentMedia['lily-tower'].map(image=>image.alt),
+ mediaAlt:'offers.media.lily-tower.exterior',videoWithGallery:true,
+ video:{src:'/assets/properties/lily-tower/lily-tower.mp4',poster:'/assets/properties/lily-tower/lily-tower-poster.jpg',width:1920,height:1080,allVariants:true},
+ mediaNote:'projects.media.note',
  availability:'Disponibilité à confirmer',
- description:'L’agence peut vous fournir les détails de la phase 2 de LILY TOWER et les modalités du plan de paiement après livraison.',
+ description:'offers.lily.description',detail:'offers.lily.detail',delivery:'offers.lily.delivery',
+ features:['offers.lily.developer','offers.lily.scale','offers.lily.facilities','offers.lily.wellness','offers.lily.community'],
 });
 properties.unshift({
  id:'the-yards-plaza',project:'THE YARDS PLAZA',title:'THE YARDS PLAZA',isDemo:false,
@@ -126,10 +140,8 @@ properties.unshift({
  id:'dlrc-commercial',title:'Bureaux et commerces à DLRC',isDemo:false,
  destination:'dubai',category:'locaux-professionnels',status:'À vendre',type:'Bureaux et commerces',
  city:'DLRC',locationLabel:'DLRC · Dubaï',currency:'AED',price:1446000,priceFrom:true,featured:false,
- photos:['/assets/properties/dlrc-commercial/dlrc-commercial-exterior-1.png'],
- mediaAlt:'Visuel promotionnel fourni pour l’offre de bureaux et commerces à DLRC.',
- mediaNote:'Visuel promotionnel fourni pour cette offre ; il ne représente pas une photo du chantier réel. Le rattachement du visuel à l’offre DLRC reste à confirmer.',
- mediaGallery:true,contactViaWhatsApp:true,
+ photos:[],
+ contactViaWhatsApp:true,
  availability:'Disponibilité sur demande',
  offerTypes:[
   {type:'Bureaux',areaFrom:83,areaSqFtFrom:896,price:1446000,features:['Vue sur la skyline']},

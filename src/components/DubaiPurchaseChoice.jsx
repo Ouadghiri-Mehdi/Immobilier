@@ -29,7 +29,7 @@ export function DubaiPurchaseChoice(){
    <SectionTitle title={tr('Type de vente à confirmer')} description={tr('L’agence doit confirmer si ces offres relèvent d’un achat auprès du promoteur sur plan ou d’une revente. Elles ne sont pas encore classées dans les deux catégories.')}/>
    <PropertyGrid items={pending}/>
   </section>}
-  <section className="section resale-section"><ResaleEnquiry/><Link to="/emirats" className="text-link">{tr("projects.emirates.link")}<ArrowUpRight size={17}/></Link></section>
+  <section className="section resale-section"><ResaleEnquiry/></section>
  </>;
 }
 

@@ -6,7 +6,8 @@ const document=(folder,filename,label,sizeBytes)=>({src:`/assets/properties/${fo
 function programme(id,fields){
  const gallery=media[id]||[];
  if(fields.variantPricing){
-  const rows=fields.variants.rows.map(row=>({...row,price:fields.pricesByBedrooms?.[row.beds]??row.price}));
+  const defaultMode=fields.paymentModes?.find(mode=>mode.id===fields.defaultPaymentMode);
+  const rows=fields.variants.rows.map(row=>({...row,price:row.paymentPrices?.[defaultMode?.id]??fields.pricesByBedrooms?.[row.beds]??row.price,...(defaultMode?{priceCondition:defaultMode.priceCondition}:{})}));
   const minimum=rows.filter(row=>Number.isFinite(row.price)).reduce((min,row)=>!min||row.price<min.price?row:min,null);
   fields={...fields,variants:{...fields.variants,rows},price:minimum?.price??null,priceFrom:fields.priceFrom??Boolean(minimum),priceLabel:'Prix sur demande',priceNote:minimum?.priceCondition||fields.priceCondition};
  }
@@ -74,4 +75,20 @@ export const newProjects=[
   description:'projects.ajman.description',price:null,
  }),
  ...novemberOffers(programme),
+ programme('jvc-residential-prelaunch',{
+  // Internal working record only. Do not publish until identity and media are confirmed.
+  title:'projects.jvcPending.title',publicationStatus:'draft',
+  draftReason:'Official project name, developer attribution and project-specific licensed media remain unconfirmed.',
+  identityReview:{confirmed:false,candidateDeveloper:'Peace Homes Group',candidateLabel:'Peace Homes JVC Pre-Launch',source:'https://www.augusta-properties.com/explore/peace-homes-jvc-pre-launch'},
+  destination:'dubai',saleMarket:'off-plan',city:'Jumeirah Village Circle — JVC',type:'Appartement',
+  variantPricing:true,variantPresentation:true,contactVariantPrice:true,priceFromLabel:'Dès ',
+  description:'projects.jvcPending.description',detail:'projects.jvcPending.payment',delivery:'projects.jvcPending.delivery',
+  features:['projects.jvcPending.furnished','projects.jvcPending.units','projects.jvcPending.amenities','projects.jvcPending.views','projects.jvcPending.eoi'],
+  variants:{columns:[],rows:[
+   {id:'studio',label:'Studio',type:'Studio',beds:0,price:795000,priceFrom:true,priceCondition:'projects.jvcPending.priceConditions'},
+   {id:'one-bedroom-study',label:'projects.jvcPending.one',type:'Appartement',beds:1,price:1300000,priceFrom:true,priceCondition:'projects.jvcPending.priceConditions'},
+   {id:'two-bedroom',label:'projects.jvcPending.two',type:'Appartement',beds:2,price:1800000,priceFrom:true,priceCondition:'projects.jvcPending.priceConditions'},
+   {id:'four-bedroom-duplex-triplex',label:'projects.jvcPending.four',type:'Appartement',beds:4,price:2800000,priceFrom:true,priceCondition:'projects.jvcPending.priceConditions'},
+  ]},
+ }),
 ];

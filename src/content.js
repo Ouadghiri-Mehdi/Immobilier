@@ -26,6 +26,35 @@ export const servicesPageContent={
  },
 };
 
+// Illustrations générées fournies par le client ; séries distinctes par destination.
+// Les originaux WebP sont utilisés à leur résolution native, sans réencodage.
+const decorationMedia=(destination,file,alt,desktop,mobile)=>({
+ src:`/assets/services/decoration-${destination}/originals/${file}.webp`,
+ srcSet:`/assets/services/decoration-${destination}/${file}-480.webp 480w, /assets/services/decoration-${destination}/${file}-768.webp 768w, /assets/services/decoration-${destination}/originals/${file}.webp 1024w`,
+ width:1024,height:687,alt,kind:'illustration',position:{desktop,mobile},
+});
+export const moroccoDecorationSections=[
+ {id:'conception',title:'decorMorocco.design.title',text:'decorMorocco.design.text',media:decorationMedia('maroc','conception-sur-mesure','decorMorocco.design.alt','50% 50%','52% 50%')},
+ {id:'matieres',title:'decorMorocco.materials.title',text:'decorMorocco.materials.text',media:decorationMedia('maroc','matieres-couleurs','decorMorocco.materials.alt','50% 55%','52% 55%')},
+ {id:'mobilier',title:'decorMorocco.furniture.title',text:'decorMorocco.furniture.text',media:decorationMedia('maroc','mobilier-agencement','decorMorocco.furniture.alt','50% 50%','53% 50%')},
+ {id:'eclairage',title:'decorMorocco.lighting.title',text:'decorMorocco.lighting.text',media:decorationMedia('maroc','eclairage-ambiance','decorMorocco.lighting.alt','50% 52%','52% 52%')},
+ {id:'finitions',title:'decorMorocco.details.title',text:'decorMorocco.details.text',media:decorationMedia('maroc','finitions-details','decorMorocco.details.alt','51% 48%','52% 48%')},
+];
+
+const dubaiDecorationMedia={
+ conception:decorationMedia('dubai','conception-sur-mesure','decorDubai.design.alt','50% 50%','52% 50%'),
+ matieres:decorationMedia('dubai','matieres-couleurs','decorDubai.materials.alt','50% 52%','50% 54%'),
+ mobilier:decorationMedia('dubai','mobilier-agencement','decorDubai.furniture.alt','50% 50%','53% 50%'),
+ eclairage:decorationMedia('dubai','eclairage-ambiance','decorDubai.lighting.alt','50% 50%','52% 50%'),
+ finitions:decorationMedia('dubai','finitions-details','decorDubai.details.alt','50% 50%','48% 50%'),
+};
+// Le titre, les cinq descriptions et le CTA sont communs ; images et repères
+// de destination restent séparés. Les clés decorMorocco.* existantes sont conservées.
+export const decorationPageDestinations={
+ maroc:{label:'Maroc',eyebrow:'decorMorocco.destination',sections:moroccoDecorationSections},
+ dubai:{label:'Dubaï',eyebrow:'decorDubai.destination',sections:moroccoDecorationSections.map(item=>({...item,media:dubaiDecorationMedia[item.id]}))},
+};
+
 export const agencyReasons=[
  {icon:'search',title:'Gagnez du temps',text:'Nous sélectionnons les biens selon vos critères, votre budget et vos objectifs pour faciliter votre recherche.'},
  {icon:'check',title:'Avancez dans vos démarches',text:'Nous vous accompagnons pour comprendre les étapes de votre acquisition et préparer les démarches avec les interlocuteurs concernés.'},

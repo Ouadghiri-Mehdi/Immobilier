@@ -236,13 +236,20 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .saved-link > span { top: 0; right: 0; }
 .mega-categories a { min-height: 44px; font-size: 13px; }
 .footer-top > div > a:not(.logo) { font-size: 13px; min-height: 32px; }
-.footer-brand-copy { width: fit-content; max-width: 100%; }
-.footer-brand-copy > p { font: italic 20px var(--serif); color: var(--muted); margin: 23px 0 0; }
-.footer-socials { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 12px; }
-.footer-socials a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--ink); transition: opacity .2s ease, transform .2s ease; }
+.footer-top > div.footer-brand { --footer-brand-gap: 24px; --footer-logo-width: 210px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: var(--footer-brand-gap); width: 100%; min-width: 0; max-width: 100%; }
+/* Logo source 1050 x 300 : dessin visible de (294,102) à (785,222).
+   Centrer le dessin sans changer sa taille ni les proportions du fichier. */
+.footer-brand > .logo-footer { display: block; width: calc(var(--footer-logo-width) * 0.4676190476); height: calc(var(--footer-logo-width) * 0.1142857143); overflow: hidden; }
+.footer-brand > .logo-footer img { width: var(--footer-logo-width); max-width: none; transform: translate(-28%, -34%); }
+/* Compenser les 8 px au-dessus du SVG centré dans sa zone tactile de 44 px. */
+.footer-brand-copy { display: flex; flex-direction: column; align-items: center; gap: calc(var(--footer-brand-gap) - 8px); width: fit-content; min-width: 0; max-width: 100%; text-align: center; }
+.footer-brand-copy > p { font: italic 20px/1 var(--serif); color: var(--muted); margin: 0; }
+.footer-socials { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 0; padding: 0; }
+.footer-socials a { display: inline-flex; flex: 0 0 44px; align-items: center; justify-content: center; width: 44px; height: 44px; margin: 0; padding: 0; color: var(--ink); transition: opacity .2s ease, transform .2s ease; }
+.footer-socials svg { display: block; }
 .footer-socials a:hover { color: var(--ink); opacity: .75; transform: translateY(-2px); }
 .footer-socials a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 50%; }
-@media (max-width: 760px) { .footer-brand-copy > p { font-size: 18px; margin: 0; } }
+@media (max-width: 760px) { .footer-top > div.footer-brand { --footer-logo-width: 180px; } .footer-brand-copy > p { font-size: 18px; } }
 @media (max-width: 480px) { .footer-brand-copy > p { font-size: 21px; } }
 @media (prefers-reduced-motion: reduce) { .footer-socials a { transition: none; } .footer-socials a:hover { transform: none; } }
 .footer-bottom { font-size: 11px; flex-wrap: wrap; }
@@ -254,7 +261,7 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .property-card > .property-photo { height: auto; aspect-ratio: 1.4; flex-shrink: 0; }
 .property-card .property-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .property-card .property-price { margin-top: auto; align-items: flex-start; gap: 16px; }
-.property-card .property-price > span { min-width: 0; }
+.property-card .property-price-content { min-width: 0; flex: 1; }
 /* Les lignes partagées suivent le texte le plus long, sans hauteur fixe ni troncature. */
 @supports (grid-template-rows: subgrid) {
  .property-grid { row-gap: 0; }
@@ -267,12 +274,29 @@ h1, h2, h3 { overflow-wrap: break-word; }
  .property-card .property-specs { grid-row: 4; align-self: start; }
  .property-card .property-price { grid-row: 5; margin-top: 0; align-self: stretch; }
 }
+.property-card--no-media { display: flex; height: auto; align-self: start; }
+.property-card--no-media .property-info { display: flex; flex-direction: column; }
+.property-card-summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 44px; font-size: 11px; }
+.property-card-summary .favorite { position: static; flex-shrink: 0; }
 .property-info h3 { font-size: clamp(25px, 2.2vw, 31px); }
 .property-location { font-size: 11px; }
 .property-specs { font-size: 12px; gap: 12px; }
 .property-price { font-size: 15px; }
 .property-price small { font-size: 12px; }
-.property-price .property-price-note { display: block; margin-top: 4px; }
+.property-price .property-price-note { display: block; margin-top: 8px; }
+.property-price .property-price-note { font-size: 13px; font-weight: 400; line-height: 1.65; color: var(--muted); }
+.price-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; min-width: 0; }
+.price-amount { display: inline-block; max-width: 100%; overflow-wrap: normal; }
+.price-amount--numeric, .price-unit, .price-range-end { white-space: nowrap; }
+.price-prefix, .variant-price-prefix { display: block; margin-bottom: 6px; }
+.price-conditions { min-width: 0; overflow-wrap: normal; word-break: normal; }
+.price-conditions > p { margin: 0; font: inherit; color: inherit; }
+.price-conditions > p + p { margin-top: 8px; }
+.variant-price-content > .property-price-note { margin: 10px 0 0; font-size: 14px; line-height: 1.7; }
+.property-variants .form-row { grid-template-columns: minmax(0, 1fr); }
+.property-variants .form-row label { display: grid; gap: 8px; min-width: 0; }
+.property-variants .form-row select { width: 100%; min-width: 0; max-width: 100%; min-height: 44px; padding: 8px 10px; font: inherit; }
+.offer-type-price .price-prefix { margin-bottom: 8px; }
 .rental-rate-note, .property-price .rental-rate-note, .detail-price .rental-rate-note { display: block; margin-top: 8px; font: 400 13px/1.6 'DM Sans', Arial, sans-serif; color: var(--text); }
 .retired-favorites { margin-top: 32px; }
 .retired-favorites-list { list-style: none; margin: 0; padding: 0; }
@@ -295,10 +319,16 @@ h1, h2, h3 { overflow-wrap: break-word; }
 }
 .property-pricing h3 { font-size: 23px; margin-bottom: 16px; }
 .property-pricing dl { margin: 0; }
-.property-pricing dl > div { border-bottom: 1px solid var(--line); padding: 12px 0; }
-.property-pricing dt { font-size: 13px; color: var(--muted); }
-.property-pricing dd { margin: 4px 0 0; font: 27px var(--serif); }
+.property-pricing dl > div { display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid var(--line); padding: 12px 0; }
+.property-pricing dt { order: 1; font-size: 14px; line-height: 1.65; color: var(--muted); }
+.property-pricing dd { order: 0; margin: 0; font: 27px var(--serif); }
 .property-pricing > p { font-size: 13px; margin-top: 14px; }
+.property-pricing > .price-conditions { margin-top: 10px; font-size: 14px; line-height: 1.7; }
+.property-pricing-amount, .detail-price-amount, .variant-price-amount { display: inline-block; max-width: 100%; overflow-wrap: normal; }
+.detail-price-block { margin: 25px 0 20px; }
+.detail-price-block .detail-price { margin: 0; }
+.detail-price-block > .property-price-note { margin: 10px 0 0; font: 400 14px/1.7 'DM Sans', Arial, sans-serif; color: var(--text); }
+.detail-price .price-prefix { margin-bottom: 8px; }
 .detail-content:has(.property-variants) { min-width: 0; }
 .property-variants { margin: 28px 0; min-width: 0; max-width: 100%; }
 .property-variants-scroll { max-width: 100%; overflow-x: auto; }
@@ -308,18 +338,28 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .property-variants thead th { font-weight: 500; color: var(--muted); }
 .property-variants tbody th { font-weight: 500; min-width: 160px; }
 .property-variants .text-link { font-size: 13px; white-space: nowrap; }
+.property-variants .property-price-note { display: block; margin: 10px 0 0; font-size: 14px; line-height: 1.7; }
 .property-variants .is-selected > th { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
 .property-variants-note { font-size: 13px; line-height: 1.7; margin-top: 14px; }
 .property-variants > .text-link { margin-top: 14px; }
 .property-selected-variant { font-weight: 500; }
 @media (max-width: 760px) {
- .property-variants table, .property-variants tbody, .property-variants tr { display: block; }
+ .property-variants table, .property-variants tbody { display: block; width: 100%; min-width: 0; }
+ .property-variants caption { display: block; width: 100%; min-width: 0; max-width: none; font-size: clamp(22px, 5.8vw, 26px); line-height: 1.3; white-space: normal; overflow-wrap: normal; }
  .property-variants thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
- .property-variants tbody tr { padding: 16px 0; border-bottom: 1px solid var(--line); }
- .property-variants tbody th { display: block; padding: 0 0 12px; border: 0; min-width: 0; }
- .property-variants td { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap: 16px; padding: 6px 0; border: 0; min-width: 0; overflow-wrap: anywhere; }
- .property-variants td::before { content: attr(data-label); color: var(--muted); }
- .property-variants .text-link { white-space: normal; }
+ .property-variants-scroll { overflow-x: visible; }
+ .property-variants tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; width: 100%; min-width: 0; padding: 20px 0; border-bottom: 1px solid var(--line); }
+ .property-variants tbody th { display: block; order: 0; width: 100%; padding: 0; border: 0; min-width: 0; font-size: 18px; line-height: 1.4; }
+ .property-variants td { display: grid; grid-template-columns: minmax(0, 1fr); order: 2; gap: 5px; width: 100%; padding: 0; border: 0; min-width: 0; overflow-wrap: break-word; }
+ .property-variants td::before { content: attr(data-label); color: var(--muted); font-size: 13px; }
+ .property-variants td.variant-price-cell { order: 1; }
+ .property-variants td.variant-action-cell { order: 3; padding-top: 4px; }
+ .property-variants .variant-price-content { min-width: 0; }
+ .property-variants .variant-price-amount { display: inline-block; max-width: 100%; font-size: 20px; line-height: 1.4; overflow-wrap: normal; }
+ .property-variants .property-price-note { display: block; margin: 12px 0 0; font-size: 14px; line-height: 1.7; }
+ .property-variants .text-link { max-width: 100%; min-height: 44px; white-space: normal; }
+ .property-variants .form-row { grid-template-columns: minmax(0, 1fr); }
+ .property-variants :is(label,select) { min-width: 0; max-width: 100%; width: 100%; }
 }
 .property-factsheet-trigger { margin-bottom: 16px; }
 .property-factsheet-modal { width: min(1100px, calc(100vw - 32px)); max-width: calc(100vw - 32px); max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); margin: auto; padding: 24px; overflow: auto; border: 1px solid var(--line); color: var(--ink); background: var(--paper); }
@@ -641,6 +681,27 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .services-page-editorial .service-details--editorial li p { line-height: 1.65; }
 .services-page-editorial .service-details--editorial .button { margin-top: 16px; min-height: 48px; white-space: normal; text-align: left; }
 .services-page-editorial .service-destination-links { margin-top: 12px; gap: 8px 20px; }
+.decoration-service-page .catalogue-title { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(24px,4vw,56px); align-items: start; }
+.decoration-service-page .catalogue-title > * { min-width: 0; }
+.decoration-service-page .catalogue-title h1 { font-size: clamp(36px,4.5vw,62px); line-height: 1.12; overflow-wrap: normal; }
+.decoration-service-page .catalogue-title > p { max-width: 58ch; font-size: 15px; line-height: 1.8; }
+.decoration-service-sections { padding-top: 48px; padding-bottom: 24px; }
+.decoration-service-page .service-editorial { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(24px,4.5vw,64px); align-items: center; margin-bottom: clamp(36px,5vw,64px); }
+.decoration-service-page .service-editorial:last-child { margin-bottom: 0; }
+.decoration-service-page .service-editorial-image { height: auto; min-width: 0; aspect-ratio: 3/2; overflow: hidden; }
+.decoration-service-page .service-copy { min-width: 0; }
+.decoration-service-page .service-copy h2 { margin: 0 0 16px; font-size: clamp(28px,3vw,42px); line-height: 1.2; overflow-wrap: normal; }
+.decoration-service-page .service-copy p { max-width: 58ch; margin: 0; font-size: 15px; line-height: 1.8; color: var(--text); }
+.decoration-service-page .decoration-service-text-only { grid-template-columns: minmax(0,1fr); }
+.decoration-service-page .decoration-service-text-only .service-copy { max-width: 70ch; }
+.decoration-service-contact { padding-top: 24px; padding-bottom: 56px; }
+@media (max-width: 760px) {
+ .decoration-service-page .catalogue-title, .decoration-service-page .service-editorial { grid-template-columns: minmax(0,1fr); gap: 24px; }
+ .decoration-service-page .service-editorial.reverse > div:first-child { order: 0; }
+ .decoration-service-sections { padding-top: 32px; }
+ .decoration-service-page .service-copy h2 { font-size: clamp(28px,7vw,34px); }
+ .decoration-service-contact .button { max-width: 100%; white-space: normal; text-align: left; }
+}
 .hotel-acquisition-media { width: min(86%,720px); aspect-ratio: 3/2; margin: 28px auto 0; overflow: hidden; background: var(--paper); }
 @media (max-width: 980px) {
  .services-page-editorial .service-editorial-image { aspect-ratio: 3/2; }
@@ -689,4 +750,46 @@ h1, h2, h3 { overflow-wrap: break-word; }
 .property-photo img.project-card-photo { object-position: var(--project-card-position); padding: 0; }
 @media (max-width: 700px) {
  .property-photo img.project-card-photo { object-position: var(--project-card-position-mobile); }
+}
+
+/* Shared mobile constraints: let content shrink and wrap instead of squeezing
+   desktop columns or clipping the page. Desktop layouts remain unchanged. */
+@media (max-width: 760px) {
+ html { scroll-padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+ .section-heading > div { width: 100%; max-width: none; }
+ .section-heading :is(h1,h2) { max-width: 100%; }
+ .detail-layout { grid-template-columns: minmax(0, 1fr); }
+ .detail-layout > *, .detail-heading > *, .enquiry-panel { min-width: 0; max-width: 100%; }
+ .detail-heading { flex-wrap: wrap; align-items: flex-start; gap: 16px; }
+ .detail-heading > div:first-child { flex: 1 1 100%; }
+ .detail-heading h1 { font-size: clamp(32px, 8.5vw, 43px); line-height: 1.15; }
+ .detail-head-actions { flex-direction: row; flex-wrap: wrap; }
+ .detail-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
+ .detail-specs > span { min-width: 0; max-width: 100%; }
+ .detail-specs strong { min-width: 0; font-size: 14px; line-height: 1.5; }
+ .detail-specs small { font-size: 11px; line-height: 1.5; }
+ .property-pricing, .property-pricing :is(dl,dt,dd) { min-width: 0; max-width: 100%; }
+ .button, .whatsapp-outline { min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: break-word; }
+ .text-link { max-width: 100%; white-space: normal; overflow-wrap: break-word; }
+ :is(.button,.text-link,.whatsapp-outline) svg { flex-shrink: 0; }
+ .contact-banner .button { min-width: 0; }
+ .enquiry-panel :is(.button,.whatsapp-outline), .contact-submit, .variant-action-cell .text-link { scroll-margin-bottom: calc(80px + env(safe-area-inset-bottom)); }
+ .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .filters > *, .form-row > * { min-width: 0; max-width: 100%; }
+ .filters :is(input,select), .property-variants select { width: 100%; max-width: 100%; min-width: 0; min-height: 44px; font-size: 16px; }
+ #contact .contact-form-card .form-row { grid-template-columns: minmax(0, 1fr); }
+ #contact .contact-form-card form :is(input:not([type=checkbox]),select,textarea) { width: 100%; max-width: 100%; min-width: 0; font-size: 16px; }
+ .form-consent > span { min-width: 0; }
+ .prepared-message { overflow-wrap: anywhere; }
+ .detail-gallery, .detail-gallery > *, .property-media-gallery > * { min-width: 0; }
+ .detail-gallery .gallery-all { max-width: calc(100% - 40px); min-height: 44px; white-space: normal; }
+ .gallery-top { flex-wrap: wrap; }
+ .gallery-top > span:first-child { flex: 1 1 160px; min-width: 0; max-width: 100%; overflow-wrap: break-word; }
+ .gallery-top .icon-button { flex-shrink: 0; }
+ .gallery-stage { min-width: 0; min-height: 0; }
+ .whatsapp-floating { width: 48px; height: 48px; right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); }
+}
+@media (max-width: 480px) {
+ .filters { grid-template-columns: minmax(0, 1fr); }
+ .enquiry-panel { padding: 20px; }
 }

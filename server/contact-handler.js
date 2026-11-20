@@ -7,7 +7,7 @@ import {contactServicesForDestination,isContactServiceAllowed} from '../src/cont
 const attempts=new Map();
 const windowMs=10*60*1000;
 const emailPattern=/^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/;
-const limits={phone:60,destination:100,propertyTitle:240,reference:100,typology:240,pageUrl:2000};
+const limits={phone:60,destination:100,propertyTitle:240,reference:100,typology:240,paymentMode:120,price:120,paymentTerms:240,pageUrl:2000};
 const escape=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 // Local diagnostics only; never return provider details or credentials to clients.
 const diagnose=(status,code,detail)=>{
@@ -66,10 +66,10 @@ export default async function handler(req,res){
  if(!recipient||!emailPattern.test(recipient))configurationProblems.push('Missing or invalid CONTACT_RECIPIENT_EMAIL');
  if(configurationProblems.length){diagnose(503,'unavailable',configurationProblems.join('; '));return fail(503,'unavailable');}
  const copy=data.language==='en'?en:fr;
- const fieldLabels=data.language==='en'?{'Nom':'Name','E-mail':'Email','Votre projet':'Your project','Téléphone':'Phone','Destination':'Destination','Bien':'Property','Référence':'Reference','Typologie':'Property type','Message':'Message'}:{};
+ const fieldLabels=data.language==='en'?{'Nom':'Name','E-mail':'Email','Votre projet':'Your project','Téléphone':'Phone','Destination':'Destination','Bien':'Property','Référence':'Reference','Typologie':'Property type','Mode de paiement':'Payment method','Prix':'Price','Conditions':'Terms','Message':'Message'}:{};
  const label=value=>fieldLabels[value]||copy[value]||value;
  const service=contactServicesForDestination(data.destination).find(option=>option.value===subject);
- const rows=[['Nom',name.trim()],['E-mail',email.trim()],['Destination',label(data.destination==='maroc'?'Maroc':'Dubaï')],['Votre projet',label(service.label)],['Téléphone',data.phone],['Bien',data.propertyTitle],['Référence',data.reference],['Typologie',data.typology]].filter(([,value])=>typeof value==='string'&&value.trim());
+ const rows=[['Nom',name.trim()],['E-mail',email.trim()],['Destination',label(data.destination==='maroc'?'Maroc':'Dubaï')],['Votre projet',label(service.label)],['Téléphone',data.phone],['Bien',data.propertyTitle],['Référence',data.reference],['Typologie',data.typology],['Mode de paiement',data.paymentMode],['Prix',data.price],['Conditions',data.paymentTerms]].filter(([,value])=>typeof value==='string'&&value.trim());
  const text=rows.map(([title,value])=>`${label(title)} : ${value}`).join('\n')+`\n\n${label('Message')} :\n`+message;
  const project=[data.propertyTitle,data.reference].filter(Boolean).join(' / ');
  let transporter;

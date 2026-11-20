@@ -1,0 +1,127 @@
+{
+  "lily-tower": [
+    {
+      "src": "/assets/properties/lily-tower/official-exterior-2400.webp",
+      "srcSet": "/assets/properties/lily-tower/official-exterior-480.webp 480w, /assets/properties/lily-tower/official-exterior-960.webp 960w, /assets/properties/lily-tower/official-exterior-1600.webp 1600w, /assets/properties/lily-tower/official-exterior-2400.webp 2400w",
+      "width": 2400,
+      "height": 1477,
+      "alt": "offers.media.lily-tower.exterior",
+      "detailFit": "cover",
+      "position": "50% 45%",
+      "positionMobile": "50% 45%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/lily-tower/official-living-dining-1543.webp",
+      "srcSet": "/assets/properties/lily-tower/official-living-dining-480.webp 480w, /assets/properties/lily-tower/official-living-dining-960.webp 960w, /assets/properties/lily-tower/official-living-dining-1543.webp 1543w",
+      "width": 1543,
+      "height": 951,
+      "alt": "offers.media.lily-tower.living-dining",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-interior-unassigned-typology"
+    },
+    {
+      "src": "/assets/properties/lily-tower/official-bedroom-1543.webp",
+      "srcSet": "/assets/properties/lily-tower/official-bedroom-480.webp 480w, /assets/properties/lily-tower/official-bedroom-960.webp 960w, /assets/properties/lily-tower/official-bedroom-1543.webp 1543w",
+      "width": 1543,
+      "height": 951,
+      "alt": "offers.media.lily-tower.bedroom",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-interior-unassigned-typology"
+    },
+    {
+      "src": "/assets/properties/lily-tower/official-lobby-1543.webp",
+      "srcSet": "/assets/properties/lily-tower/official-lobby-480.webp 480w, /assets/properties/lily-tower/official-lobby-960.webp 960w, /assets/properties/lily-tower/official-lobby-1543.webp 1543w",
+      "width": 1543,
+      "height": 951,
+      "alt": "offers.media.lily-tower.lobby",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/lily-tower/official-pool-1543.webp",
+      "srcSet": "/assets/properties/lily-tower/official-pool-480.webp 480w, /assets/properties/lily-tower/official-pool-960.webp 960w, /assets/properties/lily-tower/official-pool-1543.webp 1543w",
+      "width": 1543,
+      "height": 951,
+      "alt": "offers.media.lily-tower.pool",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/lily-tower/official-gym-1543.webp",
+      "srcSet": "/assets/properties/lily-tower/official-gym-480.webp 480w, /assets/properties/lily-tower/official-gym-960.webp 960w, /assets/properties/lily-tower/official-gym-1543.webp 1543w",
+      "width": 1543,
+      "height": 951,
+      "alt": "offers.media.lily-tower.gym",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    }
+  ],
+  "oak-yard-residences": [
+    {
+      "src": "/assets/properties/oak-yard/official-exterior-2400.webp",
+      "srcSet": "/assets/properties/oak-yard/official-exterior-480.webp 480w, /assets/properties/oak-yard/official-exterior-960.webp 960w, /assets/properties/oak-yard/official-exterior-1600.webp 1600w, /assets/properties/oak-yard/official-exterior-2400.webp 2400w",
+      "width": 2400,
+      "height": 1363,
+      "alt": "offers.media.oak-yard-residences.exterior",
+      "detailFit": "cover",
+      "position": "50% 45%",
+      "positionMobile": "50% 45%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/oak-yard/official-facade-2400.webp",
+      "srcSet": "/assets/properties/oak-yard/official-facade-480.webp 480w, /assets/properties/oak-yard/official-facade-960.webp 960w, /assets/properties/oak-yard/official-facade-1600.webp 1600w, /assets/properties/oak-yard/official-facade-2400.webp 2400w",
+      "width": 2400,
+      "height": 1350,
+      "alt": "offers.media.oak-yard-residences.facade",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/oak-yard/official-gym-2000.webp",
+      "srcSet": "/assets/properties/oak-yard/official-gym-480.webp 480w, /assets/properties/oak-yard/official-gym-960.webp 960w, /assets/properties/oak-yard/official-gym-1600.webp 1600w, /assets/properties/oak-yard/official-gym-2000.webp 2000w",
+      "width": 2000,
+      "height": 1072,
+      "alt": "offers.media.oak-yard-residences.gym",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/oak-yard/official-lobby-2400.webp",
+      "srcSet": "/assets/properties/oak-yard/official-lobby-480.webp 480w, /assets/properties/oak-yard/official-lobby-960.webp 960w, /assets/properties/oak-yard/official-lobby-1600.webp 1600w, /assets/properties/oak-yard/official-lobby-2400.webp 2400w",
+      "width": 2400,
+      "height": 3000,
+      "alt": "offers.media.oak-yard-residences.lobby",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    },
+    {
+      "src": "/assets/properties/oak-yard/official-coworking-1536.webp",
+      "srcSet": "/assets/properties/oak-yard/official-coworking-480.webp 480w, /assets/properties/oak-yard/official-coworking-960.webp 960w, /assets/properties/oak-yard/official-coworking-1536.webp 1536w",
+      "width": 1536,
+      "height": 1152,
+      "alt": "offers.media.oak-yard-residences.coworking",
+      "detailFit": "cover",
+      "position": "50% 50%",
+      "positionMobile": "50% 50%",
+      "scope": "project-common"
+    }
+  ]
+}

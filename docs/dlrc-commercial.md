@@ -11,7 +11,9 @@ Disponibilité sur demande. Livraison et modalités de paiement non communiquée
 
 ## Photo fournie
 
-`/assets/properties/dlrc-commercial/dlrc-commercial-exterior-1.png`, 1600 × 964, 2 575 596 octets. Pièce jointe récupérée sans transformation, utilisée pour la couverture et la galerie, avec conservation des proportions.
+`/assets/properties/dlrc-commercial/dlrc-commercial-exterior-1.png`, 1600 × 964, 2 575 596 octets. Pièce jointe conservée sans transformation dans les médias locaux, retirée de la couverture, de la galerie et du récapitulatif de contact publics tant que son rattachement à l’offre n’est pas établi.
+
+Réserve conservée en interne : « Visuel promotionnel fourni pour cette offre ; il ne représente pas une photo du chantier réel. Le rattachement du visuel à l’offre DLRC reste à confirmer. »
 
 La photo contient les mentions lisibles « TARRAD » et « CELESTO TOWER 4 ». Leur rattachement à cette offre doit être confirmé par l’agence. Elles ne sont pas utilisées pour attribuer un nom de projet ou un promoteur. Les enseignes commerciales présentes dans le rendu ne constituent pas une preuve d’occupation réelle. Aucun prix, surface, date de livraison ou condition de paiement supplémentaire n’a été déduit du visuel.
 
